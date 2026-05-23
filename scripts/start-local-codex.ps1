@@ -24,9 +24,30 @@ function ConvertTo-Slug {
     return $slug
 }
 
+function Add-PathIfExists {
+    param([string]$Path)
+
+    if ((Test-Path -LiteralPath $Path) -and (($env:Path -split ";") -notcontains $Path)) {
+        $env:Path = "$Path;$env:Path"
+    }
+}
+
+function Resolve-ProjectSlug {
+    param([string]$Value)
+
+    if (-not [string]::IsNullOrWhiteSpace($Value)) {
+        return ConvertTo-Slug -Value $Value
+    }
+
+    $activeProject = & (Join-Path $PSScriptRoot "resolve-active-project.ps1") -Json | ConvertFrom-Json
+    return $activeProject.slug
+}
+
 if ($Small) {
     $Model = "qwen2.5-coder:3b"
 }
+
+Add-PathIfExists -Path (Join-Path $env:LOCALAPPDATA "Programs\Ollama")
 
 & (Join-Path $PSScriptRoot "assert-no-extra-spend.ps1") -Provider local -Model $Model | Out-Null
 
@@ -39,20 +60,19 @@ if (-not $DryRun) {
     & (Join-Path $PSScriptRoot "check-local-model.ps1") -Model $Model | Out-Null
 }
 
+$Slug = Resolve-ProjectSlug -Value $Slug
+
 $initialPromptParts = @(
     "Use AGENTS.md and the workbench indexes. Stay within the no-extra-spend policy: local/free models only, no API keys, no cloud-hosted models."
 )
 
-if (-not [string]::IsNullOrWhiteSpace($Slug)) {
-    $Slug = ConvertTo-Slug -Value $Slug
-    $projectIndexPath = Join-Path $root "projects\$Slug\.ai\index.json"
-    if (-not (Test-Path -LiteralPath $projectIndexPath)) {
-        throw "Project dossier not found: projects/$Slug"
-    }
-
-    $bootstrap = & (Join-Path $PSScriptRoot "snapshot-context.ps1") -Bootstrap -Slug $Slug
-    $initialPromptParts += "<bootstrap_context>`r`n$($bootstrap -join "`r`n")`r`n</bootstrap_context>"
+$projectIndexPath = Join-Path $root "projects\$Slug\.ai\index.json"
+if (-not (Test-Path -LiteralPath $projectIndexPath)) {
+    throw "Project dossier not found: projects/$Slug"
 }
+
+$bootstrap = & (Join-Path $PSScriptRoot "snapshot-context.ps1") -Bootstrap -Slug $Slug
+$initialPromptParts += "<bootstrap_context>`r`n$($bootstrap -join "`r`n")`r`n</bootstrap_context>"
 
 if (-not [string]::IsNullOrWhiteSpace($Prompt)) {
     $initialPromptParts += $Prompt
@@ -69,9 +89,7 @@ $codexArgs = @(
 if ($DryRun) {
     Write-Output "DRY RUN: would launch local Codex."
     Write-Output "Command: codex $($codexArgs -join ' ')"
-    if (-not [string]::IsNullOrWhiteSpace($Slug)) {
-        Write-Output "Bootstrap: scripts/snapshot-context.ps1 -Bootstrap -Slug $Slug"
-    }
+    Write-Output "Bootstrap: scripts/snapshot-context.ps1 -Bootstrap -Slug $Slug"
     Write-Output "Provider: local_free"
     Write-Output "Model: $Model"
     return

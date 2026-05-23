@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T19:35:40+02:00",
+    "last_updated":  "2026-05-23T20:42:46+02:00",
     "workspace":  {
                       "name":  "codex-workbench",
                       "purpose":  "Lean solo developer workbench for Codex-assisted projects, assets, prompts, and workflow experiments.",
@@ -57,7 +57,8 @@
                            "cheatsheets/retrieval-strategies.md",
                            ".ai/models/index.json",
                            "cheatsheets/model-providers.md",
-                           "cheatsheets/reviewer.md"
+                           "cheatsheets/reviewer.md",
+                           ".env.example"
                        ],
     "paths":  {
                   "assets_manifest":  ".ai/assets/index.json",

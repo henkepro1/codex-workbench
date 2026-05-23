@@ -84,7 +84,7 @@ if (-not ($index.workspace.PSObject.Properties.Name -contains "default_external_
 }
 
 $importantDocs = @($index.important_docs)
-foreach ($docPath in @("rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/retrieval/index.json", ".ai/models/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/retrieval-strategies.md", "cheatsheets/model-providers.md", "cheatsheets/reviewer.md", "cheatsheets/impact-guide.md", "docs/ideas.md")) {
+foreach ($docPath in @(".env.example", "rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/retrieval/index.json", ".ai/models/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/retrieval-strategies.md", "cheatsheets/model-providers.md", "cheatsheets/reviewer.md", "cheatsheets/impact-guide.md", "docs/ideas.md")) {
     if ($importantDocs -notcontains $docPath) {
         $importantDocs += $docPath
     }

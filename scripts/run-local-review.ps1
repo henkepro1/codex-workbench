@@ -1,6 +1,5 @@
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$Slug,
+    [string]$Slug = "",
 
     [string]$Scope = "uncommitted",
 
@@ -30,6 +29,14 @@ function ConvertTo-Slug {
     return $slug
 }
 
+function Add-PathIfExists {
+    param([string]$Path)
+
+    if ((Test-Path -LiteralPath $Path) -and (($env:Path -split ";") -notcontains $Path)) {
+        $env:Path = "$Path;$env:Path"
+    }
+}
+
 function Read-JsonFile {
     param([string]$Path)
 
@@ -43,6 +50,17 @@ function Read-JsonFile {
     catch {
         throw "Invalid JSON in $Path`: $($_.Exception.Message)"
     }
+}
+
+function Resolve-ProjectSlug {
+    param([string]$Value)
+
+    if (-not [string]::IsNullOrWhiteSpace($Value)) {
+        return ConvertTo-Slug -Value $Value
+    }
+
+    $activeProject = & (Join-Path $PSScriptRoot "resolve-active-project.ps1") -Json | ConvertFrom-Json
+    return $activeProject.slug
 }
 
 function Ensure-ReviewIndex {
@@ -105,7 +123,10 @@ If Scope is:
 "@
 }
 
-$Slug = ConvertTo-Slug -Value $Slug
+$Slug = Resolve-ProjectSlug -Value $Slug
+$ollamaPath = Join-Path $env:LOCALAPPDATA "Programs\Ollama"
+Add-PathIfExists -Path $ollamaPath
+
 $projectRoot = Join-Path (Join-Path $root "projects") $Slug
 $projectIndexPath = Join-Path $projectRoot ".ai\index.json"
 $projectIndex = Read-JsonFile -Path $projectIndexPath
@@ -140,7 +161,7 @@ $codexArgs = @(
     "-m", $Model,
     "-C", $sourcePath,
     "-s", "read-only",
-    "-a", "never",
+    "--ephemeral",
     $reviewPrompt
 )
 

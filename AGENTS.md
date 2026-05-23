@@ -9,9 +9,11 @@ This workspace is a professional solo developer workbench for tracking and build
 - Read `.ai/index.json` early in a new session before broad repo searches.
 - Read `.ai/feedback/index.json` for persistent cross-session preferences before broad work.
 - Read `.ai/projects/index.json` before working on a project dossier.
+- Read `.env` early when it exists. Treat `WORKBENCH_ACTIVE_PROJECT` and `WORKBENCH_ACTIVE_SOURCE_PATH` as the default project for ambiguous project work.
 - Read `.ai/retrieval/index.json` before non-trivial retrieval planning or `@wb:retrieval-plan`.
 - Read `.ai/models/index.json` before suggesting or launching any alternate model/provider workflow.
 - For project work, read `projects/<slug>/.ai/index.json` before scanning that project's files or external source path.
+- If the user names a different project than `.env`, the named project overrides the active `.env` project for that request.
 - For project work, read `projects/<slug>/.ai/feedback/index.json` when it exists.
 - Use `.ai/assets/index.json` before scanning `assets/` for generated or reusable assets.
 - Prefer targeted searches with `rg` and small file reads over loading large folders.

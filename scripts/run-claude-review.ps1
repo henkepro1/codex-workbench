@@ -1,6 +1,5 @@
 param(
-    [Parameter(Mandatory = $true)]
-    [string]$Slug,
+    [string]$Slug = "",
 
     [string]$Scope = "uncommitted",
 
@@ -33,6 +32,26 @@ function ConvertTo-Slug {
     return $slug
 }
 
+function Resolve-ClaudeCommand {
+    $command = Get-Command claude -ErrorAction SilentlyContinue
+    if ($null -ne $command) {
+        return $command.Source
+    }
+
+    $candidates = @(
+        (Join-Path $env:LOCALAPPDATA "Microsoft\WinGet\Links\claude.exe"),
+        (Join-Path $env:LOCALAPPDATA "Microsoft\WinGet\Packages\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\claude.exe")
+    )
+
+    foreach ($candidate in $candidates) {
+        if (Test-Path -LiteralPath $candidate) {
+            return $candidate
+        }
+    }
+
+    return $null
+}
+
 function Read-JsonFile {
     param([string]$Path)
 
@@ -46,6 +65,17 @@ function Read-JsonFile {
     catch {
         throw "Invalid JSON in $Path`: $($_.Exception.Message)"
     }
+}
+
+function Resolve-ProjectSlug {
+    param([string]$Value)
+
+    if (-not [string]::IsNullOrWhiteSpace($Value)) {
+        return ConvertTo-Slug -Value $Value
+    }
+
+    $activeProject = & (Join-Path $PSScriptRoot "resolve-active-project.ps1") -Json | ConvertFrom-Json
+    return $activeProject.slug
 }
 
 function Ensure-ReviewIndex {
@@ -190,7 +220,7 @@ function Get-ScopeContext {
     throw "Unsupported scope '$ReviewScope'. Use uncommitted, base:<branch>, commit:<sha>, or files:<paths>."
 }
 
-$Slug = ConvertTo-Slug -Value $Slug
+$Slug = Resolve-ProjectSlug -Value $Slug
 $projectRoot = Join-Path (Join-Path $root "projects") $Slug
 $projectIndexPath = Join-Path $projectRoot ".ai\index.json"
 $projectIndex = Read-JsonFile -Path $projectIndexPath
@@ -204,14 +234,9 @@ if (-not (Test-Path -LiteralPath $sourcePath)) {
     throw "Project source path does not exist: $sourcePath"
 }
 
-if ($DryRun) {
-    & (Join-Path $PSScriptRoot "assert-no-extra-spend.ps1") -Provider local -Model $Model | Out-Null
-}
-else {
-    & (Join-Path $PSScriptRoot "assert-no-extra-spend.ps1") -Provider claude-subscription -Model $Model -RequireClaudeAiLogin | Out-Null
-}
+& (Join-Path $PSScriptRoot "assert-no-extra-spend.ps1") -Provider claude-subscription -Model $Model -RequireClaudeAiLogin | Out-Null
 
-$claudeCommand = Get-Command claude -ErrorAction SilentlyContinue
+$claudeCommand = Resolve-ClaudeCommand
 if ($null -eq $claudeCommand -and -not $DryRun) {
     throw "Claude Code is not available on PATH. Install/login manually with the existing Claude subscription before using this script."
 }
@@ -266,7 +291,7 @@ $scopeContext
 "@
 
 New-Item -ItemType Directory -Force -Path $reviewsRoot | Out-Null
-$reviewOutput = & claude -p $reviewPrompt --model $Model 2>&1
+$reviewOutput = & $claudeCommand -p $reviewPrompt --model $Model 2>&1
 if ($LASTEXITCODE -ne 0) {
     throw "Claude review failed: $($reviewOutput | Out-String)"
 }

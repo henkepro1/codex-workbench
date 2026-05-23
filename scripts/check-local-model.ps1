@@ -19,18 +19,38 @@ if ($Provider -ne "ollama") {
     throw "Unsupported local provider: $Provider"
 }
 
+function Resolve-OllamaCommand {
+    $command = Get-Command ollama -ErrorAction SilentlyContinue
+    if ($null -ne $command) {
+        return $command.Source
+    }
+
+    $candidates = @(
+        (Join-Path $env:LOCALAPPDATA "Programs\Ollama\ollama.exe"),
+        (Join-Path $env:ProgramFiles "Ollama\ollama.exe")
+    )
+
+    foreach ($candidate in $candidates) {
+        if (Test-Path -LiteralPath $candidate) {
+            return $candidate
+        }
+    }
+
+    return $null
+}
+
 if ($DryRun) {
     Write-Output "DRY RUN: would verify local Ollama model '$Model'."
     Write-Output "Command: ollama list"
     return
 }
 
-$ollamaCommand = Get-Command ollama -ErrorAction SilentlyContinue
+$ollamaCommand = Resolve-OllamaCommand
 if ($null -eq $ollamaCommand) {
     throw "Ollama is not available on PATH. Install/start Ollama manually, then run: ollama pull $Model"
 }
 
-$listOutput = & ollama list 2>&1
+$listOutput = & $ollamaCommand list 2>&1
 if ($LASTEXITCODE -ne 0) {
     throw "Could not query local Ollama. Start Ollama manually, then retry. Output: $($listOutput | Out-String)"
 }
