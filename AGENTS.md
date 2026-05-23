@@ -1,8 +1,184 @@
 # Codex Instructions
 
-- Prefer small, focused changes that are easy to review.
-- Keep generated files out of Git unless they are part of the project.
-- Before finishing code changes, run the most relevant tests or checks available.
-- Use `docs/` for project notes and decisions that should persist across sessions.
-- Ask before making destructive Git changes such as resets, rebases, or force pushes.
+This workspace is a professional solo developer workbench for tracking and building many projects. Keep human-facing project material clean, and use root/project `.ai/` folders for structured AI context, indexes, generation records, prompt results, session notes, and failed-attempt memory.
 
+<!-- @section: session-startup -->
+## Session Startup
+
+- Read this file first.
+- Read `.ai/index.json` early in a new session before broad repo searches.
+- Read `.ai/feedback/index.json` for persistent cross-session preferences before broad work.
+- Read `.ai/projects/index.json` before working on a project dossier.
+- For project work, read `projects/<slug>/.ai/index.json` before scanning that project's files or external source path.
+- For project work, read `projects/<slug>/.ai/feedback/index.json` when it exists.
+- Use `.ai/assets/index.json` before scanning `assets/` for generated or reusable assets.
+- Prefer targeted searches with `rg` and small file reads over loading large folders.
+- Treat `docs/` as curated human-facing documentation and `.ai/` as compact AI workspace memory.
+
+<!-- @section: workspace-map -->
+## Workspace Map
+
+- `src/` contains application or script source code.
+- `tests/` contains tests and verification helpers.
+- `docs/` contains polished human-readable notes, workflows, decisions, and project writeups.
+- `assets/` contains useful generated or curated assets that a human may want to inspect or reuse.
+- `cheatsheets/` contains human-facing quick references for Skills, workflows, and impact.
+- `rules/` contains human-facing rules for editing external/live projects.
+- `scripts/` contains local automation for this workbench.
+- `projects/` contains project dossiers. Each dossier has its own human map and project-local `.ai/` memory.
+- `.ai/` contains workbench-level indexes, task context, generation metadata, prompt results, summaries, and attempt notes.
+
+<!-- @section: project-dossiers -->
+## Project Dossiers
+
+- Use `projects/<slug>/` as the standard project container.
+- Treat `projects/<slug>/README.md` as the human entry point for that project.
+- Treat `projects/<slug>/map/` as the human-readable project map. Split map content into small files instead of one large document.
+- Treat `projects/<slug>/.ai/index.json` as the first project-specific AI context file.
+- Keep project-specific assets, generations, prompts, sessions, summaries, and attempts under `projects/<slug>/.ai/`.
+- A project dossier may point to an external source path. Do not copy a large codebase into this workbench unless the user explicitly asks.
+- After changing project code, assets, prompts, docs, or session state, refresh the relevant project index with `scripts/update-project-index.ps1`.
+- Real game projects usually live under `D:\GameProjects`; use that as the default external source root unless the user gives another path.
+
+<!-- @section: external-project-edits -->
+## External Project Edits
+
+- Code edits in external source projects are allowed when the user explicitly asks for project changes.
+- Before changing external project code, read `.ai/rules/index.json`, `rules/live-project-code-rules.md`, and the selected project's `projects/<slug>/rules/project-rules.md`.
+- Follow live-project coding rules exactly: fail fast, do not hide errors, preserve existing gameplay outcomes unless the user explicitly requests a mechanic change, reuse existing systems, avoid god classes, and verify dependencies before editing.
+- For Unity projects, scene, prefab, hierarchy, ScriptableObject, shader, layer, and ProjectSettings edits are allowed only when the change is narrow, inspectable, and Codex is confident in the file format impact.
+- For Unity project edits, read the selected project's Unity context before touching scripts, scenes, prefabs, ScriptableObjects, shaders, layers, sorting layers, settings, or editor-state files.
+- If a Unity editor-state change is risky to perform through serialized files, give exact Unity Editor steps instead of editing YAML blindly.
+- After external project edits, update the workbench tracking: run `scripts/update-project-index.ps1`, refresh Unity context when relevant, and create a compact change record with `scripts/record-project-change.ps1` including rule/audit fields when useful.
+- Do not store bulky copied source from `D:\GameProjects` inside this workbench unless the user explicitly asks.
+
+<!-- @section: unity-context -->
+## Unity Context
+
+- For Unity dossiers, read `projects/<slug>/.ai/engine/unity/index.json` before scanning Unity assets.
+- Unity context files should stay token-friendly: prefer versions, package summaries, scene lists, build scenes, prefab paths, ScriptableObject types, shader paths, layers, sorting layers, settings references, and hierarchy-doc links.
+- Unity package context should include both `Packages/manifest.json` and `Packages/packages-lock.json` summaries when available.
+- Refresh Unity context with `scripts/scan-unity-context.ps1` after Unity-relevant code, scene, prefab, ScriptableObject, shader, layer, or settings changes.
+- Do not deep-read all scene/prefab YAML unless the task requires it.
+
+<!-- @section: ai-workspace-rules -->
+## AI Workspace Rules
+
+- Keep root `.ai/index.json` compact and current when workbench structure, active tasks, important docs, or recent attempts change.
+- Keep `.ai/workflows/index.json` current when workflow macro codes are added, removed, or changed.
+- Keep `.ai/feedback/index.json` current when persistent user preferences or corrections are added.
+- Keep `.ai/decisions/index.json` current when architectural or workflow decisions are recorded.
+- Keep `.ai/projects/index.json` current when project dossiers are created, renamed, paused, completed, or linked to source paths.
+- Keep `.ai/assets/index.json` current when generating, accepting, modifying, moving, or removing useful assets.
+- Store final or reusable files in `assets/`; store metadata about those files in `.ai/`.
+- Store generation records in `.ai/generations/` when an asset, mockup, image, dataset, or prompt-driven artifact is created.
+- Store prompt experiments and notable prompt outputs in `.ai/prompts/` when they are likely to be reused.
+- Store task notes and handoff context in `.ai/tasks/` when work spans more than one short turn.
+- Store manual lightweight handoffs under `.ai/handoffs/` or `projects/<slug>/.ai/handoffs/` only when explicitly requested.
+- Write an attempt note in `.ai/attempts/` when a task fails, stalls, is abandoned, or has a useful "do not retry this" lesson.
+- Keep `.ai/` concise. Summaries should explain what matters and where to look next, not duplicate full logs.
+- Do not promote `.ai/` scratch content into `docs/` unless it has been cleaned up for human reading.
+
+<!-- @section: project-sessions -->
+## Project Sessions
+
+- Do not create detailed session documentation during normal work unless the user explicitly invokes the `project-session` workflow or asks to start/document/conclude a project session.
+- When session documentation is active, create a new session folder under `projects/<slug>/.ai/sessions/YYYY-MM-DD-HHMM-topic/`.
+- Create a new timestamped file for every session input, progress note, and result note.
+- Do not append all progress into one long markdown file.
+- Only JSON indexes such as `session.json`, project `.ai/index.json`, and `.ai/projects/index.json` should be updated in place.
+
+<!-- @section: workflow-macros -->
+## Workflow Macro Codes
+
+- Treat `@wb:` codes as explicit workflow macros. Do not infer macro use from ordinary wording.
+- Read `.ai/workflows/index.json` and `cheatsheets/workflow-codes.md` when a prompt includes an `@wb:` code.
+- Use the global `workbench-macro` Skill when a prompt includes an `@wb:` code.
+- Macro codes route existing Skills and workbench scripts; they do not override live-project rules, Unity safety rules, or tracking requirements.
+- If a macro is missing required fields such as project, target, bug, expected behavior, or asset intent, ask for the missing field before making changes.
+- Do not create detailed project-session documentation during normal macro use unless the code is `@wb:session-start`, `@wb:session-wrap`, or the user explicitly asks for documented session notes.
+
+<!-- @section: contextual-recommendations -->
+## Contextual Recommendations
+
+- Actively consider whether a Skill, `@wb:` macro, MCP check, verification step, documentation note, handoff, or cleanup workflow would help the user's request.
+- Use `.ai/recommendations/index.json` as the compact routing map and `cheatsheets/recommendations.md` for human-facing explanation.
+- Required context and rules are not optional suggestions. Load required indexes, project context, live-project rules, and Unity context when the workflow requires them.
+- Use hybrid suggestion mode: pause before optional side effects, external writes, significant runtime, or optional MCP/tool usage; otherwise finish the normal task and suggest at most two useful follow-ups.
+- Suggestions must explain impact briefly: what it reads, what it writes, whether it may touch external projects, and whether it costs time/tool usage.
+- Do not suggest extra workflows for trivial prompts, obvious one-step answers, or cases where a Skill or macro would add ceremony without value.
+- Unity-specific suggestions apply only to Unity dossiers. General suggestions such as `$remember`, `@wb:handoff`, `@wb:attempt-recovery`, or `$project-session` can apply to any project type.
+- `@wb:` macros remain explicit. Codex may suggest a macro, but must not silently treat ordinary wording as a macro invocation.
+
+<!-- @section: persistent-feedback -->
+## Persistent Feedback
+
+- Use `.ai/feedback/` for workbench-level persistent preferences and corrections.
+- Use `projects/<slug>/.ai/feedback/` for project-specific corrections.
+- Use `scripts/remember-feedback.ps1` or the global `remember` Skill when the user says to remember a preference, correction, or repeated rule.
+- Feedback entries should include the rule, why it matters, and when to apply it.
+- Do not store bulky discussion logs as feedback memory.
+
+<!-- @section: decisions -->
+## Decision Logs
+
+- Use `.ai/decisions/` for architectural and workflow decisions that should not be re-litigated.
+- Use `scripts/new-decision.ps1` when a durable decision is made.
+- Read recent decisions before proposing broad architecture, workflow, or rule changes.
+
+<!-- @section: attempt-notes -->
+## Attempt Notes
+
+Use `scripts/new-attempt-note.ps1` or the `.ai/attempts/_template.md` template. Each attempt note should include:
+
+- goal
+- context
+- attempted steps
+- failure or error
+- suspected cause
+- next recommended approach
+- things not to retry
+
+<!-- @section: asset-tracking -->
+## Asset Tracking
+
+Use `scripts/register-asset.ps1` when adding useful generated assets. Manifest entries in `.ai/assets/index.json` should include:
+
+- `id`
+- `type`
+- `path`
+- `source`
+- `prompt_ref`
+- `created_at`
+- `status`
+- `notes`
+
+Use stable, descriptive IDs such as `hero-bg-v1`, `logo-study-2026-05-23`, or `sample-dataset-orders-v1`.
+
+<!-- @section: token-discipline -->
+## Token Discipline
+
+- Start with `.ai/index.json`, then specific docs or manifests.
+- Summarize long files instead of pasting or rereading them wholesale.
+- Prefer structured manifests and summaries over repeated folder scans.
+- Do not write bulky raw outputs, logs, screenshots, or temporary exports into committed context.
+- Put bulky or noisy AI-only material in `.ai/raw/`, `.ai/tmp/`, `.ai/logs/`, `.ai/screenshots/`, or `.ai/exports/`; these paths are ignored by Git.
+
+<!-- @section: git-and-editing-safety -->
+## Git And Editing Safety
+
+- Do not revert user changes unless explicitly asked.
+- Keep edits scoped to the requested workflow or feature.
+- Use `apply_patch` for manual file edits.
+- Run focused validation after changing scripts or structured JSON.
+- If a command fails because of sandboxing or network restrictions, request approval rather than working around the restriction.
+
+<!-- @section: skills -->
+## Skills
+
+- Use Skills for reusable workflows that should apply across workspaces.
+- Do not put this workspace's actual project state, asset manifests, attempt notes, or generation records inside a Skill.
+- Use the global `project-dossier` Skill for creating, finding, and loading project dossiers.
+- Use the global `project-session` Skill only when the user explicitly wants documented project-session notes.
+- Use the global `workbench-macro` Skill when the user invokes an explicit `@wb:` workflow code.
+- Use the global `remember` Skill when the user asks Codex to remember a preference or correction.

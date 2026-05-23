@@ -1,0 +1,12 @@
+﻿{
+    "schema_version":  1,
+    "generated_at":  "2026-05-23T14:57:25+02:00",
+    "note":  "Hierarchy context is linked from known exported docs. Scene/prefab YAML is not deep-parsed by this lean scan.",
+    "sources":  [
+                    {
+                        "path":  "D:\\GameProjects\\TowerHeroes(x)\\EditorHierarchy.md",
+                        "bytes":  19286,
+                        "modified":  "2026-04-08T15:41:32+02:00"
+                    }
+                ]
+}

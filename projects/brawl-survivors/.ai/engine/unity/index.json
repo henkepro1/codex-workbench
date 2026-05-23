@@ -1,0 +1,137 @@
+﻿{
+    "schema_version":  1,
+    "generated_at":  "2026-05-23T14:57:25+02:00",
+    "engine":  "unity",
+    "source_path":  "D:\\GameProjects\\BrawlSurvivors (2)\\BrawlSurvivors (2)\\BrawlSurvivors\\BrawlSurvivors",
+    "unity_version":  "6000.3.2f1",
+    "unity_revision":  "6000.3.2f1 (a9779f353c9b)",
+    "paths":  {
+                  "settings":  "projects/brawl-survivors/.ai/engine/unity/settings.json",
+                  "scenes":  "projects/brawl-survivors/.ai/engine/unity/scenes.json",
+                  "prefabs":  "projects/brawl-survivors/.ai/engine/unity/prefabs.json",
+                  "scriptable_objects":  "projects/brawl-survivors/.ai/engine/unity/scriptable-objects.json",
+                  "shaders":  "projects/brawl-survivors/.ai/engine/unity/shaders.json",
+                  "hierarchy_sources":  "projects/brawl-survivors/.ai/engine/unity/hierarchy-sources.json"
+              },
+    "counts":  {
+                   "packages":  58,
+                   "package_lock_entries":  81,
+                   "scenes":  39,
+                   "build_scenes":  3,
+                   "prefabs":  71,
+                   "scriptable_object_types":  67,
+                   "shaders":  29,
+                   "hierarchy_sources":  0
+               },
+    "asset_extension_counts":  [
+                                   {
+                                       "extension":  ".ai",
+                                       "count":  2
+                                   },
+                                   {
+                                       "extension":  ".anim",
+                                       "count":  18
+                                   },
+                                   {
+                                       "extension":  ".asset",
+                                       "count":  166
+                                   },
+                                   {
+                                       "extension":  ".cginc",
+                                       "count":  4
+                                   },
+                                   {
+                                       "extension":  ".controller",
+                                       "count":  12
+                                   },
+                                   {
+                                       "extension":  ".cs",
+                                       "count":  533
+                                   },
+                                   {
+                                       "extension":  ".hlsl",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".inputactions",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".jpg",
+                                       "count":  16
+                                   },
+                                   {
+                                       "extension":  ".json",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".mat",
+                                       "count":  40
+                                   },
+                                   {
+                                       "extension":  ".meta",
+                                       "count":  2034
+                                   },
+                                   {
+                                       "extension":  ".mp3",
+                                       "count":  8
+                                   },
+                                   {
+                                       "extension":  ".pdf",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".png",
+                                       "count":  565
+                                   },
+                                   {
+                                       "extension":  ".prefab",
+                                       "count":  71
+                                   },
+                                   {
+                                       "extension":  ".psd",
+                                       "count":  6
+                                   },
+                                   {
+                                       "extension":  ".shader",
+                                       "count":  25
+                                   },
+                                   {
+                                       "extension":  ".shadergraph",
+                                       "count":  4
+                                   },
+                                   {
+                                       "extension":  ".svg",
+                                       "count":  2
+                                   },
+                                   {
+                                       "extension":  ".terrainlayer",
+                                       "count":  2
+                                   },
+                                   {
+                                       "extension":  ".ttf",
+                                       "count":  8
+                                   },
+                                   {
+                                       "extension":  ".txt",
+                                       "count":  11
+                                   },
+                                   {
+                                       "extension":  ".unity",
+                                       "count":  39
+                                   },
+                                   {
+                                       "extension":  ".wav",
+                                       "count":  72
+                                   },
+                                   {
+                                       "extension":  ".xml",
+                                       "count":  4
+                                   },
+                                   {
+                                       "extension":  ".zip",
+                                       "count":  6
+                                   }
+                               ],
+    "refresh_policy":  "Refresh after Unity-relevant code, scene, prefab, ScriptableObject, shader, layer, or settings changes."
+}

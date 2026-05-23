@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-23-150732-unity-package-restore-regenerated-project-file-references-for-unity-mcp",
+    "project":  "tower-heroes",
+    "category":  "settings",
+    "summary":  "Unity package restore regenerated project file references for Unity MCP",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj",
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp-Editor.csproj"
+                      ],
+    "verification":  "git diff shows MCPForUnity and Newtonsoft.Json references added to generated csproj files after Unity package restore.",
+    "audit":  {
+                  "rules_checked":  [
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md"
+                                    ],
+                  "mechanics_preserved":  "No gameplay source or serialized gameplay behavior was intentionally changed; generated project files only reference restored packages.",
+                  "editor_changes_required":  "None beyond Unity package restore/open.",
+                  "follow_up_fixes":  [
+
+                                      ]
+              },
+    "created_at":  "2026-05-23T15:07:32+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

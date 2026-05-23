@@ -1,0 +1,60 @@
+﻿{
+    "schema_version":  1,
+    "slug":  "brawl-survivors",
+    "title":  "Brawl Survivors",
+    "status":  "active",
+    "source_path":  "D:\\GameProjects\\BrawlSurvivors (2)\\BrawlSurvivors (2)\\BrawlSurvivors\\BrawlSurvivors",
+    "created_at":  "2026-05-23T11:01:21+02:00",
+    "last_updated":  "2026-05-23T15:05:51+02:00",
+    "human_map":  {
+                      "readme":  "projects/brawl-survivors/README.md",
+                      "overview":  "projects/brawl-survivors/map/overview.md",
+                      "source":  "projects/brawl-survivors/map/source.md",
+                      "workflow":  "projects/brawl-survivors/map/workflow.md",
+                      "assets":  "projects/brawl-survivors/map/assets.md",
+                      "rules":  "projects/brawl-survivors/rules/project-rules.md"
+                  },
+    "ai_paths":  {
+                     "assets_manifest":  "projects/brawl-survivors/.ai/assets/index.json",
+                     "sessions":  "projects/brawl-survivors/.ai/sessions",
+                     "attempts":  "projects/brawl-survivors/.ai/attempts",
+                     "generations":  "projects/brawl-survivors/.ai/generations",
+                     "prompts":  "projects/brawl-survivors/.ai/prompts",
+                     "summaries":  "projects/brawl-survivors/.ai/summaries",
+                     "changes":  "projects/brawl-survivors/.ai/changes",
+                     "engine":  "projects/brawl-survivors/.ai/engine",
+                     "unity_context":  "projects/brawl-survivors/.ai/engine/unity/index.json",
+                     "feedback":  "projects/brawl-survivors/.ai/feedback/index.json",
+                     "handoffs":  "projects/brawl-survivors/.ai/handoffs/index.json",
+                     "summary":  "projects/brawl-survivors/.ai/summary.md"
+                 },
+    "active_session":  null,
+    "kind":  "unity",
+    "default_source_root":  "D:\\GameProjects",
+    "rules":  {
+                  "global_index":  ".ai/rules/index.json",
+                  "global_policy":  "rules/live-project-code-rules.md",
+                  "project_overlay":  "projects/brawl-survivors/rules/project-rules.md",
+                  "source_rules":  [
+
+                                   ],
+                  "must_read_before_external_edits":  true
+              },
+    "counts":  {
+                   "assets":  0,
+                   "sessions":  0,
+                   "attempts":  0,
+                   "generations":  0,
+                   "prompts":  0,
+                   "summaries":  0,
+                   "changes":  2,
+                   "engine_context_files":  7,
+                   "feedback":  0,
+                   "handoffs":  0
+               },
+    "notes":  [
+                  "Read this file before scanning the project dossier or linked source path.",
+                  "Keep detailed session documentation in timestamped session files only when explicitly requested.",
+                  "Unity engine context lives under projects/brawl-survivors/.ai/engine/unity/."
+              ]
+}

@@ -1,0 +1,29 @@
+﻿{
+    "schema_version":  1,
+    "last_updated":  "2026-05-23T15:15:44+02:00",
+    "projects_root":  "projects",
+    "projects":  [
+                     {
+                         "slug":  "brawl-survivors",
+                         "title":  "Brawl Survivors",
+                         "status":  "active",
+                         "kind":  "unity",
+                         "source_path":  "D:\\GameProjects\\BrawlSurvivors (2)\\BrawlSurvivors (2)\\BrawlSurvivors\\BrawlSurvivors",
+                         "path":  "projects/brawl-survivors",
+                         "index":  "projects/brawl-survivors/.ai/index.json",
+                         "created_at":  "2026-05-23T11:01:21+02:00",
+                         "last_updated":  "2026-05-23T15:05:51+02:00"
+                     },
+                     {
+                         "slug":  "tower-heroes",
+                         "title":  "Tower Heroes",
+                         "status":  "active",
+                         "kind":  "unity",
+                         "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+                         "path":  "projects/tower-heroes",
+                         "index":  "projects/tower-heroes/.ai/index.json",
+                         "created_at":  "2026-05-23T11:01:02+02:00",
+                         "last_updated":  "2026-05-23T15:07:32+02:00"
+                     }
+                 ]
+}

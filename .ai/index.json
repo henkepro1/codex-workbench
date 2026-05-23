@@ -1,0 +1,93 @@
+﻿{
+    "schema_version":  1,
+    "last_updated":  "2026-05-23T15:15:44+02:00",
+    "workspace":  {
+                      "name":  "codex-workbench",
+                      "purpose":  "Lean solo developer workbench for Codex-assisted projects, assets, prompts, and workflow experiments.",
+                      "ai_area":  ".ai",
+                      "human_docs":  "docs",
+                      "human_assets":  "assets",
+                      "default_external_source_roots":  [
+                                                            "D:\\GameProjects"
+                                                        ]
+                  },
+    "projects":  {
+                     "registry":  ".ai/projects/index.json",
+                     "root":  "projects",
+                     "count":  2
+                 },
+    "assets":  {
+                   "manifest":  ".ai/assets/index.json",
+                   "human_assets_root":  "assets",
+                   "counts":  {
+                                  "registered":  0
+                              }
+               },
+    "active_tasks":  [
+
+                     ],
+    "recent_attempts":  [
+
+                        ],
+    "important_docs":  [
+                           "AGENTS.md",
+                           "README.md",
+                           "rules/README.md",
+                           "rules/live-project-code-rules.md",
+                           ".ai/rules/index.json",
+                           "cheatsheets/README.md",
+                           "cheatsheets/skills.md",
+                           "cheatsheets/workflows.md",
+                           "cheatsheets/workflow-codes.md",
+                           "cheatsheets/impact-guide.md",
+                           ".ai/workflows/index.json",
+                           "docs/workflow.md",
+                           "docs/ideas.md",
+                           "projects/README.md",
+                           ".ai/README.md",
+                           ".ai/projects/index.json",
+                           ".ai/projects/README.md",
+                           ".ai/summaries/workspace-summary.md",
+                           ".ai/feedback/index.json",
+                           ".ai/decisions/index.json",
+                           ".ai/integrations/unity-mcp.json",
+                           ".ai/recommendations/index.json",
+                           "cheatsheets/recommendations.md"
+                       ],
+    "paths":  {
+                  "assets_manifest":  ".ai/assets/index.json",
+                  "generations":  ".ai/generations",
+                  "prompts":  ".ai/prompts",
+                  "attempts":  ".ai/attempts",
+                  "tasks":  ".ai/tasks",
+                  "summaries":  ".ai/summaries",
+                  "rules_index":  ".ai/rules/index.json",
+                  "workflows_index":  ".ai/workflows/index.json",
+                  "live_project_rules":  "rules/live-project-code-rules.md",
+                  "projects_registry":  ".ai/projects/index.json",
+                  "project_dossiers":  "projects",
+                  "feedback_index":  ".ai/feedback/index.json",
+                  "decisions_index":  ".ai/decisions/index.json",
+                  "integrations_index":  ".ai/integrations/index.json",
+                  "handoffs_index":  ".ai/handoffs/index.json",
+                  "recommendations_index":  ".ai/recommendations/index.json"
+              },
+    "file_counts":  {
+                        "assets":  0,
+                        "generation_records":  0,
+                        "prompt_records":  0,
+                        "attempt_notes":  0,
+                        "task_notes":  1,
+                        "summaries":  1,
+                        "project_dossiers":  2,
+                        "feedback_notes":  0,
+                        "decisions":  1,
+                        "handoffs":  0,
+                        "recommendations":  11
+                    },
+    "notes":  [
+                  "Use this file as the first compact map before scanning the workspace.",
+                  "Keep details in the linked manifests and notes instead of bloating this index.",
+                  "AI workspace mapping was initialized on 2026-05-23; see .ai/tasks/2026-05-23-ai-workspace-mapping.md."
+              ]
+}

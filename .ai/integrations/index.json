@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-23T15:05:00+02:00",
+  "integrations": [
+    {
+      "id": "unity-mcp",
+      "status": "configured",
+      "path": ".ai/integrations/unity-mcp.json"
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+﻿{
+    "schema_version":  1,
+    "generated_at":  "2026-05-23T14:57:25+02:00",
+    "type_count":  67,
+    "asset_file_count":  166,
+    "types":  [
+                  {
+                      "class":  "AudioClipSet",
+                      "script":  "Assets/__Scripts/Features/Audio/Config/AudioClipSet.cs",
+                      "menu_name":  "Game/Audio/Clip Set",
+                      "file_name":  "AudioClipSet"
+                  },
+                  {
+                      "class":  "AudioLibrary",
+                      "script":  "Assets/__Scripts/Features/Audio/Config/AudioLibrary.cs",
+                      "menu_name":  "Game/Audio/Audio Library",
+                      "file_name":  "AudioLibrary"
+                  },
+                  {
+                      "class":  "BackgroundConfig",
+                      "script":  "Assets/__Scripts/Features/Maps/Config/BackgroundConfig.cs",
+                      "menu_name":  "Game/Background Config",
+                      "file_name":  "BackgroundConfig"
+                  },
+                  {
+                      "class":  "BorderConfig",
+                      "script":  "Assets/__Scripts/Features/Maps/Config/BorderConfig.cs",
+                      "menu_name":  "BrawlSurvivors/Terrain/Border Config",
+                      "file_name":  "BorderConfig"
+                  },
+                  {
+                      "class":  "BorderPieceDef",
+                      "script":  "Assets/__Scripts/Features/Maps/Config/BorderPieceDef.cs",
+                      "menu_name":  "BrawlSurvivors/Terrain/Border Piece",
+                      "file_name":  "BorderPiece"
+                  },
+                  {
+                      "class":  "BowWeaponConfigSO",
+                      "script":  "Assets/__Scripts/Features/Weapons/Config/BowWeaponConfigSO.cs",
+                      "menu_name":  "Items/Weapon/Projectile Weapon Data",
+                      "file_name":  "PWD_"
+                  },
+                  {
+                      "class":  "BreakableSfxTable",
+                      "script":  "Assets/__Scripts/Features/Audio/Config/BreakableSfxTable.cs",
+                      "menu_name":  "Game/Audio/Breakable SFX Table",
+                      "file_name":  "BreakableSfxTable"
+                  },
+                  {
+                      "class":  "ChestCategory",
+                      "script":  "Assets/__Scripts/Features/Loot/Runtime/Chest/Config/ChestCategory.cs",
+                      "menu_name":  "Game/Chest Category",
+                      "file_name":  "ChestCategory"
+                  },
+                  {
+                      "class":  "ChestData",
+                      "script":  "Assets/__Scripts/Features/Loot/Runtime/Chest/Config/ChestData.cs",
+                      "menu_name":  "Game/Chest Data",
+                      "file_name":  "ChestData"
+                  },
+                  {
+                      "class":  "ChestSpawnerSettings",
+                      "script":  "Assets/__Scripts/Features/Loot/Runtime/Chest/Config/ChestSpawnerSettings.cs",
+                      "menu_name":  "Game/Chest Spawner Settings",
+                      "file_name":  "ChestSpawnerSettings"
+                  },
+                  {
+                      "class":  "ConsumableData",
+                      "script":  "Assets/__Scripts/Features/Equipment/Config/ConsumableData.cs",
+                      "menu_name":  "Items/Consumable Data",
+                      "file_name":  "ConsumableData"
+                  },
+                  {
+                      "class":  "DamageFeedbackConfigSO",
+                      "script":  "Assets/__Scripts/Features/Health/Config/DamageFeedbackConfigSO.cs",
+                      "menu_name":  "Gameplay/Health/Damage Feedback Config",
+                      "file_name":  "DamageFeedbackConfig"
+                  },
+                  {
+                      "class":  "EnemyCatalogSO",
+                      "script":  "Assets/__Scripts/Features/Enemies/Config/EnemyCatalogSO.cs",
+                      "menu_name":  "Enemies/Enemy Catalog",
+                      "file_name":  "EnemyCatalog"
+                  },
+                  {
+                      "class":  "EnemyConfig",
+                      "script":  "Assets/__Scripts/Features/Enemies/Config/EnemyConfig.cs",
+                      "menu_name":  null,
+                      "file_name":  null
+                  },
+                  {
+                      "class":  "EnemyEffectsProfileSO",
+                      "script":  "Assets/__Scripts/Features/Enemies/Config/EnemyEffectsProfileSO.cs",
+                      "menu_name":  "Enemy/Settings/Effects Profile",
+                      "file_name":  "EnemyEffectsProfile"
+                  },
+                  {
+                      "class":  "EnemyLightDarkSpeedEffectConfig",
+                      "script":  "Assets/__Scripts/Features/Enemies/Effects/EnemyLightDarkSpeedEffectConfig.cs",
+                      "menu_name":  "Enemies/Effects/Enemy Light-Dark Speed Effect Config",
+                      "file_name":  "EnemyLightDarkSpeedEffectConfig"
+                  },
+                  {
+                      "class":  "EnemySpawnProfileSO",
+                      "script":  "Assets/__Scripts/Features/Enemies/Config/EnemySpawnProfileSO.cs",
+                      "menu_name":  "Enemy/Settings/Spawn Profile",
+                      "file_name":  "EnemySpawnProfile"
+                  },
+                  {
+                      "class":  "EnemyUpdateProfileSO",
+                      "script":  "Assets/__Scripts/Features/Enemies/Config/EnemyUpdateProfileSO.cs",
+                      "menu_name":  "Enemy/Settings/Update Profile",
+                      "file_name":  "EnemyUpdateProfile"
+                  },
+                  {
+                      "class":  "EnvLibrary",
+                      "script":  "Assets/__Scripts/Features/Maps/Config/EnvLibrary.cs",
+                      "menu_name":  "BrawlSurvivors/Environment/Environment Library",
+                      "file_name":  "EnvLibrary"
+                  },
+                  {
+                      "class":  "EquipmentSlotConfig",
+                      "script":  "Assets/__Scripts/Features/Equipment/Config/EquipmentSlotConfig.cs",
+                      "menu_name":  "Inventory/Equipment Slot Config",
+                      "file_name":  "EquipmentSlotConfig"
+                  },
+                  {
+                      "class":  "ExperienceCurveSO",
+                      "script":  "Assets/__Scripts/Features/Experience/Config/ExperienceCurveSO.cs",
+                      "menu_name":  "Gameplay/Experience/Experience Curve",
+                      "file_name":  "ExperienceCurve"
+                  },
+                  {
+                      "class":  "ExperienceOrbMagnetConfigSO",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/ExperienceOrbMagnetConfigSO.cs",
+                      "menu_name":  "Game/Loot/Experience Orb Magnet Config",
+                      "file_name":  "ExperienceOrbMagnetConfig"
+                  },
+                  {
+                      "class":  "FogCloudOverlayConfigSO",
+                      "script":  "Assets/__Scripts/Features/FogOfWar/Config/FogCloudOverlayConfigSO.cs",
+                      "menu_name":  "Gameplay/Fog Clouds/Overlay Config",
+                      "file_name":  "FogCloudOverlayConfig"
+                  },
+                  {
+                      "class":  "FogOfWarOverlayConfigSO",
+                      "script":  "Assets/__Scripts/Features/FogOfWar/Config/FogOfWarOverlayConfigSO.cs",
+                      "menu_name":  "Gameplay/Fog Of War/Overlay Config",
+                      "file_name":  "FogOfWarOverlayConfig"
+                  },
+                  {
+                      "class":  "FogOfWarVisibilityConfigSO",
+                      "script":  "Assets/__Scripts/Features/FogOfWar/Config/FogOfWarVisibilityConfigSO.cs",
+                      "menu_name":  "Gameplay/Fog Of War/Visibility Config",
+                      "file_name":  "FogOfWarVisibilityConfig"
+                  },
+                  {
+                      "class":  "GameSettingsDefaultsSO",
+                      "script":  "Assets/__Scripts/Features/Settings/Contracts/GameSettingsDefaultsSO.cs",
+                      "menu_name":  "Game/Settings/Defaults",
+                      "file_name":  "GameSettingsDefaults"
+                  },
+                  {
+                      "class":  "GridSizeSO",
+                      "script":  "Assets/__Scripts/Features/Inventory/Config/GridSizeSO.cs",
+                      "menu_name":  "Config/Inventory/Grid Size",
+                      "file_name":  "GridSize"
+                  },
+                  {
+                      "class":  "HealthDefinitionSO",
+                      "script":  "Assets/__Scripts/Features/Health/Config/HealthDefinitionSO.cs",
+                      "menu_name":  "Gameplay/Health/Health Definition",
+                      "file_name":  "HealthDefinition"
+                  },
+                  {
+                      "class":  "InventoryEquipmentUIConfigSO",
+                      "script":  "Assets/__Scripts/Features/Inventory/InventoryUI/Config/InventoryEquipmentUIConfigSO.cs",
+                      "menu_name":  "Config/Inventory/Inventory Equipment UI Config",
+                      "file_name":  "InventoryEquipmentUIConfig"
+                  },
+                  {
+                      "class":  "InventoryGridUIConfigSO",
+                      "script":  "Assets/__Scripts/Features/Inventory/Config/InventoryGridUIConfigSO.cs",
+                      "menu_name":  "Config/Inventory/Inventory Grid UI Config",
+                      "file_name":  "InventoryGridUIConfig"
+                  },
+                  {
+                      "class":  "InventoryProfileSO",
+                      "script":  "Assets/__Scripts/Features/Inventory/Config/InventoryProfileSO.cs",
+                      "menu_name":  "Config/Inventory/Inventory Profile",
+                      "file_name":  "InventoryProfile"
+                  },
+                  {
+                      "class":  "ItemData",
+                      "script":  "Assets/__Scripts/Features/Equipment/Config/ItemData.cs",
+                      "menu_name":  "Br/Items/Item Data",
+                      "file_name":  "NewItem"
+                  },
+                  {
+                      "class":  "ItemDatabase",
+                      "script":  "Assets/__Scripts/Features/Equipment/Config/ItemDatabase.cs",
+                      "menu_name":  "BrawlSurvivors/ItemDatabase",
+                      "file_name":  "ItemDatabase"
+                  },
+                  {
+                      "class":  "ItemLootLibrarySO",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/ItemLootLibrarySO.cs",
+                      "menu_name":  "Game/Loot/Libraries/Item Loot Library",
+                      "file_name":  "ItemLootLibrary"
+                  },
+                  {
+                      "class":  "ItemRarityCatalogSO",
+                      "script":  "Assets/__Scripts/Features/Inventory/Config/ItemRarityCatalogSO.cs",
+                      "menu_name":  "Items/Value/Item Rarity Catalog",
+                      "file_name":  "ItemRarityCatalog"
+                  },
+                  {
+                      "class":  "ItemTierValueConfigSO",
+                      "script":  "Assets/__Scripts/Features/Inventory/Config/ItemTierValueConfigSO.cs",
+                      "menu_name":  "Items/Value/Item Tier Value Config",
+                      "file_name":  "ItemTierValueConfig"
+                  },
+                  {
+                      "class":  "ItemVisualStyleConfigSO",
+                      "script":  "Assets/__Scripts/Features/Inventory/Config/ItemVisualStyleConfigSO.cs",
+                      "menu_name":  "Items/Value/Item Visual Style Config",
+                      "file_name":  "ItemVisualStyleConfig"
+                  },
+                  {
+                      "class":  "LayerConfig",
+                      "script":  "Assets/__Scripts/Core/Input/LayerConfig.cs",
+                      "menu_name":  "Game/LayerConfig",
+                      "file_name":  "LayerConfig"
+                  },
+                  {
+                      "class":  "LootGroupDefinitionSO",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/Groups/LootGroupDefinitionSO.cs",
+                      "menu_name":  null,
+                      "file_name":  null
+                  },
+                  {
+                      "class":  "LootPickupFailEffectConfigSO",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/LootPickupFailEffectConfigSO.cs",
+                      "menu_name":  "Game/Loot/Loot Pickup Fail Effect Config",
+                      "file_name":  "LootPickupFailEffectConfig"
+                  },
+                  {
+                      "class":  "LootPresentationConfigSO",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/LootPresentationConfig.cs",
+                      "menu_name":  "Game/Loot/Loot Presentation Config",
+                      "file_name":  "LootPresentationConfig"
+                  },
+                  {
+                      "class":  "LootSourceDefinition",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/LootSourceDefinition.cs",
+                      "menu_name":  "Game/Loot/Loot Source Definition",
+                      "file_name":  "LootSourceDefinition"
+                  },
+                  {
+                      "class":  "LootWorldItemBeamConfigSO",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/LootWorldItemBeamConfigSO.cs",
+                      "menu_name":  "Game/Loot/Loot World Item Beam Config",
+                      "file_name":  "LootWorldItemBeamConfig"
+                  },
+                  {
+                      "class":  "LootWorldItemVisualConfigSO",
+                      "script":  "Assets/__Scripts/Features/Loot/Config/LootWorldItemVisualConfigSO.cs",
+                      "menu_name":  "Game/Loot/Loot World Item Visual Config",
+                      "file_name":  "LootWorldItemVisualConfig"
+                  },
+                  {
+                      "class":  "MeleeWeaponConfigSO",
+                      "script":  "Assets/__Scripts/Features/Weapons/Config/MeleeWeaponConfigSO.cs",
+                      "menu_name":  "Items/Weapon/Melee Data",
+                      "file_name":  "MWD_"
+                  },
+                  {
+                      "class":  "MinimapConfigSO",
+                      "script":  "Assets/__Scripts/Features/Minimap/Config/MinimapConfigSO.cs",
+                      "menu_name":  "Game/Minimap/Minimap Config",
+                      "file_name":  "MinimapConfig"
+                  },
+                  {
+                      "class":  "MinimapFogCloudConfigSO",
+                      "script":  "Assets/__Scripts/Features/Minimap/Config/MinimapFogCloudConfigSO.cs",
+                      "menu_name":  "Game/Minimap/Minimap Fog Cloud Config",
+                      "file_name":  "MinimapFogCloudConfig"
+                  },
+                  {
+                      "class":  "PerceptionVisionConfigSO",
+                      "script":  "Assets/__Scripts/Features/Player/Config/PerceptionVisionConfigSO.cs",
+                      "menu_name":  "Game/Vision/Perception Vision Config",
+                      "file_name":  "PerceptionVisionConfig"
+                  },
+                  {
+                      "class":  "PlayerDefinitionSO",
+                      "script":  "Assets/__Scripts/Features/Player/Config/PlayerDefinitionSO.cs",
+                      "menu_name":  "Gameplay/Player/Player Definition",
+                      "file_name":  "PlayerDefinition"
+                  },
+                  {
+                      "class":  "PlayerTorchConfigSO",
+                      "script":  "Assets/__Scripts/Features/Lighting/Config/PlayerTorchConfigSO.cs",
+                      "menu_name":  "Gameplay/Lighting/Player Torch Config",
+                      "file_name":  "PlayerTorchConfig"
+                  },
+                  {
+                      "class":  "RelicCardData",
+                      "script":  "Assets/__Scripts/Features/Relics/Config/RelicCardData.cs",
+                      "menu_name":  "BrawlSurvivors/Relic Card",
+                      "file_name":  "RelicCard"
+                  },
+                  {
+                      "class":  "RelicLibrary",
+                      "script":  "Assets/__Scripts/Features/Relics/Config/RelicLibrary.cs",
+                      "menu_name":  "BrawlSurvivors/RelicLibrary",
+                      "file_name":  "RelicLibrary"
+                  },
+                  {
+                      "class":  "SceneCatalogSO",
+                      "script":  "Assets/__Scripts/Core/Bootstrap/Config/SceneCatalogSO.cs",
+                      "menu_name":  "Config/Scenes/Scene Catalog",
+                      "file_name":  "SceneCatalog"
+                  },
+                  {
+                      "class":  "SceneTransitionConfigSO",
+                      "script":  "Assets/__Scripts/Core/Bootstrap/Config/SceneTransitionConfigSO.cs",
+                      "menu_name":  "Config/Scenes/Scene Transition Config",
+                      "file_name":  "SceneTransitionConfig"
+                  },
+                  {
+                      "class":  "ScrollDataSO",
+                      "script":  "Assets/__Scripts/Features/Scrolling/Config/ScrollDataSO.cs",
+                      "menu_name":  "Items/Scrolls/Scroll Data",
+                      "file_name":  "ScrollData"
+                  },
+                  {
+                      "class":  "StartingInventoryLibrarySO",
+                      "script":  "Assets/__Scripts/Features/Inventory/Config/StartingInventoryLibrarySO.cs",
+                      "menu_name":  "BrawlSurvivors/Inventory/Starting Inventory Library",
+                      "file_name":  "StartingInventoryLibrary"
+                  },
+                  {
+                      "class":  "StatTierConfig",
+                      "script":  "Assets/__Scripts/Features/Equipment/Config/StatTierConfig.cs",
+                      "menu_name":  "Items/Stat Tier Config",
+                      "file_name":  "StatTierConfig"
+                  },
+                  {
+                      "class":  "TerrainConfig",
+                      "script":  "Assets/__Scripts/Features/Maps/Config/TerrainConfig.cs",
+                      "menu_name":  "Game/Terrain Config",
+                      "file_name":  "TerrainConfig"
+                  },
+                  {
+                      "class":  "TorchAudioConfigSO",
+                      "script":  "Assets/__Scripts/Features/Lighting/Config/TorchAudioConfigSO.cs",
+                      "menu_name":  "Game/Audio/Torch Audio Config",
+                      "file_name":  "TorchAudioConfig"
+                  },
+                  {
+                      "class":  "TorchLightOverlayConfigSO",
+                      "script":  "Assets/__Scripts/Features/Lighting/Config/TorchLightOverlayConfigSO.cs",
+                      "menu_name":  "Gameplay/Lighting/Torch Light Overlay Config",
+                      "file_name":  "TorchLightOverlayConfig"
+                  },
+                  {
+                      "class":  "UILayoutPresetCatalogSO",
+                      "script":  "Assets/__Scripts/Features/UI/Config/UILayoutPresetCatalogSO.cs",
+                      "menu_name":  "UI/Layout Preset Catalog",
+                      "file_name":  "UILayoutPresetCatalog"
+                  },
+                  {
+                      "class":  "UILayoutPresetSO",
+                      "script":  "Assets/__Scripts/Features/UI/Config/UILayoutPresetSO.cs",
+                      "menu_name":  "UI/Layout Preset",
+                      "file_name":  "New UI Layout Preset"
+                  },
+                  {
+                      "class":  "WeaponBaseConfigSO",
+                      "script":  "Assets/__Scripts/Features/Weapons/Config/WeaponBaseConfigSO.cs",
+                      "menu_name":  "Items/Weapon Base",
+                      "file_name":  "WBD_"
+                  },
+                  {
+                      "class":  "WeaponHoverConfigSO",
+                      "script":  "Assets/__Scripts/Features/Weapons/Config/WeaponHoverConfigSO.cs",
+                      "menu_name":  null,
+                      "file_name":  null
+                  },
+                  {
+                      "class":  "WeaponSystemConfigSO",
+                      "script":  "Assets/__Scripts/Features/Weapons/Config/WeaponSystemConfigSO.cs",
+                      "menu_name":  "Weapons/Weapon System Config",
+                      "file_name":  "WeaponSystemConfig"
+                  },
+                  {
+                      "class":  "WorldGenerationPresetSO",
+                      "script":  "Assets/__Scripts/Features/Maps/Config/WorldGenerationPresetSO.cs",
+                      "menu_name":  "Game/World/World Generation Preset",
+                      "file_name":  "WorldGenerationPreset"
+                  },
+                  {
+                      "class":  "WorldLootAltLabelOverlayConfigSO",
+                      "script":  "Assets/__Scripts/Features/Interaction/Config/WorldLootAltLabelOverlayConfigSO.cs",
+                      "menu_name":  "Game/Interaction/Loot Alt Label Overlay Config",
+                      "file_name":  "LootAltLabelOverlayConfig"
+                  }
+              ]
+}

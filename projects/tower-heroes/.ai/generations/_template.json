@@ -1,0 +1,12 @@
+﻿{
+  "schema_version": 1,
+  "id": "YYYY-MM-DD-generation-id",
+  "created_at": "ISO 8601 timestamp",
+  "tool": "image_gen | local-script | external | unknown",
+  "prompt": "generation prompt or summary",
+  "inputs": [],
+  "outputs": [],
+  "status": "draft | accepted | rejected | archived",
+  "linked_asset_ids": [],
+  "notes": ""
+}

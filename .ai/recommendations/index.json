@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-23T15:30:00+02:00",
+  "purpose": "Token-friendly registry for when Codex should suggest optional Skills, macros, MCP usage, verification, documentation, or cleanup.",
+  "mode": "hybrid",
+  "human_cheatsheet": "cheatsheets/recommendations.md",
+  "rules": [
+    "Required context/rules are loaded silently and are not framed as optional suggestions.",
+    "Pause before optional side effects, external writes, significant runtime, or optional MCP/tool usage.",
+    "After normal work, suggest at most two useful follow-ups when they add clear value.",
+    "Do not suggest extra workflows for trivial prompts or obvious one-step answers.",
+    "Macros remain explicit; suggest @wb codes when useful, but never silently infer them from normal wording."
+  ],
+  "categories": [
+    {
+      "id": "live_project_bugfix",
+      "applies_to": "all linked live projects",
+      "mode": "pre_work_gate",
+      "suggest": "@wb:bugfix-live",
+      "when": "User reports a bug in a linked external project and has not already invoked a macro.",
+      "impact": "Loads project/rules context, may edit external source if approved by the request, records change after work."
+    },
+    {
+      "id": "live_project_cleanup",
+      "applies_to": "all linked live projects",
+      "mode": "pre_work_gate",
+      "suggest": "@wb:cleanup-live",
+      "when": "User asks for cleanup/refactor in a linked external project without a macro.",
+      "impact": "Loads rules, preserves behavior, may edit external source, records change."
+    },
+    {
+      "id": "unity_editor_state",
+      "applies_to": "unity dossiers",
+      "mode": "pre_work_gate",
+      "suggest": "@wb:scene-prefab-change or Unity Editor steps",
+      "when": "Task touches scenes, prefabs, hierarchy, ScriptableObjects, shaders, layers, sorting layers, or ProjectSettings.",
+      "impact": "Loads Unity context and rules; may touch external Unity files only for narrow safe edits."
+    },
+    {
+      "id": "unity_context_stale",
+      "applies_to": "unity dossiers",
+      "mode": "post_work_followup",
+      "suggest": "@wb:unity-sync",
+      "when": "Unity context may be stale or Unity-relevant files changed.",
+      "impact": "Reads Unity project and writes workbench context only."
+    },
+    {
+      "id": "unity_runtime_verification",
+      "applies_to": "unity dossiers",
+      "mode": "pre_work_gate",
+      "suggest": "Unity MCP check or batchmode tests/log tail",
+      "when": "Editor/runtime state, serialized references, package restore, playmode behavior, or logs would materially improve confidence.",
+      "impact": "May run MCP or Unity batchmode; can take time and may write ignored logs/results under project .ai/tmp."
+    },
+    {
+      "id": "project_art_asset",
+      "applies_to": "all projects",
+      "mode": "pre_work_gate",
+      "suggest": "@wb:artgen-project or $imagegen",
+      "when": "User asks for raster art, sprites, textures, mockups, concepts, or project-matching visuals.",
+      "impact": "May generate image files; accepted outputs should be registered in asset manifests."
+    },
+    {
+      "id": "attempt_recovery",
+      "applies_to": "all projects",
+      "mode": "pre_work_gate",
+      "suggest": "@wb:attempt-recovery",
+      "when": "User is retrying after a failed/stalled task or asks what went wrong previously.",
+      "impact": "Reads attempts/recent changes; writes a new attempt note only if useful failure/recovery context is discovered."
+    },
+    {
+      "id": "remember_preference",
+      "applies_to": "all projects",
+      "mode": "post_work_followup",
+      "suggest": "$remember",
+      "when": "User gives a repeated preference, correction, or rule that should persist.",
+      "impact": "Writes compact feedback memory under root or project .ai/feedback."
+    },
+    {
+      "id": "manual_handoff",
+      "applies_to": "all projects",
+      "mode": "post_work_followup",
+      "suggest": "@wb:handoff",
+      "when": "A solved or paused task has useful next-step context worth preserving.",
+      "impact": "Writes a lightweight timestamped handoff note; does not create a full session."
+    },
+    {
+      "id": "documented_session",
+      "applies_to": "all projects",
+      "mode": "post_work_followup",
+      "suggest": "@wb:session-start or @wb:session-wrap",
+      "when": "Work is long, strategic, or the user explicitly cares about documenting the session.",
+      "impact": "Creates timestamped project session folders/files; normal work does not use this automatically."
+    },
+    {
+      "id": "silent_required_context",
+      "applies_to": "all projects",
+      "mode": "silent_required",
+      "suggest": "Required indexes, rules, and project context",
+      "when": "Context is mandatory for correctness, such as AGENTS.md, project index, live-project rules, or Unity context before Unity edits.",
+      "impact": "Read-only context loading; do not ask before doing required context work."
+    }
+  ]
+}

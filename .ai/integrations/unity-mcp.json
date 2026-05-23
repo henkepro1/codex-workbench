@@ -1,0 +1,46 @@
+﻿{
+    "schema_version":  1,
+    "last_updated":  "2026-05-23T15:05:00+02:00",
+    "id":  "unity-mcp",
+    "name":  "MCP for Unity",
+    "provider":  "CoplayDev",
+    "repository":  "https://github.com/CoplayDev/unity-mcp",
+    "unity_package":  "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+    "server_command":  "C:\\Users\\henke\\AppData\\Local\\Microsoft\\WinGet\\Packages\\astral-sh.uv_Microsoft.Winget.Source_8wekyb3d8bbwe\\uvx.exe",
+    "server_args":  [
+                        "--from",
+                        "mcpforunityserver",
+                        "mcp-for-unity",
+                        "--transport",
+                        "stdio"
+                    ],
+    "status":  "configured",
+    "telemetry_disabled":  true,
+    "server_smoke_test":  {
+                              "status":  "passed",
+                              "checked_at":  "2026-05-23T15:06:00+02:00",
+                              "command":  "uvx --from mcpforunityserver mcp-for-unity --help"
+                          },
+    "projects":  [
+                     {
+                         "slug":  "brawl-survivors",
+                         "status":  "configured",
+                         "package":  "com.coplaydev.unity-mcp",
+                         "package_url":  "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+                         "updated_at":  "2026-05-23T14:53:11+02:00"
+                     },
+                     {
+                         "slug":  "tower-heroes",
+                         "status":  "configured",
+                         "package":  "com.coplaydev.unity-mcp",
+                         "package_url":  "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+                         "updated_at":  "2026-05-23T14:52:55+02:00"
+                     }
+                 ],
+    "notes":  [
+                  "Use CoplayDev/unity-mcp because it supports Unity 2021.3+.",
+                  "CoderGamester/mcp-unity is not the default because it currently requires Unity 6+."
+              ],
+    "codex_config":  "C:\\Users\\henke\\.codex\\config.toml",
+    "config_status":  "Codex MCP unity entry already exists."
+}

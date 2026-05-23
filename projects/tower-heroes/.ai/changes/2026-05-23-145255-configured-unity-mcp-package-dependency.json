@@ -1,0 +1,23 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-23-145255-configured-unity-mcp-package-dependency",
+    "project":  "tower-heroes",
+    "category":  "settings",
+    "summary":  "Configured Unity MCP package dependency",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Packages\\manifest.json"
+                      ],
+    "verification":  "manifest.json parsed and dependency written; Unity package restore still needs Editor/package manager validation.",
+    "audit":  {
+                  "rules_checked":  [
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md"
+                                    ],
+                  "mechanics_preserved":  "No gameplay code or serialized gameplay assets changed.",
+                  "editor_changes_required":  "Open Unity to allow Package Manager to restore/update packages-lock.json and confirm MCP bridge connection.",
+                  "follow_up_fixes":  null
+              },
+    "created_at":  "2026-05-23T14:52:55+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

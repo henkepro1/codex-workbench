@@ -1,0 +1,85 @@
+# Workflow Cheatsheet
+
+-- Shortcuts --
+Use @wb:bugfix-live for a bundled live-project bugfix workflow.
+Use @wb:cleanup-live for targeted live-project cleanup/refactor.
+Use @wb:artgen-project for project-matching raster art generation.
+Use @wb:unity-mcp-setup to install or repair Unity MCP integration.
+Use @wb:handoff to create a lightweight handoff note.
+Use $project-dossier to create a dossier for <project name> linked to <source path>.
+Use $unity-context to refresh the Unity context for <project-slug>.
+For <project-slug>, change <specific behavior>. Update the workbench tracking after the edit.
+For <project-slug>, update <scene/prefab/hierarchy detail>. If direct YAML editing is risky, give Unity Editor steps instead.
+Use $project-session to start a documented session for <project-slug> about <topic>.
+
+See `workflow-codes.md` for explicit `@wb:` macro codes.
+
+## Create A Project Dossier
+
+Prompt:
+
+```text
+Use $project-dossier to create a dossier for <project name> linked to <source path>.
+```
+
+Command:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\new-project.ps1 -Title "<Project Name>" -SourcePath "<source path>"
+```
+
+## Refresh Unity Context
+
+Prompt:
+
+```text
+Use $unity-context to refresh the Unity context for <project-slug>.
+```
+
+Command:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\scan-unity-context.ps1 -Slug "<project-slug>"
+```
+
+## Request A Project Code Change
+
+Prompt:
+
+```text
+For <project-slug>, change <specific behavior>. Update the workbench tracking after the edit.
+```
+
+Codex should read `.ai/rules/index.json`, `rules/live-project-code-rules.md`, and `projects/<project-slug>/rules/project-rules.md` before touching the external source project.
+
+Expected tracking:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\record-project-change.ps1 -Slug "<project-slug>" -Category code -Summary "<summary>" -Verification "<checks>" -RulesChecked "rules/live-project-code-rules.md","projects/<project-slug>/rules/project-rules.md" -MechanicsPreserved "<how behavior stayed the same>" -EditorChangesRequired "<none or exact editor steps>"
+```
+
+## Request A Unity Scene Or Prefab Change
+
+Prompt:
+
+```text
+For <project-slug>, update <scene/prefab/hierarchy detail>. If direct YAML editing is risky, give Unity Editor steps instead.
+```
+
+Expected tracking: refresh Unity context and record the change if files were edited.
+
+Direct YAML edits should happen only when the change is narrow and inspectable. Otherwise Codex should list exact Unity Editor steps.
+
+## Start And Conclude A Documented Session
+
+Start:
+
+```text
+Use $project-session to start a documented session for <project-slug> about <topic>.
+```
+
+Conclude:
+
+```text
+Use $project-session to conclude the current session for <project-slug> with result and next steps.
+```

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-23T15:00:31+02:00",
+  "purpose": "Token-friendly registry of explicit @wb workflow macro codes.",
+  "human_cheatsheet": "cheatsheets/workflow-codes.md",
+  "skill": "workbench-macro",
+  "trigger_prefix": "@wb:",
+  "rules": [
+    "Only explicit @wb: codes activate macro workflows.",
+    "Macros route existing Skills and workbench scripts; they do not store project state.",
+    "Macros do not bypass live-project rules, Unity safety rules, or workbench tracking.",
+    "Detailed project-session documentation happens only for @wb:session-start, @wb:session-wrap, or an explicit user request."
+  ],
+  "codes": [
+    {
+      "code": "@wb:bugfix-live",
+      "requires": ["Project", "Bug", "Expected behavior"],
+      "skills": ["project-dossier", "unity-context when Unity project"],
+      "may_touch_external_source": true,
+      "tracking": ["refresh project index", "refresh Unity context when relevant", "record project change"],
+      "notes": "Fix root cause while preserving gameplay/product outcome unless explicitly changed."
+    },
+    {
+      "code": "@wb:cleanup-live",
+      "requires": ["Project", "Target", "Goal"],
+      "skills": ["project-dossier", "unity-context when Unity-relevant"],
+      "may_touch_external_source": true,
+      "tracking": ["record project change", "refresh indexes/context when relevant"],
+      "notes": "Targeted cleanup/refactor only; preserve behavior exactly unless explicitly changed."
+    },
+    {
+      "code": "@wb:artgen-project",
+      "requires": ["Project", "Asset", "Style or Intent"],
+      "skills": ["project-dossier", "imagegen"],
+      "may_touch_external_source": false,
+      "tracking": ["register accepted asset", "write generation metadata"],
+      "notes": "Do not import or wire generated assets into Unity unless explicitly requested."
+    },
+    {
+      "code": "@wb:unity-sync",
+      "requires": ["Project"],
+      "skills": ["project-dossier", "unity-context"],
+      "may_touch_external_source": false,
+      "tracking": ["refresh Unity context", "refresh project index"],
+      "notes": "Read-only against the Unity project source."
+    },
+    {
+      "code": "@wb:unity-mcp-setup",
+      "requires": ["Project"],
+      "skills": ["project-dossier", "unity-context"],
+      "may_touch_external_source": true,
+      "tracking": ["update Unity package manifest", "update Codex MCP config", "record integration status"],
+      "notes": "Installs or repairs CoplayDev/unity-mcp setup for a Unity project and Codex."
+    },
+    {
+      "code": "@wb:scene-prefab-change",
+      "requires": ["Project", "Target asset/object", "Requested change"],
+      "skills": ["project-dossier", "unity-context"],
+      "may_touch_external_source": true,
+      "tracking": ["refresh Unity context", "record project change"],
+      "notes": "Edit serialized Unity files only when narrow, inspectable, and safe; otherwise provide Unity Editor steps."
+    },
+    {
+      "code": "@wb:attempt-recovery",
+      "requires": ["Project", "Problem"],
+      "skills": ["project-dossier"],
+      "may_touch_external_source": "depends_on_requested_recovery",
+      "tracking": ["write attempt note only on failure/stall/reusable lesson"],
+      "notes": "Read project attempts and recent changes before making another attempt."
+    },
+    {
+      "code": "@wb:session-start",
+      "requires": ["Project", "Topic"],
+      "skills": ["project-session"],
+      "may_touch_external_source": false,
+      "tracking": ["create timestamped session folder", "update session/project indexes"],
+      "notes": "Starts explicit project documentation."
+    },
+    {
+      "code": "@wb:session-wrap",
+      "requires": ["Project", "Summary"],
+      "skills": ["project-session"],
+      "may_touch_external_source": false,
+      "tracking": ["write result note", "close active session", "update session/project indexes"],
+      "notes": "Concludes explicit project documentation."
+    },
+    {
+      "code": "@wb:handoff",
+      "requires": ["Summary"],
+      "skills": ["workbench-macro"],
+      "may_touch_external_source": false,
+      "tracking": ["write manual handoff note"],
+      "notes": "Creates a lightweight handoff only when explicitly requested."
+    }
+  ]
+}

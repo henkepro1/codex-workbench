@@ -1,0 +1,152 @@
+﻿{
+    "schema_version":  1,
+    "generated_at":  "2026-05-23T14:57:25+02:00",
+    "count":  29,
+    "shaders":  [
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/BlinkingShader/SpriteFlashWhite.shader",
+                        "bytes":  3495,
+                        "modified":  "2025-12-29T17:07:02+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/FireSource/FogCloudOverlay.shader",
+                        "bytes":  6195,
+                        "modified":  "2025-12-26T18:00:25+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/FireSource/FogOfWarOverlay.shader",
+                        "bytes":  6880,
+                        "modified":  "2025-12-26T17:59:40+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/FireSource/TorchLightOverlay.shader",
+                        "bytes":  4596,
+                        "modified":  "2025-12-26T16:20:29+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/ItemBeamColumn/BeamColumn.shader",
+                        "bytes":  3682,
+                        "modified":  "2026-01-04T11:30:33+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/ItemBeamColumn/BeamParticles.shader",
+                        "bytes":  1528,
+                        "modified":  "2026-01-04T11:30:33+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/ItemGlow/AdditiveGlow_URP.shader",
+                        "bytes":  2544,
+                        "modified":  "2026-01-02T21:12:47+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/ItemGlow/SpriteOuterGlowUnlit.shader",
+                        "bytes":  7402,
+                        "modified":  "2026-01-03T22:48:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/ShaderRelated/MinimapFogClouds.shader",
+                        "bytes":  3924,
+                        "modified":  "2025-12-18T10:28:52+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/ShaderRelated/Tint.shader",
+                        "bytes":  1783,
+                        "modified":  "2025-11-22T18:33:15+01:00"
+                    },
+                    {
+                        "path":  "Assets/__Scripts/Features/_Shaders/ShaderRelated/TrajectoryTelegraph.shader",
+                        "bytes":  4236,
+                        "modified":  "2025-12-20T15:48:53+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader",
+                        "bytes":  3839,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader",
+                        "bytes":  3836,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader",
+                        "bytes":  4071,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader",
+                        "bytes":  11054,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader",
+                        "bytes":  12438,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF.shader",
+                        "bytes":  11027,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP LIT.shadergraph",
+                        "bytes":  287427,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP UNLIT.shadergraph",
+                        "bytes":  279909,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader",
+                        "bytes":  8273,
+                        "modified":  "2025-11-10T03:47:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader",
+                        "bytes":  8081,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader",
+                        "bytes":  3064,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader",
+                        "bytes":  8074,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader",
+                        "bytes":  11795,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader",
+                        "bytes":  4353,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader",
+                        "bytes":  3523,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-URP Lit.shadergraph",
+                        "bytes":  283866,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_SDF-URP Unlit.shadergraph",
+                        "bytes":  277012,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Shaders/TMP_Sprite.shader",
+                        "bytes":  3446,
+                        "modified":  "2025-11-10T03:47:35+01:00"
+                    }
+                ]
+}

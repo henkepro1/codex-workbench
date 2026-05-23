@@ -1,0 +1,362 @@
+﻿{
+    "schema_version":  1,
+    "generated_at":  "2026-05-23T14:57:25+02:00",
+    "count":  71,
+    "prefabs":  [
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/Bat/Enemy_Grunt_Bat.prefab",
+                        "bytes":  5935,
+                        "modified":  "2025-12-29T16:53:36+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/Catapult/Enemy_Catapult_ZombieCatapult.prefab",
+                        "bytes":  5949,
+                        "modified":  "2025-12-29T16:53:36+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/Kiter/Enemy_Kiter_ZGoblin.prefab",
+                        "bytes":  5941,
+                        "modified":  "2025-12-29T16:53:36+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/SharedPrefabs/ArcherLineIndicatorPrefab.prefab",
+                        "bytes":  4187,
+                        "modified":  "2025-12-20T15:49:59+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/SharedPrefabs/CatapultBoulderPrefab.prefab",
+                        "bytes":  3892,
+                        "modified":  "2025-12-20T18:05:28+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/SharedPrefabs/CatapultImpactIndicatorPrefab.prefab",
+                        "bytes":  2915,
+                        "modified":  "2025-12-20T17:45:07+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/SharedPrefabs/ChargerLineIndicatorPrefab.prefab",
+                        "bytes":  4223,
+                        "modified":  "2025-12-20T15:51:16+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/SharedPrefabs/ImpactExplosionPrefab.prefab",
+                        "bytes":  3824,
+                        "modified":  "2025-12-20T08:48:03+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/SharedPrefabs/KiterBoulderPrefab.prefab",
+                        "bytes":  3897,
+                        "modified":  "2025-12-20T18:13:17+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/SharedPrefabs/KiterImpactIndicatorPrefab.prefab",
+                        "bytes":  2912,
+                        "modified":  "2025-12-20T18:10:18+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/Skeleton_xbow/Enemy_Archer_Skeleton.prefab",
+                        "bytes":  5945,
+                        "modified":  "2025-12-29T16:53:36+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/Wolf/Enemy_Grunt_Wolf.prefab",
+                        "bytes":  5932,
+                        "modified":  "2025-12-29T16:53:36+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/Zombie/Enemy_Grunt_Zombie.prefab",
+                        "bytes":  5945,
+                        "modified":  "2025-12-29T16:53:36+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Enemy/EnemyBundles/Zombie_Charger/Enemy_Charger_Zombie.prefab",
+                        "bytes":  5953,
+                        "modified":  "2025-12-29T16:55:17+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Background/RelatedArt/SpecialPrefabs/Floweryard_1.prefab",
+                        "bytes":  38022,
+                        "modified":  "2025-12-12T00:03:27+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Border/Border/Pieces/vers_1/BR_Stone_D.prefab",
+                        "bytes":  2368,
+                        "modified":  "2025-11-10T03:47:37+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Border/Border/Pieces/vers_1/BR_Stone_E.prefab",
+                        "bytes":  2363,
+                        "modified":  "2025-11-10T03:47:37+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Border/Border/Pieces/vers_1/BR_Stonebench_A.prefab",
+                        "bytes":  2373,
+                        "modified":  "2025-11-10T03:47:37+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Border/Border/Pieces/vers_1/BR_Stonebench_B.prefab",
+                        "bytes":  2373,
+                        "modified":  "2025-11-10T03:47:37+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Border/Border/Pieces/vers_1/BR_Stonebench_C.prefab",
+                        "bytes":  2371,
+                        "modified":  "2025-11-10T03:47:37+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Obstacle/FinishedModules/moduleprefab_1.prefab",
+                        "bytes":  75680,
+                        "modified":  "2025-12-11T23:44:32+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Environment/Env_Obstacle/FinishedObstacles/ObstacleTile_Stone_1.prefab",
+                        "bytes":  3748,
+                        "modified":  "2025-12-11T23:44:46+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/LevelUp/AttributeLinePrefab.prefab",
+                        "bytes":  5638,
+                        "modified":  "2026-01-10T01:01:01+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/LevelUp/LevelUpCardPrefab.prefab",
+                        "bytes":  26311,
+                        "modified":  "2026-01-10T01:01:01+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_legendary_front 10.prefab",
+                        "bytes":  5368,
+                        "modified":  "2025-12-31T01:06:04+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_legendary_front 11.prefab",
+                        "bytes":  5362,
+                        "modified":  "2025-12-31T01:06:04+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_legendary_front 12.prefab",
+                        "bytes":  5362,
+                        "modified":  "2025-12-31T01:06:03+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_legendary_tilted_1.prefab",
+                        "bytes":  5119,
+                        "modified":  "2025-12-31T01:06:04+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_normal_front 1.prefab",
+                        "bytes":  5362,
+                        "modified":  "2025-12-31T01:06:04+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_normal_front 2.prefab",
+                        "bytes":  5362,
+                        "modified":  "2025-12-31T01:06:04+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_normal_front 3.prefab",
+                        "bytes":  5358,
+                        "modified":  "2025-12-29T23:55:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_normal_front 4.prefab",
+                        "bytes":  5356,
+                        "modified":  "2025-12-29T23:55:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_normal_front 5.prefab",
+                        "bytes":  5359,
+                        "modified":  "2025-12-29T23:55:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_rare_front 6.prefab",
+                        "bytes":  5360,
+                        "modified":  "2025-12-29T23:55:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_rare_front 7.prefab",
+                        "bytes":  5365,
+                        "modified":  "2025-12-29T23:55:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_rare_front 8.prefab",
+                        "bytes":  5358,
+                        "modified":  "2025-12-29T23:55:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Chest/ChestPrefab/Chest_rare_front 9.prefab",
+                        "bytes":  5365,
+                        "modified":  "2025-12-29T23:55:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/GeneralSO/Prefabs/ExperienceOrbPrefab.prefab",
+                        "bytes":  3717,
+                        "modified":  "2025-12-31T09:20:50+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/GeneralSO/Prefabs/LootAltLabel.prefab",
+                        "bytes":  8199,
+                        "modified":  "2025-12-31T15:24:16+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryItems/Scriptable/Consumable/Health Potion.prefab",
+                        "bytes":  4569,
+                        "modified":  "2025-12-29T20:51:17+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryItems/Scriptable/Consumable/randomitem_1.prefab",
+                        "bytes":  4521,
+                        "modified":  "2025-12-29T23:51:58+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryItems/Scriptable/Consumable/randomitem_2.prefab",
+                        "bytes":  4521,
+                        "modified":  "2025-12-29T23:52:21+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryItems/Scriptable/Consumable/Speed Snack.prefab",
+                        "bytes":  4580,
+                        "modified":  "2025-12-29T20:51:21+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryItems/Scriptable/Consumable/Yellow Potion.prefab",
+                        "bytes":  4567,
+                        "modified":  "2025-12-29T20:51:21+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/CellPrefab.prefab",
+                        "bytes":  2232,
+                        "modified":  "2025-11-23T16:59:39+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/ContextMenuPrefab.prefab",
+                        "bytes":  35384,
+                        "modified":  "2025-12-31T12:42:23+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/ItemIconPrefab.prefab",
+                        "bytes":  7755,
+                        "modified":  "2026-01-04T18:45:39+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/MainTabButton.prefab",
+                        "bytes":  9427,
+                        "modified":  "2025-12-05T09:08:48+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/MWD_melee_1Prefab.prefab",
+                        "bytes":  4901,
+                        "modified":  "2025-12-28T13:33:40+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/Slot_0.prefab",
+                        "bytes":  21667,
+                        "modified":  "2025-12-29T21:05:29+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/TabsFrameBG.prefab",
+                        "bytes":  9526,
+                        "modified":  "2025-12-11T23:28:00+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/WeaponAnchor_0.prefab",
+                        "bytes":  5493,
+                        "modified":  "2025-12-29T11:16:32+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Lootable/Inventory/InventoryUI/Scriptable/WeaponSlotPrefab_1.prefab",
+                        "bytes":  11511,
+                        "modified":  "2025-11-29T17:35:57+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Player/Scriptable/PlayerModel.prefab",
+                        "bytes":  3974,
+                        "modified":  "2025-12-11T22:45:08+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Player/Scriptable/PlayerModel_Pixel_1.prefab",
+                        "bytes":  4007,
+                        "modified":  "2025-12-11T23:21:33+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/Projectiles/SO/ProjectileEffect_Prefab.prefab",
+                        "bytes":  2796,
+                        "modified":  "2025-12-19T11:03:41+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/UI/DamageNumberUIPrefab.prefab",
+                        "bytes":  4324,
+                        "modified":  "2025-12-08T00:19:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/UI/KeybindPanel_Gameplay.prefab",
+                        "bytes":  84241,
+                        "modified":  "2025-12-08T00:06:26+01:00"
+                    },
+                    {
+                        "path":  "Assets/_GameBundles/UI/OptionsPanel.prefab",
+                        "bytes":  62602,
+                        "modified":  "2025-12-08T00:09:00+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Examples \u0026 Extras/Prefabs/Text Popup.prefab",
+                        "bytes":  7583,
+                        "modified":  "2025-11-10T03:47:32+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Examples \u0026 Extras/Prefabs/TextMeshPro - Prefab 1.prefab",
+                        "bytes":  5797,
+                        "modified":  "2025-11-10T03:47:32+01:00"
+                    },
+                    {
+                        "path":  "Assets/Ext_Assets/TextMesh Pro/Examples \u0026 Extras/Prefabs/TextMeshPro - Prefab 2.prefab",
+                        "bytes":  5793,
+                        "modified":  "2025-11-10T03:47:32+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/GlobalBootstrap.prefab",
+                        "bytes":  21290,
+                        "modified":  "2026-01-04T13:59:38+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/PrefabModels (NonMandatory)/HUDRoot.prefab",
+                        "bytes":  266567,
+                        "modified":  "2026-01-06T20:26:34+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/PrefabModels (NonMandatory)/MenuRoot.prefab",
+                        "bytes":  654378,
+                        "modified":  "2026-01-06T20:26:38+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/PrefabModels (NonMandatory)/PopupPanels.prefab",
+                        "bytes":  38566,
+                        "modified":  "2026-01-06T22:14:40+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/Prompt/Loot_WorldItem_Manual.prefab",
+                        "bytes":  131722,
+                        "modified":  "2026-01-04T11:58:46+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/Prompt/UIWldInteractPrmpt_Storage.prefab",
+                        "bytes":  11990,
+                        "modified":  "2025-12-29T22:15:20+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/Prompt/UIWldInteractPrmpt_World.prefab",
+                        "bytes":  11988,
+                        "modified":  "2025-12-29T21:57:11+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/Prompt/UIWldPrompt_Pickup_World.prefab",
+                        "bytes":  54846,
+                        "modified":  "2026-01-05T17:21:18+01:00"
+                    },
+                    {
+                        "path":  "Assets/Resources/Bootstrap/UI/SmallRoot.prefab",
+                        "bytes":  722943,
+                        "modified":  "2026-01-05T19:52:44+01:00"
+                    }
+                ]
+}

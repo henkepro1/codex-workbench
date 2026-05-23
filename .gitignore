@@ -19,9 +19,24 @@ coverage/
 .env
 .env.*
 
+# AI workspace noise
+.ai/tmp/
+.ai/raw/
+.ai/logs/
+.ai/screenshots/
+.ai/exports/
+.ai/**/*.tmp
+.ai/**/*.log
+**/.ai/tmp/
+**/.ai/raw/
+**/.ai/logs/
+**/.ai/screenshots/
+**/.ai/exports/
+**/.ai/**/*.tmp
+**/.ai/**/*.log
+
 # Python
 __pycache__/
 *.py[cod]
 .venv/
 venv/
-

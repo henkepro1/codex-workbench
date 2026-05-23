@@ -1,0 +1,18 @@
+﻿{
+    "schema_version":  1,
+    "last_updated":  "2026-05-23T15:15:44+02:00",
+    "assets_root":  "assets",
+    "entry_shape":  {
+                        "id":  "stable descriptive identifier",
+                        "type":  "image | mockup | audio | dataset | document | other",
+                        "path":  "repo-relative path to the asset",
+                        "source":  "generated | user-provided | imported | derived",
+                        "prompt_ref":  "optional path to prompt or generation record",
+                        "created_at":  "ISO 8601 timestamp",
+                        "status":  "draft | accepted | rejected | archived",
+                        "notes":  "short useful context"
+                    },
+    "assets":  [
+
+               ]
+}

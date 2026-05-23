@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-23T11:19:20+02:00",
+  "purpose": "Token-friendly index of rules that apply before editing external/live projects linked from the workbench.",
+  "must_read_before_external_project_edits": true,
+  "global_rules": {
+    "human_entry": "rules/README.md",
+    "canonical_policy": "rules/live-project-code-rules.md"
+  },
+  "project_overlays": [
+    {
+      "slug": "brawl-survivors",
+      "overlay": "projects/brawl-survivors/rules/project-rules.md",
+      "source_rules": [],
+      "notes": "No separate top-level source rules file was found during setup."
+    },
+    {
+      "slug": "tower-heroes",
+      "overlay": "projects/tower-heroes/rules/project-rules.md",
+      "source_rules": [
+        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+      ],
+      "notes": "Existing source-side CodeRules.txt must be treated as a project-specific overlay."
+    }
+  ],
+  "priority_order": [
+    "explicit user request for the current task",
+    "project-specific source rules",
+    "project dossier rule overlay",
+    "rules/live-project-code-rules.md",
+    "AGENTS.md workflow and tracking rules"
+  ],
+  "compact_rules": [
+    "Verify project context before writing code.",
+    "Fail fast; do not hide errors, suppress exceptions, or invent defaults.",
+    "Preserve existing gameplay outcomes unless the user explicitly requests a mechanic change.",
+    "Reuse existing systems and follow the project's architecture.",
+    "No god classes; enforce SRP and one C# class per file.",
+    "Assume high load and avoid hidden hot-path costs.",
+    "Verify Unity dependency ownership, lifecycle, and editor wiring before changing dependencies.",
+    "Use direct Unity YAML edits only when narrow, inspectable, and safe; otherwise provide Editor steps.",
+    "After external edits, refresh workbench indexes, Unity context when relevant, and change records."
+  ]
+}

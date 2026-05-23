@@ -1,0 +1,176 @@
+﻿{
+    "schema_version":  1,
+    "generated_at":  "2026-05-23T14:57:25+02:00",
+    "type_count":  28,
+    "asset_file_count":  2225,
+    "types":  [
+                  {
+                      "class":  "AudioLibrary",
+                      "script":  "Assets/_Project/Scripts/Audio/AudioLibrary.cs",
+                      "menu_name":  "TD/Audio/Audio Library",
+                      "file_name":  "AudioLibrary"
+                  },
+                  {
+                      "class":  "BreezeCloudEffectProfile",
+                      "script":  "Assets/_Project/Scripts/Rendering/BreezeCloudEffectProfile.cs",
+                      "menu_name":  "TD/Rendering/Breeze Cloud Effect Profile",
+                      "file_name":  "SO_BreezeCloudEffectProfile"
+                  },
+                  {
+                      "class":  "CombatFeedbackSettings",
+                      "script":  "Assets/_Project/Scripts/Combat/CombatFeedbackSettings.cs",
+                      "menu_name":  "TD/Combat/Combat Feedback Settings",
+                      "file_name":  "CombatFeedbackSettings"
+                  },
+                  {
+                      "class":  "CombatRulesProfile",
+                      "script":  "Assets/_Project/Scripts/Combat/CombatRulesProfile.cs",
+                      "menu_name":  "TD/Combat/Combat Rules Profile",
+                      "file_name":  "SO_CombatRules"
+                  },
+                  {
+                      "class":  "CombatTypeIconDatabase",
+                      "script":  "Assets/_Project/Scripts/Combat/CombatTypeIconDatabase.cs",
+                      "menu_name":  "TD/Combat/Combat Type Icon Database",
+                      "file_name":  "CombatTypeIconDatabase"
+                  },
+                  {
+                      "class":  "CurrencyDefinition",
+                      "script":  "Assets/_Project/Scripts/Economy/CurrencyDefinition.cs",
+                      "menu_name":  "TD/Economy/Currency Definition",
+                      "file_name":  "CurrencyDefinition"
+                  },
+                  {
+                      "class":  "EnemyDeathPresentationProfile",
+                      "script":  "Assets/_Project/Scripts/Waves/EnemyDeathPresentationProfile.cs",
+                      "menu_name":  "TD/Waves/Enemy Death Presentation Profile",
+                      "file_name":  "SO_EnemyDeathPresentationProfile"
+                  },
+                  {
+                      "class":  "EnemyNavigationSettings",
+                      "script":  "Assets/_Project/Scripts/Waves/EnemyNavigationSettings.cs",
+                      "menu_name":  "TD/Waves/Enemy Navigation Settings",
+                      "file_name":  "SO_EnemyNavigationSettings"
+                  },
+                  {
+                      "class":  "EnemyPrefabCatalog",
+                      "script":  "Assets/_Project/Scripts/Waves/EnemyPrefabCatalog.cs",
+                      "menu_name":  "TD/Waves/Enemy Prefab Catalog",
+                      "file_name":  "EnemyPrefabCatalog"
+                  },
+                  {
+                      "class":  "EnemyTargetIndicatorEffectSettings",
+                      "script":  "Assets/_Project/Scripts/Combat/EnemyTargetIndicatorEffectSettings.cs",
+                      "menu_name":  "TD/Combat/Enemy Target Indicator Effect Settings",
+                      "file_name":  "SO_EnemyTargetIndicatorEffectSettings"
+                  },
+                  {
+                      "class":  "EnemyWorldHealthBarSettings",
+                      "script":  "Assets/_Project/Scripts/UI/EnemyWorldHealthBarSettings.cs",
+                      "menu_name":  "TD/UI/Enemy World Health Bar Settings",
+                      "file_name":  "SO_EnemyWorldHealthBarSettings"
+                  },
+                  {
+                      "class":  "GameplayBgmPlaylistDefinition",
+                      "script":  "Assets/_Project/Scripts/Audio/GameplayBgmPlaylistDefinition.cs",
+                      "menu_name":  "TD/Audio/Gameplay BGM Playlist",
+                      "file_name":  "SO_GameplayBgmPlaylist"
+                  },
+                  {
+                      "class":  "GoldMineEconomyProfile",
+                      "script":  "Assets/_Project/Scripts/Economy/GoldMineEconomyProfile.cs",
+                      "menu_name":  "TD/Economy/Gold Mine Economy Profile",
+                      "file_name":  "GoldMineEconomyProfile"
+                  },
+                  {
+                      "class":  "GridSettings",
+                      "script":  "Assets/_Project/Scripts/GridSystem/GridSettings.cs",
+                      "menu_name":  "TD/Grid/Grid Settings",
+                      "file_name":  "GridSettings"
+                  },
+                  {
+                      "class":  "ItemDatabase",
+                      "script":  "Assets/_Project/Scripts/Inventory/ItemDatabase.cs",
+                      "menu_name":  "TD/Inventory/Item Database",
+                      "file_name":  "ItemDatabase"
+                  },
+                  {
+                      "class":  "ItemDefinition",
+                      "script":  "Assets/_Project/Scripts/Inventory/ItemDefinition.cs",
+                      "menu_name":  "TD/Inventory/Item Definition",
+                      "file_name":  "ItemDefinition"
+                  },
+                  {
+                      "class":  "ObjectiveWorldHealthBarSettings",
+                      "script":  "Assets/_Project/Scripts/UI/ObjectiveWorldHealthBarSettings.cs",
+                      "menu_name":  "TD/UI/Objective World Health Bar Settings",
+                      "file_name":  "SO_ObjectiveWorldHealthBarSettings"
+                  },
+                  {
+                      "class":  "SelectionAudioProfile",
+                      "script":  "Assets/_Project/Scripts/Audio/SelectionAudioProfile.cs",
+                      "menu_name":  "TD/Audio/Selection Audio Profile",
+                      "file_name":  "SelectionAudioProfile"
+                  },
+                  {
+                      "class":  "SelectionFocusPriorityProfile",
+                      "script":  "Assets/_Project/Scripts/Selection/SelectionFocusPriorityProfile.cs",
+                      "menu_name":  "TD/Selection/Focus Priority Profile",
+                      "file_name":  "SO_SelectionFocusPriorityProfile"
+                  },
+                  {
+                      "class":  "SnowfallEffectProfile",
+                      "script":  "Assets/_Project/Scripts/Rendering/SnowfallEffectProfile.cs",
+                      "menu_name":  "TD/Rendering/Snowfall Effect Profile",
+                      "file_name":  "SO_SnowfallEffectProfile"
+                  },
+                  {
+                      "class":  "TowerAttackPresentationProfile",
+                      "script":  "Assets/_Project/Scripts/Combat/TowerAttackPresentationProfile.cs",
+                      "menu_name":  "TD/Combat/Tower Attack Presentation Profile",
+                      "file_name":  "TowerAttackPresentationProfile"
+                  },
+                  {
+                      "class":  "TowerCombatProfile",
+                      "script":  "Assets/_Project/Scripts/Entities/Towers/TowerCombatProfile.cs",
+                      "menu_name":  "TD/Towers/Tower Combat Profile",
+                      "file_name":  "TowerCombatProfile"
+                  },
+                  {
+                      "class":  "TowerDefinition",
+                      "script":  "Assets/_Project/Scripts/Entities/Towers/TowerDefinition.cs",
+                      "menu_name":  "TD/Towers/Tower Definition",
+                      "file_name":  "TowerDefinition"
+                  },
+                  {
+                      "class":  "TowerPrefabCatalog",
+                      "script":  "Assets/_Project/Scripts/Entities/Towers/TowerPrefabCatalog.cs",
+                      "menu_name":  "TD/Towers/Tower Prefab Catalog",
+                      "file_name":  "TowerPrefabCatalog"
+                  },
+                  {
+                      "class":  "TowerTargetPriorityIconDatabase",
+                      "script":  "Assets/_Project/Scripts/UI/TowerTargetPriorityIconDatabase.cs",
+                      "menu_name":  "TD/UI/Tower Target Priority Icon Database",
+                      "file_name":  "SO_TowerTargetPriorityIconDatabase"
+                  },
+                  {
+                      "class":  "UIScaleDatabase",
+                      "script":  "Assets/_Project/Scripts/UI/UIScaleDatabase.cs",
+                      "menu_name":  "TD/UI/UI Scale Database",
+                      "file_name":  "UIScaleDatabase"
+                  },
+                  {
+                      "class":  "WaveDefinition",
+                      "script":  "Assets/_Project/Scripts/Waves/WaveDefinition.cs",
+                      "menu_name":  "TD/Waves/Wave Definition",
+                      "file_name":  "WaveDefinition"
+                  },
+                  {
+                      "class":  "WaveSetDefinition",
+                      "script":  "Assets/_Project/Scripts/Waves/WaveSetDefinition.cs",
+                      "menu_name":  "TD/Waves/Wave Set Definition",
+                      "file_name":  "WaveSetDefinition"
+                  }
+              ]
+}

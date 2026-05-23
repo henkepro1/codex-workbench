@@ -1,0 +1,121 @@
+﻿{
+    "schema_version":  1,
+    "generated_at":  "2026-05-23T14:57:25+02:00",
+    "engine":  "unity",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "unity_version":  "2022.3.62f1",
+    "unity_revision":  "2022.3.62f1 (4af31df58517)",
+    "paths":  {
+                  "settings":  "projects/tower-heroes/.ai/engine/unity/settings.json",
+                  "scenes":  "projects/tower-heroes/.ai/engine/unity/scenes.json",
+                  "prefabs":  "projects/tower-heroes/.ai/engine/unity/prefabs.json",
+                  "scriptable_objects":  "projects/tower-heroes/.ai/engine/unity/scriptable-objects.json",
+                  "shaders":  "projects/tower-heroes/.ai/engine/unity/shaders.json",
+                  "hierarchy_sources":  "projects/tower-heroes/.ai/engine/unity/hierarchy-sources.json"
+              },
+    "counts":  {
+                   "packages":  43,
+                   "package_lock_entries":  62,
+                   "scenes":  38,
+                   "build_scenes":  2,
+                   "prefabs":  50,
+                   "scriptable_object_types":  28,
+                   "shaders":  16,
+                   "hierarchy_sources":  1
+               },
+    "asset_extension_counts":  [
+                                   {
+                                       "extension":  ".anim",
+                                       "count":  258
+                                   },
+                                   {
+                                       "extension":  ".asset",
+                                       "count":  2225
+                                   },
+                                   {
+                                       "extension":  ".cginc",
+                                       "count":  4
+                                   },
+                                   {
+                                       "extension":  ".controller",
+                                       "count":  55
+                                   },
+                                   {
+                                       "extension":  ".cs",
+                                       "count":  353
+                                   },
+                                   {
+                                       "extension":  ".inputactions",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".jpg",
+                                       "count":  10
+                                   },
+                                   {
+                                       "extension":  ".json",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".mat",
+                                       "count":  25
+                                   },
+                                   {
+                                       "extension":  ".meta",
+                                       "count":  4770
+                                   },
+                                   {
+                                       "extension":  ".mixer",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".mp3",
+                                       "count":  4
+                                   },
+                                   {
+                                       "extension":  ".pdf",
+                                       "count":  2
+                                   },
+                                   {
+                                       "extension":  ".PNG",
+                                       "count":  1290
+                                   },
+                                   {
+                                       "extension":  ".prefab",
+                                       "count":  50
+                                   },
+                                   {
+                                       "extension":  ".psd",
+                                       "count":  6
+                                   },
+                                   {
+                                       "extension":  ".scenetemplate",
+                                       "count":  1
+                                   },
+                                   {
+                                       "extension":  ".shader",
+                                       "count":  16
+                                   },
+                                   {
+                                       "extension":  ".ttf",
+                                       "count":  8
+                                   },
+                                   {
+                                       "extension":  ".txt",
+                                       "count":  24
+                                   },
+                                   {
+                                       "extension":  ".unity",
+                                       "count":  38
+                                   },
+                                   {
+                                       "extension":  ".wav",
+                                       "count":  65
+                                   },
+                                   {
+                                       "extension":  ".zip",
+                                       "count":  17
+                                   }
+                               ],
+    "refresh_policy":  "Refresh after Unity-relevant code, scene, prefab, ScriptableObject, shader, layer, or settings changes."
+}

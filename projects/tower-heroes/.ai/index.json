@@ -1,0 +1,60 @@
+﻿{
+    "schema_version":  1,
+    "slug":  "tower-heroes",
+    "title":  "Tower Heroes",
+    "status":  "active",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "created_at":  "2026-05-23T11:01:02+02:00",
+    "last_updated":  "2026-05-23T15:07:38+02:00",
+    "human_map":  {
+                      "readme":  "projects/tower-heroes/README.md",
+                      "overview":  "projects/tower-heroes/map/overview.md",
+                      "source":  "projects/tower-heroes/map/source.md",
+                      "workflow":  "projects/tower-heroes/map/workflow.md",
+                      "assets":  "projects/tower-heroes/map/assets.md",
+                      "rules":  "projects/tower-heroes/rules/project-rules.md"
+                  },
+    "ai_paths":  {
+                     "assets_manifest":  "projects/tower-heroes/.ai/assets/index.json",
+                     "sessions":  "projects/tower-heroes/.ai/sessions",
+                     "attempts":  "projects/tower-heroes/.ai/attempts",
+                     "generations":  "projects/tower-heroes/.ai/generations",
+                     "prompts":  "projects/tower-heroes/.ai/prompts",
+                     "summaries":  "projects/tower-heroes/.ai/summaries",
+                     "changes":  "projects/tower-heroes/.ai/changes",
+                     "engine":  "projects/tower-heroes/.ai/engine",
+                     "unity_context":  "projects/tower-heroes/.ai/engine/unity/index.json",
+                     "feedback":  "projects/tower-heroes/.ai/feedback/index.json",
+                     "handoffs":  "projects/tower-heroes/.ai/handoffs/index.json",
+                     "summary":  "projects/tower-heroes/.ai/summary.md"
+                 },
+    "active_session":  null,
+    "kind":  "unity",
+    "default_source_root":  "D:\\GameProjects",
+    "rules":  {
+                  "global_index":  ".ai/rules/index.json",
+                  "global_policy":  "rules/live-project-code-rules.md",
+                  "project_overlay":  "projects/tower-heroes/rules/project-rules.md",
+                  "source_rules":  [
+                                       "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+                                   ],
+                  "must_read_before_external_edits":  true
+              },
+    "counts":  {
+                   "assets":  0,
+                   "sessions":  0,
+                   "attempts":  0,
+                   "generations":  0,
+                   "prompts":  0,
+                   "summaries":  0,
+                   "changes":  3,
+                   "engine_context_files":  7,
+                   "feedback":  0,
+                   "handoffs":  0
+               },
+    "notes":  [
+                  "Read this file before scanning the project dossier or linked source path.",
+                  "Keep detailed session documentation in timestamped session files only when explicitly requested.",
+                  "Unity engine context lives under projects/tower-heroes/.ai/engine/unity/."
+              ]
+}
