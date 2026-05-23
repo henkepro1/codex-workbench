@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T15:15:44+02:00",
+    "last_updated":  "2026-05-23T15:45:12+02:00",
     "workspace":  {
                       "name":  "codex-workbench",
                       "purpose":  "Lean solo developer workbench for Codex-assisted projects, assets, prompts, and workflow experiments.",
@@ -52,7 +52,9 @@
                            ".ai/decisions/index.json",
                            ".ai/integrations/unity-mcp.json",
                            ".ai/recommendations/index.json",
-                           "cheatsheets/recommendations.md"
+                           "cheatsheets/recommendations.md",
+                           ".ai/retrieval/index.json",
+                           "cheatsheets/retrieval-strategies.md"
                        ],
     "paths":  {
                   "assets_manifest":  ".ai/assets/index.json",
@@ -70,7 +72,8 @@
                   "decisions_index":  ".ai/decisions/index.json",
                   "integrations_index":  ".ai/integrations/index.json",
                   "handoffs_index":  ".ai/handoffs/index.json",
-                  "recommendations_index":  ".ai/recommendations/index.json"
+                  "recommendations_index":  ".ai/recommendations/index.json",
+                  "retrieval_index":  ".ai/retrieval/index.json"
               },
     "file_counts":  {
                         "assets":  0,
@@ -81,9 +84,10 @@
                         "summaries":  1,
                         "project_dossiers":  2,
                         "feedback_notes":  0,
-                        "decisions":  1,
+                        "decisions":  2,
                         "handoffs":  0,
-                        "recommendations":  11
+                        "recommendations":  12,
+                        "retrieval_strategies":  3
                     },
     "notes":  [
                   "Use this file as the first compact map before scanning the workspace.",

@@ -60,6 +60,14 @@ Use when the user is retrying a failed/stalled task or references previous faile
 
 Impact: reads attempts and recent changes. Writes a new attempt note only if the new attempt fails, stalls, or reveals useful "do not retry" context.
 
+### Retrieval Strategy
+
+Suggest: `@wb:retrieval-plan`
+
+Use when the request is broad, architectural, multi-file, history-oriented, fuzzy, or unclear enough that retrieval strategy affects cost or quality.
+
+Impact: reads retrieval policy and project scope, then proposes `grep_and_index`, `rag_semantic`, or `hybrid`. It does not write external project files. If RAG is not configured, Codex must say so and use grep/index fallback unless `@wb:rag-setup` is explicitly invoked.
+
 ### Persistent Preference
 
 Suggest: `$remember`

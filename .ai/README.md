@@ -8,4 +8,4 @@ Real game project sources usually live under `D:\GameProjects`; this workbench s
 
 Keep bulky raw files in ignored folders such as `.ai/tmp/`, `.ai/raw/`, `.ai/logs/`, `.ai/screenshots/`, and `.ai/exports/`.
 
-Use `.ai/feedback/` for persistent user preferences and corrections, `.ai/decisions/` for durable decisions, `.ai/workflows/` for macro-code indexes, `.ai/recommendations/` for optional workflow suggestion routing, and `.ai/handoffs/` for manual lightweight handoff notes.
+Use `.ai/feedback/` for persistent user preferences and corrections, `.ai/decisions/` for durable decisions, `.ai/workflows/` for macro-code indexes, `.ai/recommendations/` for optional workflow suggestion routing, `.ai/retrieval/` for retrieval strategy policy, and `.ai/handoffs/` for manual lightweight handoff notes.

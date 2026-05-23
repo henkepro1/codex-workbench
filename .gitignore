@@ -23,6 +23,7 @@ coverage/
 .ai/tmp/
 .ai/raw/
 .ai/logs/
+.ai/retrieval/rag/
 .ai/screenshots/
 .ai/exports/
 .ai/**/*.tmp
@@ -30,6 +31,7 @@ coverage/
 **/.ai/tmp/
 **/.ai/raw/
 **/.ai/logs/
+**/.ai/retrieval/rag/
 **/.ai/screenshots/
 **/.ai/exports/
 **/.ai/**/*.tmp

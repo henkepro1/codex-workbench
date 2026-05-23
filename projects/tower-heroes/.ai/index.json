@@ -5,7 +5,7 @@
     "status":  "active",
     "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
     "created_at":  "2026-05-23T11:01:02+02:00",
-    "last_updated":  "2026-05-23T15:07:38+02:00",
+    "last_updated":  "2026-05-23T15:45:03+02:00",
     "human_map":  {
                       "readme":  "projects/tower-heroes/README.md",
                       "overview":  "projects/tower-heroes/map/overview.md",
@@ -26,7 +26,8 @@
                      "unity_context":  "projects/tower-heroes/.ai/engine/unity/index.json",
                      "feedback":  "projects/tower-heroes/.ai/feedback/index.json",
                      "handoffs":  "projects/tower-heroes/.ai/handoffs/index.json",
-                     "summary":  "projects/tower-heroes/.ai/summary.md"
+                     "summary":  "projects/tower-heroes/.ai/summary.md",
+                     "scope":  "projects/tower-heroes/.ai/scope.json"
                  },
     "active_session":  null,
     "kind":  "unity",

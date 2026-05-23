@@ -113,6 +113,10 @@ if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "summary")) 
     $projectIndex.ai_paths | Add-Member -NotePropertyName "summary" -NotePropertyValue "projects/$Slug/.ai/summary.md"
 }
 
+if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "scope")) {
+    $projectIndex.ai_paths | Add-Member -NotePropertyName "scope" -NotePropertyValue "projects/$Slug/.ai/scope.json"
+}
+
 if ($CheckOnly) {
     Write-Output "OK: project index is valid for $Slug"
     Write-Output "Assets: $($projectIndex.counts.assets)"
@@ -127,6 +131,8 @@ $assetIndex.last_updated = $now
 
 $projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $projectIndexPath -Encoding UTF8
 $assetIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $assetIndexPath -Encoding UTF8
+
+& (Join-Path $PSScriptRoot "update-project-scope.ps1") -Slug $Slug | Out-Null
 
 if (Test-Path -LiteralPath $registryPath) {
     $registry = Read-JsonFile -Path $registryPath

@@ -24,6 +24,12 @@ Impact: may create or update files under `projects/<slug>/` and `.ai/projects/in
 
 Before external project edits, it should load `.ai/rules/index.json` and the selected project's `rules/project-rules.md`.
 
+## `$retrieval-router`
+
+Use when you want Codex to choose or explain the retrieval strategy for a non-trivial task.
+
+Impact: reads `.ai/retrieval/index.json`, project indexes, and `projects/<slug>/.ai/scope.json`; prints a retrieval plan. It does not edit external projects.
+
 ## `$project-session`
 
 Use when you explicitly want a documented work session with start/progress/result notes.

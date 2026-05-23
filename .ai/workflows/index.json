@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-05-23T15:00:31+02:00",
+  "last_updated": "2026-05-23T15:45:00+02:00",
   "purpose": "Token-friendly registry of explicit @wb workflow macro codes.",
   "human_cheatsheet": "cheatsheets/workflow-codes.md",
   "skill": "workbench-macro",
@@ -67,6 +67,24 @@
       "may_touch_external_source": "depends_on_requested_recovery",
       "tracking": ["write attempt note only on failure/stall/reusable lesson"],
       "notes": "Read project attempts and recent changes before making another attempt."
+    },
+    {
+      "code": "@wb:retrieval-plan",
+      "requires": ["Project", "Task"],
+      "optional": ["Force-Strategy"],
+      "skills": ["retrieval-router", "project-dossier"],
+      "may_touch_external_source": false,
+      "tracking": ["read retrieval policy", "read project scope", "print retrieval plan"],
+      "notes": "Plans grep/index, RAG, or hybrid retrieval before non-trivial work. Does not edit project files."
+    },
+    {
+      "code": "@wb:rag-setup",
+      "requires": ["Project"],
+      "optional": ["Provider"],
+      "skills": ["retrieval-router"],
+      "may_touch_external_source": false,
+      "tracking": ["future explicit setup gate for notes-only vector index"],
+      "notes": "Documents and gates future RAG setup. It must not install dependencies or build vectors unless explicitly confirmed in that setup flow."
     },
     {
       "code": "@wb:session-start",

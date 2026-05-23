@@ -1,0 +1,119 @@
+﻿{
+    "schema_version":  1,
+    "last_updated":  "2026-05-23T15:45:12+02:00",
+    "project":  "brawl-survivors",
+    "source_path":  "D:\\GameProjects\\BrawlSurvivors (2)\\BrawlSurvivors (2)\\BrawlSurvivors\\BrawlSurvivors",
+    "source_exists":  true,
+    "authored_source":  {
+                            "file_count":  1061,
+                            "csharp_files":  541,
+                            "csharp_loc":  44865,
+                            "size_class":  "medium",
+                            "extension_counts":  [
+                                                     {
+                                                         "extension":  ".anim",
+                                                         "count":  19
+                                                     },
+                                                     {
+                                                         "extension":  ".asmdef",
+                                                         "count":  1
+                                                     },
+                                                     {
+                                                         "extension":  ".asset",
+                                                         "count":  189
+                                                     },
+                                                     {
+                                                         "extension":  ".cginc",
+                                                         "count":  4
+                                                     },
+                                                     {
+                                                         "extension":  ".controller",
+                                                         "count":  12
+                                                     },
+                                                     {
+                                                         "extension":  ".cs",
+                                                         "count":  541
+                                                     },
+                                                     {
+                                                         "extension":  ".hlsl",
+                                                         "count":  1
+                                                     },
+                                                     {
+                                                         "extension":  ".inputactions",
+                                                         "count":  1
+                                                     },
+                                                     {
+                                                         "extension":  ".json",
+                                                         "count":  97
+                                                     },
+                                                     {
+                                                         "extension":  ".mat",
+                                                         "count":  41
+                                                     },
+                                                     {
+                                                         "extension":  ".md",
+                                                         "count":  4
+                                                     },
+                                                     {
+                                                         "extension":  ".prefab",
+                                                         "count":  71
+                                                     },
+                                                     {
+                                                         "extension":  ".shader",
+                                                         "count":  25
+                                                     },
+                                                     {
+                                                         "extension":  ".shadergraph",
+                                                         "count":  4
+                                                     },
+                                                     {
+                                                         "extension":  ".txt",
+                                                         "count":  12
+                                                     },
+                                                     {
+                                                         "extension":  ".unity",
+                                                         "count":  39
+                                                     }
+                                                 ],
+                            "excluded_dirs":  [
+                                                  "Library",
+                                                  "Temp",
+                                                  "Logs",
+                                                  "obj",
+                                                  "bin",
+                                                  "Build",
+                                                  "Builds",
+                                                  "PackageCache",
+                                                  ".git",
+                                                  ".vs"
+                                              ]
+                        },
+    "engine_assets":  {
+                          "engine":  "unity",
+                          "scenes":  39,
+                          "prefabs":  71,
+                          "scriptable_objects":  67,
+                          "shaders":  29,
+                          "packages":  58
+                      },
+    "notes_corpus":  {
+                         "total_records":  8,
+                         "counts":  {
+                                        "attempts":  0,
+                                        "decisions":  2,
+                                        "feedback":  0,
+                                        "sessions":  0,
+                                        "handoffs":  0,
+                                        "changes":  2,
+                                        "summaries":  0,
+                                        "maps":  4
+                                    },
+                         "rag_candidate":  false
+                     },
+    "retrieval":  {
+                      "default_strategy":  "grep_and_index",
+                      "source_code_strategy":  "grep_and_index",
+                      "memory_strategy":  "grep_and_index_until_rag_setup",
+                      "rag_status":  "setup_required"
+                  }
+}

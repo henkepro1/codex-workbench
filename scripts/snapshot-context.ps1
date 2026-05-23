@@ -112,6 +112,7 @@ if ($Bootstrap) {
     $projectsIndex = Read-JsonIfExists -Path (Join-Path $root ".ai\projects\index.json")
     $workflowIndex = Read-JsonIfExists -Path (Join-Path $root ".ai\workflows\index.json")
     $recommendationIndex = Read-JsonIfExists -Path (Join-Path $root ".ai\recommendations\index.json")
+    $retrievalIndex = Read-JsonIfExists -Path (Join-Path $root ".ai\retrieval\index.json")
 
     Write-Output "# Codex Workbench Bootstrap"
     Write-Output ""
@@ -128,6 +129,7 @@ if ($Bootstrap) {
     Write-Output "- .ai/projects/index.json"
     Write-Output "- .ai/workflows/index.json when using @wb macros"
     Write-Output "- .ai/recommendations/index.json for optional workflow suggestions"
+    Write-Output "- .ai/retrieval/index.json before non-trivial retrieval planning"
     Write-Output "- .ai/rules/index.json before external project edits"
     Write-Output "- projects/<slug>/.ai/index.json before project work"
     Write-Output ""
@@ -168,6 +170,18 @@ if ($Bootstrap) {
     }
     Write-Output ""
 
+    Write-Output "## Retrieval"
+    if ($retrievalIndex) {
+        Write-Output "- Default: $($retrievalIndex.default_strategy)"
+        foreach ($strategy in @($retrievalIndex.strategies)) {
+            Write-Output "- $($strategy.id): $($strategy.status), cost $($strategy.cost)"
+        }
+    }
+    else {
+        Write-Output "None."
+    }
+    Write-Output ""
+
     Write-RecentJsonEntries -Title "Global Feedback" -Path (Join-Path $root ".ai\feedback\index.json") -Property "entries" -Count $RecentCount
     Write-RecentJsonEntries -Title "Decisions" -Path (Join-Path $root ".ai\decisions\index.json") -Property "decisions" -Count $RecentCount
     Write-RecentMarkdown -Title "Recent Root Attempts" -Path (Join-Path $root ".ai\attempts") -Count $RecentCount
@@ -189,6 +203,21 @@ if ($Bootstrap) {
         }
         else {
             Write-Output "Missing project index for $projectSlug."
+        }
+        Write-Output ""
+
+        Write-Output "## Project Scope"
+        $scope = Read-JsonIfExists -Path (Join-Path $projectRoot ".ai\scope.json")
+        if ($scope) {
+            Write-Output "- Size: $($scope.authored_source.size_class)"
+            Write-Output "- Authored files: $($scope.authored_source.file_count)"
+            Write-Output "- C# LOC: $($scope.authored_source.csharp_loc)"
+            Write-Output "- Notes records: $($scope.notes_corpus.total_records)"
+            Write-Output "- Source strategy: $($scope.retrieval.source_code_strategy)"
+            Write-Output "- Memory strategy: $($scope.retrieval.memory_strategy)"
+        }
+        else {
+            Write-Output "No project scope found."
         }
         Write-Output ""
 
@@ -242,6 +271,7 @@ $files = @(
     ".ai/rules/index.json",
     ".ai/workflows/index.json",
     ".ai/recommendations/index.json",
+    ".ai/retrieval/index.json",
     ".ai/feedback/index.json",
     ".ai/decisions/index.json",
     ".ai/summaries/workspace-summary.md",
@@ -249,6 +279,7 @@ $files = @(
     "rules/live-project-code-rules.md",
     "cheatsheets/workflow-codes.md",
     "cheatsheets/recommendations.md",
+    "cheatsheets/retrieval-strategies.md",
     "README.md",
     "docs/workflow.md",
     "docs/ideas.md"
@@ -267,6 +298,7 @@ if (-not [string]::IsNullOrWhiteSpace($Slug)) {
         "projects/$projectSlug/rules/project-rules.md",
         "projects/$projectSlug/.ai/summary.md",
         "projects/$projectSlug/.ai/index.json",
+        "projects/$projectSlug/.ai/scope.json",
         "projects/$projectSlug/.ai/feedback/index.json",
         "projects/$projectSlug/.ai/assets/index.json",
         "projects/$projectSlug/.ai/engine/unity/index.json",

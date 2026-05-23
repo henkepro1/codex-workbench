@@ -1,0 +1,103 @@
+﻿{
+    "schema_version":  1,
+    "last_updated":  "2026-05-23T15:45:10+02:00",
+    "project":  "tower-heroes",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "source_exists":  true,
+    "authored_source":  {
+                            "file_count":  3080,
+                            "csharp_files":  353,
+                            "csharp_loc":  67966,
+                            "size_class":  "medium",
+                            "extension_counts":  [
+                                                     {
+                                                         "extension":  ".anim",
+                                                         "count":  258
+                                                     },
+                                                     {
+                                                         "extension":  ".asset",
+                                                         "count":  2249
+                                                     },
+                                                     {
+                                                         "extension":  ".cginc",
+                                                         "count":  4
+                                                     },
+                                                     {
+                                                         "extension":  ".controller",
+                                                         "count":  55
+                                                     },
+                                                     {
+                                                         "extension":  ".cs",
+                                                         "count":  353
+                                                     },
+                                                     {
+                                                         "extension":  ".inputactions",
+                                                         "count":  1
+                                                     },
+                                                     {
+                                                         "extension":  ".json",
+                                                         "count":  5
+                                                     },
+                                                     {
+                                                         "extension":  ".mat",
+                                                         "count":  25
+                                                     },
+                                                     {
+                                                         "extension":  ".prefab",
+                                                         "count":  50
+                                                     },
+                                                     {
+                                                         "extension":  ".shader",
+                                                         "count":  16
+                                                     },
+                                                     {
+                                                         "extension":  ".txt",
+                                                         "count":  26
+                                                     },
+                                                     {
+                                                         "extension":  ".unity",
+                                                         "count":  38
+                                                     }
+                                                 ],
+                            "excluded_dirs":  [
+                                                  "Library",
+                                                  "Temp",
+                                                  "Logs",
+                                                  "obj",
+                                                  "bin",
+                                                  "Build",
+                                                  "Builds",
+                                                  "PackageCache",
+                                                  ".git",
+                                                  ".vs"
+                                              ]
+                        },
+    "engine_assets":  {
+                          "engine":  "unity",
+                          "scenes":  38,
+                          "prefabs":  50,
+                          "scriptable_objects":  28,
+                          "shaders":  16,
+                          "packages":  43
+                      },
+    "notes_corpus":  {
+                         "total_records":  9,
+                         "counts":  {
+                                        "attempts":  0,
+                                        "decisions":  2,
+                                        "feedback":  0,
+                                        "sessions":  0,
+                                        "handoffs":  0,
+                                        "changes":  3,
+                                        "summaries":  0,
+                                        "maps":  4
+                                    },
+                         "rag_candidate":  false
+                     },
+    "retrieval":  {
+                      "default_strategy":  "grep_and_index",
+                      "source_code_strategy":  "grep_and_index",
+                      "memory_strategy":  "grep_and_index_until_rag_setup",
+                      "rag_status":  "setup_required"
+                  }
+}

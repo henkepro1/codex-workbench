@@ -84,7 +84,7 @@ if (-not ($index.workspace.PSObject.Properties.Name -contains "default_external_
 }
 
 $importantDocs = @($index.important_docs)
-foreach ($docPath in @("rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/impact-guide.md", "docs/ideas.md")) {
+foreach ($docPath in @("rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/retrieval/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/retrieval-strategies.md", "cheatsheets/impact-guide.md", "docs/ideas.md")) {
     if ($importantDocs -notcontains $docPath) {
         $importantDocs += $docPath
     }
@@ -94,6 +94,7 @@ $index.important_docs = @($importantDocs)
 Ensure-Property -Object $index.paths -Name "rules_index" -Value ".ai/rules/index.json"
 Ensure-Property -Object $index.paths -Name "workflows_index" -Value ".ai/workflows/index.json"
 Ensure-Property -Object $index.paths -Name "recommendations_index" -Value ".ai/recommendations/index.json"
+Ensure-Property -Object $index.paths -Name "retrieval_index" -Value ".ai/retrieval/index.json"
 Ensure-Property -Object $index.paths -Name "feedback_index" -Value ".ai/feedback/index.json"
 Ensure-Property -Object $index.paths -Name "decisions_index" -Value ".ai/decisions/index.json"
 Ensure-Property -Object $index.paths -Name "integrations_index" -Value ".ai/integrations/index.json"
@@ -117,10 +118,18 @@ if (Test-Path -LiteralPath $recommendationIndexPath) {
         $recommendationCount = @($recommendationIndex.categories).Count
     }
 }
+$retrievalIndexPath = Join-Path $aiRoot "retrieval\index.json"
+$retrievalStrategyCount = 0
+if (Test-Path -LiteralPath $retrievalIndexPath) {
+    $retrievalIndex = Read-JsonFile -Path $retrievalIndexPath
+    if ($retrievalIndex.PSObject.Properties.Name -contains "strategies") {
+        $retrievalStrategyCount = @($retrievalIndex.strategies).Count
+    }
+}
 $humanAssetCount = @(Get-ChildItem -LiteralPath (Join-Path $root "assets") -File -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne ".gitkeep" }).Count
 $projectCount = @($projectsIndex.projects).Count
 
-foreach ($countName in @("assets", "generation_records", "prompt_records", "attempt_notes", "task_notes", "summaries", "feedback_notes", "decisions", "handoffs", "recommendations", "project_dossiers")) {
+foreach ($countName in @("assets", "generation_records", "prompt_records", "attempt_notes", "task_notes", "summaries", "feedback_notes", "decisions", "handoffs", "recommendations", "retrieval_strategies", "project_dossiers")) {
     if (-not ($index.file_counts.PSObject.Properties.Name -contains $countName)) {
         $index.file_counts | Add-Member -NotePropertyName $countName -NotePropertyValue 0
     }
@@ -138,6 +147,7 @@ $index.file_counts.feedback_notes = $feedbackCount
 $index.file_counts.decisions = $decisionCount
 $index.file_counts.handoffs = $handoffCount
 $index.file_counts.recommendations = $recommendationCount
+$index.file_counts.retrieval_strategies = $retrievalStrategyCount
 $index.file_counts.project_dossiers = $projectCount
 
 if ($CheckOnly) {

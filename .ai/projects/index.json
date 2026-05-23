@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T15:15:44+02:00",
+    "last_updated":  "2026-05-23T15:45:12+02:00",
     "projects_root":  "projects",
     "projects":  [
                      {
@@ -12,7 +12,7 @@
                          "path":  "projects/brawl-survivors",
                          "index":  "projects/brawl-survivors/.ai/index.json",
                          "created_at":  "2026-05-23T11:01:21+02:00",
-                         "last_updated":  "2026-05-23T15:05:51+02:00"
+                         "last_updated":  "2026-05-23T15:45:03+02:00"
                      },
                      {
                          "slug":  "tower-heroes",
@@ -23,7 +23,7 @@
                          "path":  "projects/tower-heroes",
                          "index":  "projects/tower-heroes/.ai/index.json",
                          "created_at":  "2026-05-23T11:01:02+02:00",
-                         "last_updated":  "2026-05-23T15:07:32+02:00"
+                         "last_updated":  "2026-05-23T15:45:03+02:00"
                      }
                  ]
 }

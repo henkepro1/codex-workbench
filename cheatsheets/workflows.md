@@ -5,6 +5,8 @@ Use @wb:bugfix-live for a bundled live-project bugfix workflow.
 Use @wb:cleanup-live for targeted live-project cleanup/refactor.
 Use @wb:artgen-project for project-matching raster art generation.
 Use @wb:unity-mcp-setup to install or repair Unity MCP integration.
+Use @wb:retrieval-plan to choose grep/index, RAG, or hybrid retrieval before non-trivial work.
+Use @wb:rag-setup only when explicitly preparing notes-only RAG infrastructure.
 Use @wb:handoff to create a lightweight handoff note.
 Use $project-dossier to create a dossier for <project name> linked to <source path>.
 Use $unity-context to refresh the Unity context for <project-slug>.
@@ -41,6 +43,24 @@ Command:
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\scan-unity-context.ps1 -Slug "<project-slug>"
 ```
+
+## Plan Retrieval
+
+Prompt:
+
+```text
+@wb:retrieval-plan
+Project: <project-slug>
+Task: <task to plan retrieval for>
+```
+
+Command:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\plan-retrieval.ps1 -Slug "<project-slug>" -Task "<task to plan retrieval for>"
+```
+
+Use this for broad, fuzzy, architectural, history-oriented, or unclear tasks. Skip it for exact files, symbols, stack traces, compile errors, and obvious one-file work.
 
 ## Request A Project Code Change
 

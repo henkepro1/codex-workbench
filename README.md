@@ -26,5 +26,6 @@ A clean local workspace for building with Codex, VS Code, and Git.
 8. Use `rules/README.md` before asking Codex to change a linked live project.
 9. Use explicit `@wb:` workflow codes from `cheatsheets/workflow-codes.md` when you want a bundled macro workflow.
 10. Let Codex suggest optional workflows using `cheatsheets/recommendations.md` when they add value.
-11. Use `docs/ideas.md` as the human-facing inbox for ideas to revisit later.
-12. Use `scripts/snapshot-context.ps1 -Bootstrap` for a compact startup block.
+11. Use `cheatsheets/retrieval-strategies.md` when deciding between grep/index, RAG, or hybrid retrieval.
+12. Use `docs/ideas.md` as the human-facing inbox for ideas to revisit later.
+13. Use `scripts/snapshot-context.ps1 -Bootstrap` for a compact startup block.

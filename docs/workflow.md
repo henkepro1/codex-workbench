@@ -113,6 +113,18 @@ Refresh a project index:
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts\update-project-index.ps1 -Slug "my-project"
 ```
 
+Refresh project scope:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\update-project-scope.ps1 -Slug "my-project"
+```
+
+Plan retrieval for a non-trivial task:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\plan-retrieval.ps1 -Slug "my-project" -Task "Refactor enemy spawning across game modes"
+```
+
 Refresh Unity context:
 
 ```powershell

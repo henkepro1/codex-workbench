@@ -193,6 +193,7 @@ $projectIndex = [pscustomobject]@{
         feedback = "projects/$Slug/.ai/feedback/index.json"
         handoffs = "projects/$Slug/.ai/handoffs/index.json"
         summary = "projects/$Slug/.ai/summary.md"
+        scope = "projects/$Slug/.ai/scope.json"
     }
     active_session = $null
     kind = $Kind
@@ -242,6 +243,50 @@ foreach ($directory in $extraDirectories) {
 }
 
 $projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $projectAi "index.json") -Encoding UTF8
+
+[pscustomobject]@{
+    schema_version = 1
+    last_updated = $now
+    project = $Slug
+    source_path = $sourceJson
+    source_exists = $false
+    authored_source = [pscustomobject]@{
+        file_count = 0
+        csharp_files = 0
+        csharp_loc = 0
+        size_class = "small"
+        extension_counts = @()
+        excluded_dirs = @("Library", "Temp", "Logs", "obj", "bin", "Build", "Builds", "PackageCache", ".git", ".vs")
+    }
+    engine_assets = [pscustomobject]@{
+        engine = $Kind
+        scenes = 0
+        prefabs = 0
+        scriptable_objects = 0
+        shaders = 0
+        packages = 0
+    }
+    notes_corpus = [pscustomobject]@{
+        total_records = 0
+        counts = [pscustomobject]@{
+            attempts = 0
+            decisions = 0
+            feedback = 0
+            sessions = 0
+            handoffs = 0
+            changes = 0
+            summaries = 0
+            maps = 0
+        }
+        rag_candidate = $false
+    }
+    retrieval = [pscustomobject]@{
+        default_strategy = "grep_and_index"
+        source_code_strategy = "grep_and_index"
+        memory_strategy = "grep_and_index_until_rag_setup"
+        rag_status = "setup_required"
+    }
+} | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $projectAi "scope.json") -Encoding UTF8
 
 $assetIndex = [pscustomobject]@{
     schema_version = 1
@@ -407,6 +452,10 @@ if (-not $found) {
 $registry.projects = @($updatedProjects | Sort-Object slug)
 $registry.last_updated = $now
 $registry | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $registryPath -Encoding UTF8
+
+if (-not [string]::IsNullOrWhiteSpace($SourcePath) -and (Test-Path -LiteralPath $SourcePath)) {
+    & (Join-Path $PSScriptRoot "update-project-scope.ps1") -Slug $Slug | Out-Null
+}
 
 & (Join-Path $PSScriptRoot "update-ai-index.ps1") | Out-Null
 

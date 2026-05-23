@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-23T15:45:00+02:00",
+  "purpose": "Routing policy for choosing grep/index, RAG, or hybrid context retrieval before non-trivial work.",
+  "default_strategy": "grep_and_index",
+  "human_cheatsheet": "cheatsheets/retrieval-strategies.md",
+  "planner_script": "scripts/plan-retrieval.ps1",
+  "scope_script": "scripts/update-project-scope.ps1",
+  "strategies": [
+    {
+      "id": "grep_and_index",
+      "status": "available",
+      "good_for": [
+        "exact symbol lookup",
+        "known file paths",
+        "compile errors",
+        "stack traces",
+        "single-file edits",
+        "source code search"
+      ],
+      "tools": [
+        "rg",
+        "project indexes",
+        "Unity context indexes",
+        "focused file reads"
+      ],
+      "cost": "low",
+      "side_effects": "read-only"
+    },
+    {
+      "id": "rag_semantic",
+      "status": "setup_required",
+      "good_for": [
+        "natural-language history queries",
+        "fuzzy concept lookup over notes",
+        "previous attempts",
+        "decisions",
+        "handoffs",
+        "session notes"
+      ],
+      "tools": [
+        "notes vector index",
+        "embedding lookup"
+      ],
+      "cost": "medium",
+      "side_effects": "requires explicit @wb:rag-setup before use",
+      "fallback": "grep_and_index over .ai and project maps"
+    },
+    {
+      "id": "hybrid",
+      "status": "available_partial",
+      "good_for": [
+        "large refactors",
+        "architectural questions",
+        "cross-cutting changes",
+        "unclear scope",
+        "code plus history questions"
+      ],
+      "tools": [
+        "grep/index first",
+        "RAG for notes only when configured"
+      ],
+      "cost": "medium-high",
+      "side_effects": "read-only unless paired with a later edit workflow",
+      "degrades_to": "grep_and_index"
+    }
+  ],
+  "rag_policy": {
+    "status": "not_configured",
+    "setup_macro": "@wb:rag-setup",
+    "default_corpus": [
+      ".ai/feedback",
+      ".ai/decisions",
+      ".ai/attempts",
+      ".ai/handoffs",
+      ".ai/summaries",
+      "projects/<slug>/map",
+      "projects/<slug>/.ai/sessions",
+      "projects/<slug>/.ai/changes",
+      "projects/<slug>/.ai/summaries",
+      "projects/<slug>/.ai/handoffs",
+      "projects/<slug>/.ai/feedback"
+    ],
+    "excluded_corpus": [
+      "source code",
+      "generated assets",
+      "raw logs",
+      "screenshots",
+      "exports",
+      "Unity Library",
+      "Unity Temp",
+      "build outputs",
+      "package caches"
+    ]
+  },
+  "overrides": {
+    "force_grep": [
+      "use grep only",
+      "grep only",
+      "no rag"
+    ],
+    "force_rag": [
+      "use rag",
+      "semantic search",
+      "rag first"
+    ],
+    "force_plan": [
+      "plan retrieval first",
+      "@wb:retrieval-plan"
+    ]
+  },
+  "gate_rules": {
+    "skip_for": [
+      "trivial prompt",
+      "known file path",
+      "exact symbol or class",
+      "compile error",
+      "stack trace",
+      "single-file edit"
+    ],
+    "gate_for": [
+      "multi-system refactor",
+      "architectural question",
+      "unclear scope",
+      "fuzzy concept search",
+      "history query",
+      "large project natural-language task"
+    ],
+    "tie_breaker": "grep_and_index"
+  },
+  "heuristics": [
+    {
+      "if": "request names a file, path, exact class, method, compile error, or stack trace",
+      "use": "grep_and_index",
+      "gate": false
+    },
+    {
+      "if": "request asks have we, did we, tried before, previous attempt, decision, handoff, or remembered context",
+      "use": "rag_semantic",
+      "fallback": "grep_and_index over .ai and project maps",
+      "gate": true
+    },
+    {
+      "if": "request is a multi-system refactor, redesign, architecture, or unclear broad task",
+      "use": "hybrid",
+      "fallback": "grep_and_index when RAG is unavailable",
+      "gate": true
+    },
+    {
+      "if": "request is source-code work",
+      "use": "grep_and_index",
+      "gate": false
+    }
+  ]
+}

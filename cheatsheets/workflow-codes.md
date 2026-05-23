@@ -17,6 +17,8 @@ Codex may suggest a workflow code when `cheatsheets/recommendations.md` says it 
 | `@wb:unity-mcp-setup` | Install or repair Unity MCP integration | Yes |
 | `@wb:scene-prefab-change` | Narrow Unity scene/prefab/settings/editor-state changes | Yes, when safe |
 | `@wb:attempt-recovery` | Continue from a failed or stalled attempt | Maybe, depending on requested fix |
+| `@wb:retrieval-plan` | Choose grep/index, RAG, or hybrid context retrieval before work | No |
+| `@wb:rag-setup` | Future explicit setup gate for notes-only RAG infrastructure | No |
 | `@wb:session-start` | Start explicit project documentation | No |
 | `@wb:session-wrap` | Conclude explicit project documentation | No |
 | `@wb:handoff` | Write a manual lightweight handoff note | No |
@@ -267,6 +269,69 @@ Example:
 @wb:attempt-recovery
 Project: tower-heroes
 Problem: Previous targeting fix caused pooled enemies to be ignored after respawn.
+```
+
+## `@wb:retrieval-plan`
+
+Use when you want Codex to plan context retrieval before doing non-trivial work.
+
+Required fields:
+
+- `Project`
+- `Task`
+
+Optional fields:
+
+- `Force-Strategy`: `grep_and_index`, `rag_semantic`, or `hybrid`
+
+Skills and context:
+
+- `$retrieval-router`
+- `$project-dossier`
+- `.ai/retrieval/index.json`
+- `projects/<slug>/.ai/scope.json`
+
+Required cleanup and tracking:
+
+- no external project writes
+- no routing decision log unless explicitly requested later
+- if RAG is unavailable, state the grep/index fallback clearly
+
+Example:
+
+```text
+@wb:retrieval-plan
+Project: tower-heroes
+Task: Refactor enemy spawn flow to support multiple game modes.
+```
+
+## `@wb:rag-setup`
+
+Use only when you explicitly want to prepare notes-only RAG infrastructure.
+
+Required fields:
+
+- `Project`
+
+Optional fields:
+
+- `Provider`
+
+Skills and context:
+
+- `$retrieval-router`
+- `.ai/retrieval/index.json`
+
+Required cleanup and tracking:
+
+- do not install dependencies, build vectors, or configure MCP unless the setup flow is explicitly confirmed
+- do not index source code, generated assets, raw logs, screenshots, Unity `Library`, or build outputs
+
+Example:
+
+```text
+@wb:rag-setup
+Project: brawl-survivors
 ```
 
 ## `@wb:session-start`

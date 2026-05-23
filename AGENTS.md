@@ -9,6 +9,7 @@ This workspace is a professional solo developer workbench for tracking and build
 - Read `.ai/index.json` early in a new session before broad repo searches.
 - Read `.ai/feedback/index.json` for persistent cross-session preferences before broad work.
 - Read `.ai/projects/index.json` before working on a project dossier.
+- Read `.ai/retrieval/index.json` before non-trivial retrieval planning or `@wb:retrieval-plan`.
 - For project work, read `projects/<slug>/.ai/index.json` before scanning that project's files or external source path.
 - For project work, read `projects/<slug>/.ai/feedback/index.json` when it exists.
 - Use `.ai/assets/index.json` before scanning `assets/` for generated or reusable assets.
@@ -68,6 +69,7 @@ This workspace is a professional solo developer workbench for tracking and build
 - Keep `.ai/workflows/index.json` current when workflow macro codes are added, removed, or changed.
 - Keep `.ai/feedback/index.json` current when persistent user preferences or corrections are added.
 - Keep `.ai/decisions/index.json` current when architectural or workflow decisions are recorded.
+- Keep `.ai/retrieval/index.json` current when retrieval strategies, RAG status, or routing heuristics change.
 - Keep `.ai/projects/index.json` current when project dossiers are created, renamed, paused, completed, or linked to source paths.
 - Keep `.ai/assets/index.json` current when generating, accepting, modifying, moving, or removing useful assets.
 - Store final or reusable files in `assets/`; store metadata about those files in `.ai/`.
@@ -109,6 +111,17 @@ This workspace is a professional solo developer workbench for tracking and build
 - Do not suggest extra workflows for trivial prompts, obvious one-step answers, or cases where a Skill or macro would add ceremony without value.
 - Unity-specific suggestions apply only to Unity dossiers. General suggestions such as `$remember`, `@wb:handoff`, `@wb:attempt-recovery`, or `$project-session` can apply to any project type.
 - `@wb:` macros remain explicit. Codex may suggest a macro, but must not silently treat ordinary wording as a macro invocation.
+
+<!-- @section: retrieval-strategy -->
+## Retrieval Strategy
+
+- Default to grep plus indexes for source code, exact symbols, known files, compile errors, stack traces, and single-file edits.
+- Use `.ai/retrieval/index.json` and `projects/<slug>/.ai/scope.json` when a task is broad, architectural, multi-system, fuzzy, history-oriented, or unclear.
+- Use `@wb:retrieval-plan` when the user explicitly asks for a retrieval planning pass or when contextual recommendations say a pre-work gate is useful.
+- RAG is for AI/workbench memory only: attempts, decisions, feedback, handoffs, sessions, changes, summaries, and project maps.
+- Do not recommend RAG for source code in this workbench. Use `rg`, structured indexes, and focused file reads for code.
+- If `rag_semantic` would be useful but RAG is not configured, state that and use grep/index fallback unless the user invokes `@wb:rag-setup`.
+- Do not log every retrieval decision. Add routing history only if the heuristics need tuning later.
 
 <!-- @section: persistent-feedback -->
 ## Persistent Feedback
@@ -181,4 +194,5 @@ Use stable, descriptive IDs such as `hero-bg-v1`, `logo-study-2026-05-23`, or `s
 - Use the global `project-dossier` Skill for creating, finding, and loading project dossiers.
 - Use the global `project-session` Skill only when the user explicitly wants documented project-session notes.
 - Use the global `workbench-macro` Skill when the user invokes an explicit `@wb:` workflow code.
+- Use the global `retrieval-router` Skill when the user invokes `@wb:retrieval-plan`, asks to choose grep/index vs RAG, or requests retrieval planning.
 - Use the global `remember` Skill when the user asks Codex to remember a preference or correction.

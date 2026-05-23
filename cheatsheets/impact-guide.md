@@ -5,6 +5,7 @@
 - Inspecting `.ai/index.json`, `.ai/projects/index.json`, project indexes, and cheatsheets.
 - Reading `.ai/rules/index.json`, `rules/live-project-code-rules.md`, and project rule overlays.
 - Running context snapshots.
+- Running retrieval planning with `@wb:retrieval-plan` or `scripts/plan-retrieval.ps1`.
 - Reading Unity context files already stored in the workbench.
 - Reading feedback, decisions, handoffs, and integration status indexes.
 
@@ -15,6 +16,7 @@
 - Creating session notes with `$project-session`.
 - Recording changes with `record-project-change.ps1`.
 - Updating cheatsheets or workflow docs.
+- Updating retrieval policy and project scope files.
 - Updating live-project rule references and workbench-side project rule overlays.
 - Writing feedback memory, decision logs, bootstrap summaries, and manual handoff notes.
 
@@ -34,3 +36,4 @@ Before touching external project files, Codex must load the live-project rules a
 - Moderate: read focused map files and specific Unity context JSON.
 - Expensive: scan Unity `Assets/` or inspect many `.unity`/`.prefab` files.
 - Very expensive: deep scene/prefab YAML analysis. Do this only when needed.
+- RAG setup is optional and explicit. Until configured, semantic retrieval falls back to grep/index over `.ai/` and project maps.

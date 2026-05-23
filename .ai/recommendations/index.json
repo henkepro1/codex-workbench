@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-05-23T15:30:00+02:00",
+  "last_updated": "2026-05-23T15:45:00+02:00",
   "purpose": "Token-friendly registry for when Codex should suggest optional Skills, macros, MCP usage, verification, documentation, or cleanup.",
   "mode": "hybrid",
   "human_cheatsheet": "cheatsheets/recommendations.md",
@@ -67,6 +67,14 @@
       "suggest": "@wb:attempt-recovery",
       "when": "User is retrying after a failed/stalled task or asks what went wrong previously.",
       "impact": "Reads attempts/recent changes; writes a new attempt note only if useful failure/recovery context is discovered."
+    },
+    {
+      "id": "retrieval_strategy",
+      "applies_to": "all projects",
+      "mode": "pre_work_gate",
+      "suggest": "@wb:retrieval-plan",
+      "when": "Task is multi-file, architectural, history-querying, fuzzy, or scope is unclear.",
+      "impact": "Reads retrieval policy and project scope; proposes grep/index, RAG, or hybrid retrieval before work. Does not write external project files."
     },
     {
       "id": "remember_preference",

@@ -1,8 +1,17 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T15:08:03+02:00",
+    "last_updated":  "2026-05-23T15:44:55+02:00",
     "purpose":  "Compact registry of architecture and workflow decisions made for the workbench.",
     "decisions":  [
+                      {
+                          "id":  "2026-05-23-retrieval-router-uses-rag-setup-gate",
+                          "title":  "Retrieval router uses RAG setup gate",
+                          "status":  "accepted",
+                          "scope":  "workbench retrieval",
+                          "path":  ".ai/decisions/2026-05-23-retrieval-router-uses-rag-setup-gate.md",
+                          "created_at":  "2026-05-23T15:44:55+02:00",
+                          "summary":  "Use grep/index as the default and source-code retrieval strategy. Add retrieval routing and project scope now. Keep RAG as an explicit setup gate for AI/workbench memory only, not source code."
+                      },
                       {
                           "id":  "2026-05-23-feedback-audit-workflow-scope",
                           "title":  "Feedback audit workflow scope",
