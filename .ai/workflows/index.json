@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-05-23T15:45:00+02:00",
+  "last_updated": "2026-05-23T19:35:06+02:00",
   "purpose": "Token-friendly registry of explicit @wb workflow macro codes.",
   "human_cheatsheet": "cheatsheets/workflow-codes.md",
   "skill": "workbench-macro",
@@ -76,6 +76,15 @@
       "may_touch_external_source": false,
       "tracking": ["read retrieval policy", "read project scope", "print retrieval plan"],
       "notes": "Plans grep/index, RAG, or hybrid retrieval before non-trivial work. Does not edit project files."
+    },
+    {
+      "code": "@wb:review",
+      "requires": ["Project", "Scope"],
+      "optional": ["Focus", "Provider"],
+      "skills": ["project-dossier", "unity-context when Unity project"],
+      "may_touch_external_source": false,
+      "tracking": ["write project review note", "update project review index"],
+      "notes": "Runs a fresh findings-only review. Defaults to local/free Ollama. Claude Code is allowed only when explicitly requested through the existing Claude.ai subscription lane."
     },
     {
       "code": "@wb:rag-setup",

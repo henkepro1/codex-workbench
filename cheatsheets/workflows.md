@@ -6,8 +6,11 @@ Use @wb:cleanup-live for targeted live-project cleanup/refactor.
 Use @wb:artgen-project for project-matching raster art generation.
 Use @wb:unity-mcp-setup to install or repair Unity MCP integration.
 Use @wb:retrieval-plan to choose grep/index, RAG, or hybrid retrieval before non-trivial work.
+Use @wb:review to run a findings-only review after substantive work.
 Use @wb:rag-setup only when explicitly preparing notes-only RAG infrastructure.
 Use @wb:handoff to create a lightweight handoff note.
+Use scripts\start-local-codex.ps1 to launch a local/free Codex + Ollama session.
+Use scripts\start-claude-code.ps1 only when explicitly using the existing Claude.ai subscription.
 Use $project-dossier to create a dossier for <project name> linked to <source path>.
 Use $unity-context to refresh the Unity context for <project-slug>.
 For <project-slug>, change <specific behavior>. Update the workbench tracking after the edit.
@@ -61,6 +64,52 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts\plan-retrieval.ps1 -
 ```
 
 Use this for broad, fuzzy, architectural, history-oriented, or unclear tasks. Skip it for exact files, symbols, stack traces, compile errors, and obvious one-file work.
+
+## Start A Local/Free Model Session
+
+Command:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\start-local-codex.ps1 -Slug "<project-slug>"
+```
+
+This uses Codex with local Ollama and refuses API-key or cloud-billing routes.
+
+## Start A Claude Subscription Session
+
+Command:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\start-claude-code.ps1 -Model sonnet -Slug "<project-slug>"
+```
+
+Use this only when explicitly choosing the existing Claude.ai subscription lane. It requires `~/.claude/settings.json` to set `forceLoginMethod` to `claudeai`.
+
+## Run A Findings-Only Review
+
+Prompt:
+
+```text
+@wb:review
+Project: <project-slug>
+Scope: uncommitted
+Focus: all
+Provider: local
+```
+
+Default command:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\run-local-review.ps1 -Slug "<project-slug>" -Scope uncommitted
+```
+
+Optional Claude subscription review:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\run-claude-review.ps1 -Slug "<project-slug>" -Scope uncommitted -Model sonnet
+```
+
+Reviews report findings only and write to `projects/<project-slug>/.ai/reviews/`.
 
 ## Request A Project Code Change
 

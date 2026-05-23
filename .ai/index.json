@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T15:45:12+02:00",
+    "last_updated":  "2026-05-23T19:35:40+02:00",
     "workspace":  {
                       "name":  "codex-workbench",
                       "purpose":  "Lean solo developer workbench for Codex-assisted projects, assets, prompts, and workflow experiments.",
@@ -54,7 +54,10 @@
                            ".ai/recommendations/index.json",
                            "cheatsheets/recommendations.md",
                            ".ai/retrieval/index.json",
-                           "cheatsheets/retrieval-strategies.md"
+                           "cheatsheets/retrieval-strategies.md",
+                           ".ai/models/index.json",
+                           "cheatsheets/model-providers.md",
+                           "cheatsheets/reviewer.md"
                        ],
     "paths":  {
                   "assets_manifest":  ".ai/assets/index.json",
@@ -73,7 +76,8 @@
                   "integrations_index":  ".ai/integrations/index.json",
                   "handoffs_index":  ".ai/handoffs/index.json",
                   "recommendations_index":  ".ai/recommendations/index.json",
-                  "retrieval_index":  ".ai/retrieval/index.json"
+                  "retrieval_index":  ".ai/retrieval/index.json",
+                  "models_index":  ".ai/models/index.json"
               },
     "file_counts":  {
                         "assets":  0,
@@ -84,9 +88,9 @@
                         "summaries":  1,
                         "project_dossiers":  2,
                         "feedback_notes":  0,
-                        "decisions":  2,
+                        "decisions":  3,
                         "handoffs":  0,
-                        "recommendations":  12,
+                        "recommendations":  15,
                         "retrieval_strategies":  3
                     },
     "notes":  [

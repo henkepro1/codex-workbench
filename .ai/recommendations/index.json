@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-05-23T15:45:00+02:00",
+  "last_updated": "2026-05-23T19:35:06+02:00",
   "purpose": "Token-friendly registry for when Codex should suggest optional Skills, macros, MCP usage, verification, documentation, or cleanup.",
   "mode": "hybrid",
   "human_cheatsheet": "cheatsheets/recommendations.md",
@@ -75,6 +75,30 @@
       "suggest": "@wb:retrieval-plan",
       "when": "Task is multi-file, architectural, history-querying, fuzzy, or scope is unclear.",
       "impact": "Reads retrieval policy and project scope; proposes grep/index, RAG, or hybrid retrieval before work. Does not write external project files."
+    },
+    {
+      "id": "local_model_provider",
+      "applies_to": "all projects",
+      "mode": "post_work_followup",
+      "suggest": "scripts/start-local-codex.ps1",
+      "when": "Upcoming work is simple enough for local/free model use or the user wants to avoid extra spend.",
+      "impact": "Starts a new Codex session with Ollama local models only. Does not use API keys, cloud models, or new billing."
+    },
+    {
+      "id": "subscription_model_provider",
+      "applies_to": "all projects",
+      "mode": "pre_work_gate",
+      "suggest": "scripts/start-claude-code.ps1 or scripts/run-claude-review.ps1",
+      "when": "The user explicitly asks to use Claude Code through an existing Claude.ai subscription.",
+      "impact": "Uses Claude Code only when forceLoginMethod=claudeai is configured. Refuses Anthropic Console/API billing, provider credits, cloud model billing, or new subscriptions."
+    },
+    {
+      "id": "post_change_review",
+      "applies_to": "all linked live projects",
+      "mode": "post_work_followup",
+      "suggest": "@wb:review",
+      "when": "After substantive code changes, especially refactors, multi-file edits, Unity lifecycle work, or performance-sensitive changes.",
+      "impact": "Reads rules, project context, and the requested scope. Writes a findings-only review note under the project .ai area. Does not patch source."
     },
     {
       "id": "remember_preference",

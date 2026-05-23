@@ -18,6 +18,7 @@ Codex may suggest a workflow code when `cheatsheets/recommendations.md` says it 
 | `@wb:scene-prefab-change` | Narrow Unity scene/prefab/settings/editor-state changes | Yes, when safe |
 | `@wb:attempt-recovery` | Continue from a failed or stalled attempt | Maybe, depending on requested fix |
 | `@wb:retrieval-plan` | Choose grep/index, RAG, or hybrid context retrieval before work | No |
+| `@wb:review` | Run a fresh findings-only review after substantive work | No |
 | `@wb:rag-setup` | Future explicit setup gate for notes-only RAG infrastructure | No |
 | `@wb:session-start` | Start explicit project documentation | No |
 | `@wb:session-wrap` | Conclude explicit project documentation | No |
@@ -332,6 +333,45 @@ Example:
 ```text
 @wb:rag-setup
 Project: brawl-survivors
+```
+
+## `@wb:review`
+
+Use when you want a fresh findings-only review after substantive project work.
+
+Required fields:
+
+- `Project`
+- `Scope`: `uncommitted`, `base:<branch>`, `commit:<sha>`, or `files:<paths>`
+
+Optional fields:
+
+- `Focus`: `code`, `architecture`, `unity`, `performance`, or `all`
+- `Provider`: `local` by default, or `claude` only when you explicitly want to use the existing Claude.ai subscription lane
+
+Skills and context:
+
+- `$project-dossier`
+- live-project rules
+- `$unity-context` for Unity projects
+- `cheatsheets/reviewer.md`
+
+Required cleanup and tracking:
+
+- report findings only
+- do not patch source while reviewing
+- write review notes to `projects/<slug>/.ai/reviews/`
+- update the project review index
+- use local/free Ollama unless the provider is explicitly Claude subscription
+
+Example:
+
+```text
+@wb:review
+Project: tower-heroes
+Scope: uncommitted
+Focus: unity
+Provider: local
 ```
 
 ## `@wb:session-start`

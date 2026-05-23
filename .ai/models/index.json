@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-23T19:35:06+02:00",
+  "purpose": "Allowed model/provider policy for no-extra-spend workbench use.",
+  "default_provider": "local-codex-ollama",
+  "human_cheatsheet": "cheatsheets/model-providers.md",
+  "spend_policy": {
+    "allowed": [
+      "local/free models running on this machine",
+      "already-active user subscriptions explicitly selected by the user"
+    ],
+    "blocked": [
+      "new metered API billing",
+      "hosted cloud model billing",
+      "provider credits",
+      "new subscriptions",
+      "subscription upgrades",
+      "Ollama cloud models",
+      "Anthropic Console/API billing",
+      "OpenAI API key billing"
+    ],
+    "rules": [
+      "Never auto-switch providers.",
+      "Never fall back from local/free to billed/cloud routes.",
+      "Scripts must fail fast when API keys or cloud-provider settings are detected.",
+      "Claude Code is allowed only through existing Claude.ai subscription authentication.",
+      "Codex local work should use --oss --local-provider ollama."
+    ]
+  },
+  "providers": [
+    {
+      "id": "local-codex-ollama",
+      "kind": "local_free",
+      "launcher": "scripts/start-local-codex.ps1",
+      "reviewer": "scripts/run-local-review.ps1",
+      "default_model": "qwen2.5-coder:7b",
+      "fallback_model": "qwen2.5-coder:3b",
+      "command_shape": "codex --oss --local-provider ollama -m <model>",
+      "good_for": [
+        "simple implementation work",
+        "mechanical edits",
+        "workbench maintenance",
+        "default findings-only reviews"
+      ],
+      "limits": [
+        "smaller context and weaker reasoning than subscription models",
+        "depends on local Ollama availability",
+        "larger coder models may not fit the current GPU comfortably"
+      ]
+    },
+    {
+      "id": "claude-code-subscription",
+      "kind": "subscription_covered",
+      "launcher": "scripts/start-claude-code.ps1",
+      "reviewer": "scripts/run-claude-review.ps1",
+      "default_model": "sonnet",
+      "optional_models": [
+        "haiku",
+        "opus"
+      ],
+      "required_setting": "~/.claude/settings.json forceLoginMethod=claudeai",
+      "command_shape": "claude --model <sonnet|opus|haiku>",
+      "good_for": [
+        "user-requested independent review",
+        "hard implementation planning",
+        "cases where the existing Claude subscription is preferred"
+      ],
+      "limits": [
+        "must not use Anthropic Console/API billing",
+        "must not be invoked automatically",
+        "requires Claude Code installed and authenticated through Claude.ai"
+      ]
+    }
+  ],
+  "guard_scripts": [
+    "scripts/assert-no-extra-spend.ps1",
+    "scripts/check-local-model.ps1"
+  ],
+  "sources": [
+    "https://docs.anthropic.com/en/docs/claude-code/settings",
+    "https://docs.anthropic.com/en/docs/claude-code/getting-started",
+    "https://docs.ollama.com/integrations/codex"
+  ]
+}

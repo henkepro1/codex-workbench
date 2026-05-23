@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T15:45:12+02:00",
+    "last_updated":  "2026-05-23T19:35:40+02:00",
     "project":  "brawl-survivors",
     "source_path":  "D:\\GameProjects\\BrawlSurvivors (2)\\BrawlSurvivors (2)\\BrawlSurvivors\\BrawlSurvivors",
     "source_exists":  true,
@@ -97,10 +97,10 @@
                           "packages":  58
                       },
     "notes_corpus":  {
-                         "total_records":  8,
+                         "total_records":  9,
                          "counts":  {
                                         "attempts":  0,
-                                        "decisions":  2,
+                                        "decisions":  3,
                                         "feedback":  0,
                                         "sessions":  0,
                                         "handoffs":  0,

@@ -68,6 +68,30 @@ Use when the request is broad, architectural, multi-file, history-oriented, fuzz
 
 Impact: reads retrieval policy and project scope, then proposes `grep_and_index`, `rag_semantic`, or `hybrid`. It does not write external project files. If RAG is not configured, Codex must say so and use grep/index fallback unless `@wb:rag-setup` is explicitly invoked.
 
+### Local Model Session
+
+Suggest: `scripts/start-local-codex.ps1`
+
+Use when the next task is simple enough for local/free model work or the user is explicitly trying to avoid extra spend.
+
+Impact: starts a new Codex session using Ollama local models only. It does not use API keys, hosted cloud models, provider credits, or new billing.
+
+### Claude Subscription Session
+
+Suggest: `scripts/start-claude-code.ps1` or `scripts/run-claude-review.ps1`
+
+Use only when the user explicitly asks for Claude Code through an existing Claude.ai subscription.
+
+Impact: uses Claude Code only with `forceLoginMethod=claudeai`. The scripts refuse Anthropic Console/API billing, provider credits, cloud model billing, and new subscriptions.
+
+### Post-Change Review
+
+Suggest: `@wb:review`
+
+Use after substantive code changes, especially refactors, multi-file edits, Unity lifecycle work, serialized reference changes, or performance-sensitive code.
+
+Impact: reads rules and project context, then writes a findings-only review note under `projects/<slug>/.ai/reviews/`. It does not patch source.
+
 ### Persistent Preference
 
 Suggest: `$remember`

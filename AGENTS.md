@@ -10,6 +10,7 @@ This workspace is a professional solo developer workbench for tracking and build
 - Read `.ai/feedback/index.json` for persistent cross-session preferences before broad work.
 - Read `.ai/projects/index.json` before working on a project dossier.
 - Read `.ai/retrieval/index.json` before non-trivial retrieval planning or `@wb:retrieval-plan`.
+- Read `.ai/models/index.json` before suggesting or launching any alternate model/provider workflow.
 - For project work, read `projects/<slug>/.ai/index.json` before scanning that project's files or external source path.
 - For project work, read `projects/<slug>/.ai/feedback/index.json` when it exists.
 - Use `.ai/assets/index.json` before scanning `assets/` for generated or reusable assets.
@@ -70,6 +71,7 @@ This workspace is a professional solo developer workbench for tracking and build
 - Keep `.ai/feedback/index.json` current when persistent user preferences or corrections are added.
 - Keep `.ai/decisions/index.json` current when architectural or workflow decisions are recorded.
 - Keep `.ai/retrieval/index.json` current when retrieval strategies, RAG status, or routing heuristics change.
+- Keep `.ai/models/index.json` current when allowed model providers, launchers, or no-extra-spend guardrails change.
 - Keep `.ai/projects/index.json` current when project dossiers are created, renamed, paused, completed, or linked to source paths.
 - Keep `.ai/assets/index.json` current when generating, accepting, modifying, moving, or removing useful assets.
 - Store final or reusable files in `assets/`; store metadata about those files in `.ai/`.
@@ -122,6 +124,27 @@ This workspace is a professional solo developer workbench for tracking and build
 - Do not recommend RAG for source code in this workbench. Use `rg`, structured indexes, and focused file reads for code.
 - If `rag_semantic` would be useful but RAG is not configured, state that and use grep/index fallback unless the user invokes `@wb:rag-setup`.
 - Do not log every retrieval decision. Add routing history only if the heuristics need tuning later.
+
+<!-- @section: model-providers -->
+## Model Providers
+
+- Default alternate model work to local/free Ollama through `scripts/start-local-codex.ps1`.
+- Read `.ai/models/index.json` and `cheatsheets/model-providers.md` before suggesting provider changes.
+- Allowed model use means local/free models or already-active user subscriptions explicitly selected by the user.
+- Block new metered API usage, hosted cloud model billing, provider credits, new subscriptions, subscription upgrades, Ollama cloud models, Anthropic Console/API billing, and OpenAI API key billing.
+- Never auto-switch providers and never fall back from local/free to billed/cloud routes.
+- Use `scripts/assert-no-extra-spend.ps1` in provider scripts to fail fast on API keys, non-local Ollama endpoints, Claude Console/API routing, Bedrock/Vertex routing, or cloud model names.
+- Claude Code is allowed only when explicitly requested and only through existing Claude.ai subscription authentication with `forceLoginMethod=claudeai`.
+
+<!-- @section: reviewer-workflow -->
+## Reviewer Workflow
+
+- Use `@wb:review` or `scripts/run-local-review.ps1` after substantive live-project changes when a fresh rule-checking pass would add value.
+- Default reviews use local/free Ollama. Use `scripts/run-claude-review.ps1` only when the user explicitly asks for Claude Code through the existing Claude.ai subscription lane.
+- Reviewer output is findings-only. Do not patch, edit, rewrite, format, or create source files while reviewing.
+- Write review notes under `projects/<slug>/.ai/reviews/` and keep that review index current.
+- Read `cheatsheets/reviewer.md`, live-project rules, project rules, project index, and Unity context when relevant before reviewing.
+- Skip reviewer workflow for trivial edits unless the user explicitly requests it.
 
 <!-- @section: persistent-feedback -->
 ## Persistent Feedback

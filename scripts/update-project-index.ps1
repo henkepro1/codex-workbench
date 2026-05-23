@@ -80,7 +80,7 @@ if (-not ($projectIndex.PSObject.Properties.Name -contains "rules")) {
     })
 }
 
-foreach ($countName in @("assets", "sessions", "attempts", "generations", "prompts", "summaries", "changes", "engine_context_files", "feedback", "handoffs")) {
+foreach ($countName in @("assets", "sessions", "attempts", "generations", "prompts", "summaries", "changes", "engine_context_files", "feedback", "handoffs", "reviews")) {
     if (-not ($projectIndex.counts.PSObject.Properties.Name -contains $countName)) {
         $projectIndex.counts | Add-Member -NotePropertyName $countName -NotePropertyValue 0
     }
@@ -96,6 +96,7 @@ $projectIndex.counts.changes = Count-Files -Path (Join-Path $projectAi "changes"
 $projectIndex.counts.engine_context_files = Count-Files -Path (Join-Path $projectAi "engine\unity") -Filter "*.json"
 $projectIndex.counts.feedback = Count-Files -Path (Join-Path $projectAi "feedback") -Filter "*.md" -ExcludeNames @("_template.md")
 $projectIndex.counts.handoffs = Count-Files -Path (Join-Path $projectAi "handoffs") -Filter "*.md"
+$projectIndex.counts.reviews = Count-Files -Path (Join-Path $projectAi "reviews") -Filter "*.md"
 
 if ((Test-Path -LiteralPath (Join-Path $projectAi "engine\unity\index.json")) -and -not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "unity_context")) {
     $projectIndex.ai_paths | Add-Member -NotePropertyName "unity_context" -NotePropertyValue "projects/$Slug/.ai/engine/unity/index.json"
@@ -107,6 +108,10 @@ if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "feedback"))
 
 if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "handoffs")) {
     $projectIndex.ai_paths | Add-Member -NotePropertyName "handoffs" -NotePropertyValue "projects/$Slug/.ai/handoffs/index.json"
+}
+
+if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "reviews")) {
+    $projectIndex.ai_paths | Add-Member -NotePropertyName "reviews" -NotePropertyValue "projects/$Slug/.ai/reviews/index.json"
 }
 
 if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "summary")) {

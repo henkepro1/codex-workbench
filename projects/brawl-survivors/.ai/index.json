@@ -5,7 +5,7 @@
     "status":  "active",
     "source_path":  "D:\\GameProjects\\BrawlSurvivors (2)\\BrawlSurvivors (2)\\BrawlSurvivors\\BrawlSurvivors",
     "created_at":  "2026-05-23T11:01:21+02:00",
-    "last_updated":  "2026-05-23T15:45:03+02:00",
+    "last_updated":  "2026-05-23T19:35:32+02:00",
     "human_map":  {
                       "readme":  "projects/brawl-survivors/README.md",
                       "overview":  "projects/brawl-survivors/map/overview.md",
@@ -27,7 +27,8 @@
                      "feedback":  "projects/brawl-survivors/.ai/feedback/index.json",
                      "handoffs":  "projects/brawl-survivors/.ai/handoffs/index.json",
                      "summary":  "projects/brawl-survivors/.ai/summary.md",
-                     "scope":  "projects/brawl-survivors/.ai/scope.json"
+                     "scope":  "projects/brawl-survivors/.ai/scope.json",
+                     "reviews":  "projects/brawl-survivors/.ai/reviews/index.json"
                  },
     "active_session":  null,
     "kind":  "unity",
@@ -51,7 +52,8 @@
                    "changes":  2,
                    "engine_context_files":  7,
                    "feedback":  0,
-                   "handoffs":  0
+                   "handoffs":  0,
+                   "reviews":  0
                },
     "notes":  [
                   "Read this file before scanning the project dossier or linked source path.",

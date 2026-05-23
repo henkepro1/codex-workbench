@@ -84,7 +84,7 @@ if (-not ($index.workspace.PSObject.Properties.Name -contains "default_external_
 }
 
 $importantDocs = @($index.important_docs)
-foreach ($docPath in @("rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/retrieval/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/retrieval-strategies.md", "cheatsheets/impact-guide.md", "docs/ideas.md")) {
+foreach ($docPath in @("rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/retrieval/index.json", ".ai/models/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/retrieval-strategies.md", "cheatsheets/model-providers.md", "cheatsheets/reviewer.md", "cheatsheets/impact-guide.md", "docs/ideas.md")) {
     if ($importantDocs -notcontains $docPath) {
         $importantDocs += $docPath
     }
@@ -95,6 +95,7 @@ Ensure-Property -Object $index.paths -Name "rules_index" -Value ".ai/rules/index
 Ensure-Property -Object $index.paths -Name "workflows_index" -Value ".ai/workflows/index.json"
 Ensure-Property -Object $index.paths -Name "recommendations_index" -Value ".ai/recommendations/index.json"
 Ensure-Property -Object $index.paths -Name "retrieval_index" -Value ".ai/retrieval/index.json"
+Ensure-Property -Object $index.paths -Name "models_index" -Value ".ai/models/index.json"
 Ensure-Property -Object $index.paths -Name "feedback_index" -Value ".ai/feedback/index.json"
 Ensure-Property -Object $index.paths -Name "decisions_index" -Value ".ai/decisions/index.json"
 Ensure-Property -Object $index.paths -Name "integrations_index" -Value ".ai/integrations/index.json"
