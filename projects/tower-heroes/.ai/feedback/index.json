@@ -1,7 +1,17 @@
-{
-  "schema_version": 1,
-  "last_updated": "2026-05-23T14:35:29+02:00",
-  "project": "tower-heroes",
-  "purpose": "Project-specific feedback memory for Tower Heroes corrections and preferences.",
-  "entries": []
+﻿{
+    "schema_version":  1,
+    "last_updated":  "2026-05-24T09:24:27+02:00",
+    "project":  "tower-heroes",
+    "purpose":  "Project-specific feedback memory for Tower Heroes corrections and preferences.",
+    "entries":  [
+                    {
+                        "id":  "2026-05-24-092427-no-teleport-fixes-for-enemy-movement",
+                        "title":  "No teleport fixes for enemy movement",
+                        "scope":  "project",
+                        "applies_to":  "tower-heroes",
+                        "path":  "projects/tower-heroes/.ai/feedback/2026-05-24-092427-no-teleport-fixes-for-enemy-movement.md",
+                        "created_at":  "2026-05-24T09:24:27+02:00",
+                        "rule":  "Enemy movement bugs must not be fixed by teleporting, snapping, ghosting, disabling collision, bypassing blockers, or moving enemies through invalid space. Fix the route, level, connector, collision, or constraint root cause instead."
+                    }
+                ]
 }

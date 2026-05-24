@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "generated_at":  "2026-05-23T21:07:27+02:00",
+    "generated_at":  "2026-05-25T01:16:01+02:00",
     "count":  50,
     "prefabs":  [
                     {
@@ -45,13 +45,13 @@
                     },
                     {
                         "path":  "Assets/_Project/Prefabs/Enemies/AttackableEnemies/PF_Enemy_Ivanna.prefab",
-                        "bytes":  19493,
-                        "modified":  "2026-04-11T11:34:55+02:00"
+                        "bytes":  19512,
+                        "modified":  "2026-05-24T15:23:35+02:00"
                     },
                     {
                         "path":  "Assets/_Project/Prefabs/Enemies/AttackableEnemies/PF_Enemy_Nastia.prefab",
-                        "bytes":  19374,
-                        "modified":  "2026-04-11T11:34:55+02:00"
+                        "bytes":  19391,
+                        "modified":  "2026-05-24T15:11:35+02:00"
                     },
                     {
                         "path":  "Assets/_Project/Prefabs/Enemies/PF_EnemyDeathSequence_Default.prefab",

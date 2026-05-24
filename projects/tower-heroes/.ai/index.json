@@ -5,7 +5,7 @@
     "status":  "active",
     "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
     "created_at":  "2026-05-23T11:01:02+02:00",
-    "last_updated":  "2026-05-23T21:07:29+02:00",
+    "last_updated":  "2026-05-25T01:16:21+02:00",
     "human_map":  {
                       "readme":  "projects/tower-heroes/README.md",
                       "overview":  "projects/tower-heroes/map/overview.md",
@@ -28,9 +28,10 @@
                      "handoffs":  "projects/tower-heroes/.ai/handoffs/index.json",
                      "summary":  "projects/tower-heroes/.ai/summary.md",
                      "scope":  "projects/tower-heroes/.ai/scope.json",
-                     "reviews":  "projects/tower-heroes/.ai/reviews/index.json"
+                     "reviews":  "projects/tower-heroes/.ai/reviews/index.json",
+                     "token_usage":  "projects/tower-heroes/.ai/token-usage/index.json"
                  },
-    "active_session":  null,
+    "active_session":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/session.json",
     "kind":  "unity",
     "default_source_root":  "D:\\GameProjects",
     "rules":  {
@@ -44,16 +45,17 @@
               },
     "counts":  {
                    "assets":  0,
-                   "sessions":  0,
+                   "sessions":  1,
                    "attempts":  0,
                    "generations":  0,
                    "prompts":  0,
                    "summaries":  0,
-                   "changes":  4,
+                   "changes":  15,
                    "engine_context_files":  7,
-                   "feedback":  0,
+                   "feedback":  1,
                    "handoffs":  0,
-                   "reviews":  0
+                   "reviews":  0,
+                   "token_usage_records":  1
                },
     "notes":  [
                   "Read this file before scanning the project dossier or linked source path.",

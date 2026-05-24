@@ -31,6 +31,7 @@ A clean local workspace for building with Codex, VS Code, and Git.
 13. Use `cheatsheets/reviewer.md` and `@wb:review` for findings-only review passes after substantive work.
 14. Use `docs/ideas.md` as the human-facing inbox for ideas to revisit later.
 15. Use `scripts/snapshot-context.ps1 -Bootstrap` for a compact startup block.
+16. Use `docs/token-usage.md` and the token usage commands below when you want to audit Codex/workbench token cost.
 
 ## Using The Workbench
 
@@ -131,6 +132,89 @@ uncommitted
 base:<branch>
 commit:<sha>
 files:<path1,path2>
+```
+
+### Track Token Usage (optional cost auditing)
+
+Token tracking is off by default. Enabling tracking does not automatically read Codex's hidden token/limit usage. It only allows manual records to be written. The ledger stores compact JSONL records and culprit categories, not transcripts or raw tool output. See `docs/token-usage.md` for details.
+
+Enable workspace-wide tracking:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\record-token-usage.ps1 -Enable -Scope workspace
+```
+
+Enable tracking for a project:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\record-token-usage.ps1 -Enable -Scope project -Slug tower-heroes
+```
+
+Disable workspace-wide tracking:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\record-token-usage.ps1 -Disable -Scope workspace
+```
+
+Disable tracking for a project:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\record-token-usage.ps1 -Disable -Scope project -Slug tower-heroes
+```
+
+After a Codex prompt finishes, ask Codex for a non-zero estimate before recording:
+
+```text
+Estimate token usage for the request we just completed.
+Return a PowerShell record-token-usage command for tower-heroes with:
+- Measurement estimated
+- non-zero InputTokens, OutputTokens, and ToolOutputTokens
+- culprit categories
+- mitigation notes
+Do not use 0 token counts unless the request truly used no tokens.
+```
+
+Record a project request after tracking is enabled. Replace the numbers with the estimate from Codex or your own estimate:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\record-token-usage.ps1 `
+  -Scope project `
+  -Slug tower-heroes `
+  -Title "Tower placement performance and stuck-enemy pass" `
+  -Measurement estimated `
+  -InputTokens 65000 `
+  -OutputTokens 12000 `
+  -ToolOutputTokens 28000 `
+  -Culprit conversation_history,large_context_load,unity_mcp_validation,broad_source_search,long_tool_output,live_debugging_loop `
+  -Mitigation "Start with a retrieval plan; cap diagnostic/log output; prefer targeted rg reads; summarize Unity validation instead of carrying full outputs."
+```
+
+Record a one-off request without enabling ongoing tracking:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\record-token-usage.ps1 `
+  -Force `
+  -Scope project `
+  -Slug tower-heroes `
+  -Title "One-off token audit" `
+  -Measurement estimated `
+  -InputTokens 18000 `
+  -OutputTokens 4000 `
+  -ToolOutputTokens 7000 `
+  -Culprit broad_source_search,long_tool_output `
+  -Mitigation "Use narrower search paths and summarize command output before continuing."
+```
+
+Summarize workspace token usage:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\summarize-token-usage.ps1 -Scope workspace
+```
+
+Summarize project token usage:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\summarize-token-usage.ps1 -Scope project -Slug tower-heroes
 ```
 
 ### Prompting

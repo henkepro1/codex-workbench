@@ -84,7 +84,7 @@ if (-not ($index.workspace.PSObject.Properties.Name -contains "default_external_
 }
 
 $importantDocs = @($index.important_docs)
-foreach ($docPath in @(".env.example", "rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/retrieval/index.json", ".ai/models/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/retrieval-strategies.md", "cheatsheets/model-providers.md", "cheatsheets/reviewer.md", "cheatsheets/impact-guide.md", "docs/ideas.md")) {
+foreach ($docPath in @(".env.example", "rules/README.md", "rules/live-project-code-rules.md", ".ai/rules/index.json", ".ai/workflows/index.json", ".ai/recommendations/index.json", ".ai/retrieval/index.json", ".ai/models/index.json", ".ai/feedback/index.json", ".ai/decisions/index.json", ".ai/integrations/unity-mcp.json", ".ai/token-usage/index.json", "cheatsheets/README.md", "cheatsheets/skills.md", "cheatsheets/workflows.md", "cheatsheets/workflow-codes.md", "cheatsheets/recommendations.md", "cheatsheets/retrieval-strategies.md", "cheatsheets/model-providers.md", "cheatsheets/reviewer.md", "cheatsheets/impact-guide.md", "docs/ideas.md", "docs/token-usage.md")) {
     if ($importantDocs -notcontains $docPath) {
         $importantDocs += $docPath
     }
@@ -101,6 +101,7 @@ Ensure-Property -Object $index.paths -Name "decisions_index" -Value ".ai/decisio
 Ensure-Property -Object $index.paths -Name "integrations_index" -Value ".ai/integrations/index.json"
 Ensure-Property -Object $index.paths -Name "handoffs_index" -Value ".ai/handoffs/index.json"
 Ensure-Property -Object $index.paths -Name "live_project_rules" -Value "rules/live-project-code-rules.md"
+Ensure-Property -Object $index.paths -Name "token_usage_index" -Value ".ai/token-usage/index.json"
 
 $assetCount = @($assets.assets).Count
 $generationCount = @(Get-ChildItem -LiteralPath (Join-Path $aiRoot "generations") -Filter "*.json" -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne "_template.json" }).Count
@@ -111,6 +112,11 @@ $summaryCount = @(Get-ChildItem -LiteralPath (Join-Path $aiRoot "summaries") -Fi
 $feedbackCount = @(Get-ChildItem -LiteralPath (Join-Path $aiRoot "feedback") -Filter "*.md" -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne "_template.md" }).Count
 $decisionCount = @(Get-ChildItem -LiteralPath (Join-Path $aiRoot "decisions") -Filter "*.md" -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne "_template.md" }).Count
 $handoffCount = @(Get-ChildItem -LiteralPath (Join-Path $aiRoot "handoffs") -Filter "*.md" -File -ErrorAction SilentlyContinue).Count
+$tokenUsageLedgerPath = Join-Path $aiRoot "token-usage\ledger.jsonl"
+$tokenUsageRecordCount = 0
+if (Test-Path -LiteralPath $tokenUsageLedgerPath) {
+    $tokenUsageRecordCount = @(Get-Content -LiteralPath $tokenUsageLedgerPath -ErrorAction SilentlyContinue | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }).Count
+}
 $recommendationIndexPath = Join-Path $aiRoot "recommendations\index.json"
 $recommendationCount = 0
 if (Test-Path -LiteralPath $recommendationIndexPath) {
@@ -130,7 +136,7 @@ if (Test-Path -LiteralPath $retrievalIndexPath) {
 $humanAssetCount = @(Get-ChildItem -LiteralPath (Join-Path $root "assets") -File -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne ".gitkeep" }).Count
 $projectCount = @($projectsIndex.projects).Count
 
-foreach ($countName in @("assets", "generation_records", "prompt_records", "attempt_notes", "task_notes", "summaries", "feedback_notes", "decisions", "handoffs", "recommendations", "retrieval_strategies", "project_dossiers")) {
+foreach ($countName in @("assets", "generation_records", "prompt_records", "attempt_notes", "task_notes", "summaries", "feedback_notes", "decisions", "handoffs", "recommendations", "retrieval_strategies", "project_dossiers", "token_usage_records")) {
     if (-not ($index.file_counts.PSObject.Properties.Name -contains $countName)) {
         $index.file_counts | Add-Member -NotePropertyName $countName -NotePropertyValue 0
     }
@@ -147,6 +153,7 @@ $index.file_counts.summaries = $summaryCount
 $index.file_counts.feedback_notes = $feedbackCount
 $index.file_counts.decisions = $decisionCount
 $index.file_counts.handoffs = $handoffCount
+$index.file_counts.token_usage_records = $tokenUsageRecordCount
 $index.file_counts.recommendations = $recommendationCount
 $index.file_counts.retrieval_strategies = $retrievalStrategyCount
 $index.file_counts.project_dossiers = $projectCount

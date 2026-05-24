@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T21:07:36+02:00",
+    "last_updated":  "2026-05-25T01:16:37+02:00",
     "workspace":  {
                       "name":  "codex-workbench",
                       "purpose":  "Lean solo developer workbench for Codex-assisted projects, assets, prompts, and workflow experiments.",
@@ -58,7 +58,9 @@
                            ".ai/models/index.json",
                            "cheatsheets/model-providers.md",
                            "cheatsheets/reviewer.md",
-                           ".env.example"
+                           ".env.example",
+                           ".ai/token-usage/index.json",
+                           "docs/token-usage.md"
                        ],
     "paths":  {
                   "assets_manifest":  ".ai/assets/index.json",
@@ -78,7 +80,8 @@
                   "handoffs_index":  ".ai/handoffs/index.json",
                   "recommendations_index":  ".ai/recommendations/index.json",
                   "retrieval_index":  ".ai/retrieval/index.json",
-                  "models_index":  ".ai/models/index.json"
+                  "models_index":  ".ai/models/index.json",
+                  "token_usage_index":  ".ai/token-usage/index.json"
               },
     "file_counts":  {
                         "assets":  0,
@@ -88,11 +91,12 @@
                         "task_notes":  1,
                         "summaries":  1,
                         "project_dossiers":  2,
-                        "feedback_notes":  0,
+                        "feedback_notes":  1,
                         "decisions":  3,
                         "handoffs":  0,
                         "recommendations":  15,
-                        "retrieval_strategies":  3
+                        "retrieval_strategies":  3,
+                        "token_usage_records":  0
                     },
     "notes":  [
                   "Use this file as the first compact map before scanning the workspace.",

@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "generated_at":  "2026-05-23T21:07:27+02:00",
+    "generated_at":  "2026-05-25T01:16:01+02:00",
     "note":  "Hierarchy context is linked from known exported docs. Scene/prefab YAML is not deep-parsed by this lean scan.",
     "sources":  [
                     {

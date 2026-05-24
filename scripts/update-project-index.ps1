@@ -80,7 +80,7 @@ if (-not ($projectIndex.PSObject.Properties.Name -contains "rules")) {
     })
 }
 
-foreach ($countName in @("assets", "sessions", "attempts", "generations", "prompts", "summaries", "changes", "engine_context_files", "feedback", "handoffs", "reviews")) {
+foreach ($countName in @("assets", "sessions", "attempts", "generations", "prompts", "summaries", "changes", "engine_context_files", "feedback", "handoffs", "reviews", "token_usage_records")) {
     if (-not ($projectIndex.counts.PSObject.Properties.Name -contains $countName)) {
         $projectIndex.counts | Add-Member -NotePropertyName $countName -NotePropertyValue 0
     }
@@ -97,6 +97,11 @@ $projectIndex.counts.engine_context_files = Count-Files -Path (Join-Path $projec
 $projectIndex.counts.feedback = Count-Files -Path (Join-Path $projectAi "feedback") -Filter "*.md" -ExcludeNames @("_template.md")
 $projectIndex.counts.handoffs = Count-Files -Path (Join-Path $projectAi "handoffs") -Filter "*.md"
 $projectIndex.counts.reviews = Count-Files -Path (Join-Path $projectAi "reviews") -Filter "*.md"
+$projectTokenUsageLedgerPath = Join-Path $projectAi "token-usage\ledger.jsonl"
+$projectIndex.counts.token_usage_records = 0
+if (Test-Path -LiteralPath $projectTokenUsageLedgerPath) {
+    $projectIndex.counts.token_usage_records = @(Get-Content -LiteralPath $projectTokenUsageLedgerPath -ErrorAction SilentlyContinue | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }).Count
+}
 
 if ((Test-Path -LiteralPath (Join-Path $projectAi "engine\unity\index.json")) -and -not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "unity_context")) {
     $projectIndex.ai_paths | Add-Member -NotePropertyName "unity_context" -NotePropertyValue "projects/$Slug/.ai/engine/unity/index.json"
@@ -112,6 +117,10 @@ if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "handoffs"))
 
 if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "reviews")) {
     $projectIndex.ai_paths | Add-Member -NotePropertyName "reviews" -NotePropertyValue "projects/$Slug/.ai/reviews/index.json"
+}
+
+if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "token_usage")) {
+    $projectIndex.ai_paths | Add-Member -NotePropertyName "token_usage" -NotePropertyValue "projects/$Slug/.ai/token-usage/index.json"
 }
 
 if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "summary")) {
