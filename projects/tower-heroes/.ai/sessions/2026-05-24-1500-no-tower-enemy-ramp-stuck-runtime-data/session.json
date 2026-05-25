@@ -14,6 +14,7 @@
                   "results":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/results",
                   "artifacts":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/artifacts"
               },
+    "tags":  ["ramp", "connector", "elevation", "movement", "pathfinding", "stuck", "body-clearance", "cross-level", "spawn"],
     "note_counts":  {
                         "inputs":  8,
                         "progress":  22,

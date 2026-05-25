@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-25T10:00:00+02:00",
+  "purpose": "System knowledge base. One .md doc per major gameplay system. Read index first (cheap), then the relevant .md. Use tag_index to find which system covers a given symptom or topic.",
+  "doc_path_pattern": "projects/tower-heroes/.ai/systems/{slug}.md",
+  "rebuild_macro": "@wb:map-systems",
+  "update_macro": "@wb:update-system",
+  "systems": [
+    {
+      "id": "elevation-ramp",
+      "name": "Elevation Ramp / Connector Traversal",
+      "tags": ["ramp", "connector", "elevation", "traversal", "stuck", "body-clearance", "cross-level"],
+      "key_file_patterns": [
+        "ElevationConnector*",
+        "EnemyUnitCrossLevelTraversal*",
+        "EnemyConnectorTransitionTraversalUtility*",
+        "ConnectorNavigationLineBuilder*",
+        "ElevationConnectorFootprintProjectionUtility*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/GridSystem/Elevation",
+      "related_systems": ["enemy-movement", "pathfinding", "elevation-system", "crowd-simulation"],
+      "doc": "projects/tower-heroes/.ai/systems/elevation-ramp.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "enemy-movement",
+      "name": "Enemy Movement Simulation",
+      "tags": ["movement", "stuck", "stall", "simulation", "velocity", "displacement", "enemy"],
+      "key_file_patterns": [
+        "EnemyMovementSimulationService*",
+        "EnemyUnitMovement*",
+        "EnemyUnitStallRecovery*",
+        "EnemyUnitSpatialState*",
+        "EnemyStallRecovery*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/Waves",
+      "related_systems": ["elevation-ramp", "pathfinding", "crowd-simulation"],
+      "doc": "projects/tower-heroes/.ai/systems/enemy-movement.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "pathfinding",
+      "name": "Enemy Pathfinding & Route Planning",
+      "tags": ["pathfinding", "routing", "cache", "route", "path", "a-star", "shortest-path"],
+      "key_file_patterns": [
+        "EnemyPathService*",
+        "ElevationShortestPathSolver*",
+        "DynamicRoute*",
+        "EnemyRoute*",
+        "EnemyUnitRoutePlanning*",
+        "EnemyPathTopology*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/GridSystem",
+      "related_systems": ["elevation-ramp", "grid-system", "elevation-system"],
+      "doc": "projects/tower-heroes/.ai/systems/pathfinding.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "grid-system",
+      "name": "Grid System",
+      "tags": ["grid", "cell", "obstacle", "placement", "coordinates", "world-path"],
+      "key_file_patterns": [
+        "GridManager*",
+        "GridSettings*",
+        "GridOccupant*",
+        "GameplayStaticObstacle*",
+        "StaticObstacle*",
+        "NavigationWorldPath*",
+        "GridBuildInput*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/GridSystem",
+      "related_systems": ["tower-placement", "pathfinding", "elevation-system"],
+      "doc": "projects/tower-heroes/.ai/systems/grid-system.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "elevation-system",
+      "name": "Elevation / Multi-Level Terrain",
+      "tags": ["elevation", "level", "surface", "multi-level", "terrain", "map"],
+      "key_file_patterns": [
+        "ElevationMapService*",
+        "ElevationMapState*",
+        "ElevationRuntimeMapDefinition*",
+        "ElevationCellCoordinate*",
+        "ElevationSubcellCoordinate*",
+        "ElevationSurface*",
+        "ElevationLevel*",
+        "ElevationPlacementRule*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/GridSystem/Elevation",
+      "related_systems": ["grid-system", "elevation-ramp", "pathfinding"],
+      "doc": "projects/tower-heroes/.ai/systems/elevation-system.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "tower-placement",
+      "name": "Tower Placement & Build System",
+      "tags": ["tower", "placement", "validation", "build", "registry", "inventory"],
+      "key_file_patterns": [
+        "TowerPlacement*",
+        "RuntimeTowerRegistry*",
+        "RuntimePlacedTower*",
+        "BuildInventory*",
+        "TowerBuildSelection*",
+        "TowerPrefabCatalog*",
+        "TowerDefinition*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/Entities/Towers",
+      "related_systems": ["grid-system", "entity-health", "combat"],
+      "doc": "projects/tower-heroes/.ai/systems/tower-placement.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "combat",
+      "name": "Combat — Attack, Damage & Armor",
+      "tags": ["combat", "attack", "damage", "armor", "targeting", "projectile"],
+      "key_file_patterns": [
+        "AttackModule*",
+        "CombatRules*",
+        "TowerAttackSimulation*",
+        "CombatAttack*",
+        "CombatArmor*",
+        "CombatFeedback*",
+        "PF_CombatProjectile*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/Entities",
+      "related_systems": ["entity-health", "tower-placement", "wave-spawning"],
+      "doc": "projects/tower-heroes/.ai/systems/combat.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "wave-spawning",
+      "name": "Wave Spawning & Enemy Lifecycle",
+      "tags": ["wave", "spawn", "enemy", "catalog", "lifecycle", "death"],
+      "key_file_patterns": [
+        "WaveManager*",
+        "WaveDefinition*",
+        "WaveSpawner*",
+        "WaveSet*",
+        "EnemyRuntime*",
+        "EnemyUnit*",
+        "EnemyPrefabCatalog*",
+        "AliveEnemyTracker*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/Waves",
+      "related_systems": ["enemy-movement", "pathfinding", "entity-health"],
+      "doc": "projects/tower-heroes/.ai/systems/wave-spawning.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "crowd-simulation",
+      "name": "Crowd Simulation & Enemy Collision",
+      "tags": ["crowd", "collision", "pressure", "displacement", "priority", "connector-traffic"],
+      "key_file_patterns": [
+        "EnemyCrowdService*",
+        "EnemyCrowdPriority*",
+        "EnemyConnectorTransitionTraversalUtility*",
+        "EnemyNavigation*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/Waves",
+      "related_systems": ["enemy-movement", "elevation-ramp", "pathfinding"],
+      "doc": "projects/tower-heroes/.ai/systems/crowd-simulation.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    },
+    {
+      "id": "entity-health",
+      "name": "Entity Health & Death",
+      "tags": ["health", "death", "damage", "entity", "hp", "kill"],
+      "key_file_patterns": [
+        "HealthModule*",
+        "EntityRoot*",
+        "EnemyDeath*",
+        "HealthStatSource*",
+        "IHealthDeathHandler*",
+        "LootModule*"
+      ],
+      "source_dir": "Assets/_Project/Scripts/Entities",
+      "related_systems": ["combat", "wave-spawning"],
+      "doc": "projects/tower-heroes/.ai/systems/entity-health.md",
+      "last_updated": "2026-05-25T10:00:00+02:00"
+    }
+  ],
+  "tag_index": {
+    "ramp":             ["elevation-ramp"],
+    "connector":        ["elevation-ramp", "elevation-system"],
+    "traversal":        ["elevation-ramp"],
+    "cross-level":      ["elevation-ramp", "elevation-system"],
+    "body-clearance":   ["elevation-ramp"],
+    "stuck":            ["elevation-ramp", "enemy-movement", "crowd-simulation"],
+    "movement":         ["enemy-movement", "crowd-simulation"],
+    "stall":            ["enemy-movement"],
+    "velocity":         ["enemy-movement"],
+    "displacement":     ["enemy-movement", "crowd-simulation"],
+    "pathfinding":      ["pathfinding", "elevation-ramp"],
+    "routing":          ["pathfinding"],
+    "cache":            ["pathfinding"],
+    "route":            ["pathfinding", "elevation-ramp"],
+    "a-star":           ["pathfinding"],
+    "shortest-path":    ["pathfinding", "elevation-ramp"],
+    "grid":             ["grid-system"],
+    "cell":             ["grid-system", "elevation-system"],
+    "obstacle":         ["grid-system", "tower-placement"],
+    "placement":        ["grid-system", "tower-placement"],
+    "coordinates":      ["grid-system", "elevation-system"],
+    "elevation":        ["elevation-system", "elevation-ramp"],
+    "level":            ["elevation-system"],
+    "surface":          ["elevation-system", "elevation-ramp"],
+    "multi-level":      ["elevation-system"],
+    "terrain":          ["elevation-system"],
+    "tower":            ["tower-placement"],
+    "build":            ["tower-placement"],
+    "validation":       ["tower-placement"],
+    "registry":         ["tower-placement"],
+    "inventory":        ["tower-placement"],
+    "combat":           ["combat"],
+    "attack":           ["combat"],
+    "damage":           ["combat", "entity-health"],
+    "armor":            ["combat"],
+    "targeting":        ["combat"],
+    "projectile":       ["combat"],
+    "wave":             ["wave-spawning"],
+    "spawn":            ["wave-spawning"],
+    "enemy":            ["wave-spawning", "enemy-movement", "crowd-simulation"],
+    "catalog":          ["wave-spawning"],
+    "lifecycle":        ["wave-spawning", "entity-health"],
+    "death":            ["entity-health", "wave-spawning"],
+    "crowd":            ["crowd-simulation"],
+    "collision":        ["crowd-simulation"],
+    "pressure":         ["crowd-simulation"],
+    "priority":         ["crowd-simulation"],
+    "connector-traffic":["crowd-simulation", "elevation-ramp"],
+    "health":           ["entity-health"],
+    "hp":               ["entity-health"],
+    "kill":             ["entity-health", "wave-spawning"],
+    "entity":           ["entity-health"]
+  }
+}

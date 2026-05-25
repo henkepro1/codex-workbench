@@ -5,7 +5,7 @@
     "status":  "active",
     "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
     "created_at":  "2026-05-23T11:01:02+02:00",
-    "last_updated":  "2026-05-25T14:26:30+02:00",
+    "last_updated":  "2026-05-25T15:13:58+02:00",
     "human_map":  {
                       "readme":  "projects/tower-heroes/README.md",
                       "overview":  "projects/tower-heroes/map/overview.md",
@@ -29,7 +29,9 @@
                      "summary":  "projects/tower-heroes/.ai/summary.md",
                      "scope":  "projects/tower-heroes/.ai/scope.json",
                      "reviews":  "projects/tower-heroes/.ai/reviews/index.json",
-                     "token_usage":  "projects/tower-heroes/.ai/token-usage/index.json"
+                     "token_usage":  "projects/tower-heroes/.ai/token-usage/index.json",
+                     "systems":  "projects/tower-heroes/.ai/systems/index.json",
+                     "sessions_index":  "projects/tower-heroes/.ai/sessions/index.json"
                  },
     "active_session":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/session.json",
     "kind":  "unity",
@@ -50,16 +52,19 @@
                    "generations":  0,
                    "prompts":  0,
                    "summaries":  0,
-                   "changes":  19,
+                   "changes":  21,
                    "engine_context_files":  7,
                    "feedback":  1,
                    "handoffs":  0,
                    "reviews":  0,
-                   "token_usage_records":  1
+                   "token_usage_records":  1,
+                   "systems":  10
                },
     "notes":  [
                   "Read this file before scanning the project dossier or linked source path.",
                   "Keep detailed session documentation in timestamped session files only when explicitly requested.",
-                  "Unity engine context lives under projects/tower-heroes/.ai/engine/unity/."
+                  "Unity engine context lives under projects/tower-heroes/.ai/engine/unity/.",
+                  "System knowledge base lives under projects/tower-heroes/.ai/systems/. Read systems/index.json before debugging or system-level work.",
+                  "Session topic index lives at projects/tower-heroes/.ai/sessions/index.json. Read it to find past sessions by tag before starting work on a known system."
               ]
 }

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-25T10:00:00+02:00",
+  "purpose": "Cross-session topic index. Use tag_index to find past sessions relevant to a symptom or system before starting new work. Cheap lookup — no folder scanning needed.",
+  "tag_index": {
+    "ramp":          ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "connector":     ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "elevation":     ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "movement":      ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "pathfinding":   ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "stuck":         ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "body-clearance":["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "cross-level":   ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"],
+    "spawn":         ["2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data"]
+  },
+  "sessions": [
+    {
+      "id": "2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data",
+      "title": "No-tower enemy ramp stuck runtime data",
+      "tags": ["ramp", "connector", "elevation", "movement", "pathfinding", "stuck", "body-clearance", "cross-level", "spawn"],
+      "status": "active",
+      "started_at": "2026-05-24T15:00:33+02:00",
+      "last_updated": "2026-05-25T09:00:31+02:00",
+      "doc": "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/session.json"
+    }
+  ]
+}

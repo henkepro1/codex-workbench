@@ -1,0 +1,30 @@
+{
+    "schema_version":  1,
+    "id":  "2026-05-25-150323-fix-connector-ramp-portal-route-points-and-connector-path-pr",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Fix connector ramp portal route points and connector path progress gating",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "Assets/_Project/Scripts/GridSystem/Elevation/ElevationConnectorAuthoring.cs",
+                          "Assets/_Project/Scripts/GridSystem/Elevation/ElevationMapService.cs",
+                          "Assets/_Project/Scripts/GridSystem/EnemyPathService.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnitMovement.cs"
+                      ],
+    "verification":  "dotnet build Assembly-CSharp.csproj --no-restore passed with existing MCP binding warnings; Unity script validation passed; runtime MCP sample at ~74s had six enemies in ramp area with primary=True, zero=False, zeroAtUpperExit=0 and no console errors.",
+    "audit":  {
+                  "rules_checked":  [
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md",
+                                        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt",
+                                        "projects/tower-heroes/rules/ramp-traversal-root-fix-protocol.md"
+                                    ],
+                  "mechanics_preserved":  "No teleport, snap, ghosting, stall recovery, or clearance bypass added. Connector-owned traversal remains authoritative for connector movement; enemy-neighbor pushing remains enabled.",
+                  "editor_changes_required":  "None",
+                  "follow_up_fixes":  [
+
+                                      ]
+              },
+    "created_at":  "2026-05-25T15:03:23+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

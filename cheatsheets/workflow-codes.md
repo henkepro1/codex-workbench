@@ -22,6 +22,8 @@ Codex may suggest a workflow code when `cheatsheets/recommendations.md` says it 
 | `@wb:rag-setup` | Future explicit setup gate for notes-only RAG infrastructure | No |
 | `@wb:session-start` | Start explicit project documentation | No |
 | `@wb:session-wrap` | Conclude explicit project documentation | No |
+| `@wb:map-systems` | Build or rebuild the full system knowledge base for a project | No |
+| `@wb:update-system` | Update one system's doc after changes to its files | No |
 | `@wb:handoff` | Write a manual lightweight handoff note | No |
 
 ## `@wb:bugfix-live`
@@ -427,4 +429,74 @@ Example:
 @wb:session-wrap
 Project: brawl-survivors
 Summary: Refactor completed, spawn outcomes preserved, follow-up test pass needed in Unity.
+```
+
+## `@wb:map-systems`
+
+Use to build or rebuild the full system knowledge base for a project from scratch.
+
+Required fields:
+
+- `Project`
+
+Optional fields:
+
+- `Systems`: comma-separated slugs to rebuild only specific systems (default: all)
+
+Skills and context:
+
+- `$project-dossier`
+- `projects/<slug>/.ai/systems/index.json` (created/overwritten)
+
+Required cleanup and tracking:
+
+- read source files via grep to understand each system
+- write `systems/{slug}.md` for each system
+- write/overwrite `systems/index.json`
+- update project `ai_paths.systems` in `.ai/index.json` if not already present
+
+Notes:
+
+- Token-heavy one-time setup — reads many C# source files
+- Re-run after major refactors or when adding new systems
+- Does not touch external source; read-only against `D:\GameProjects`
+
+Example:
+
+```text
+@wb:map-systems
+Project: tower-heroes
+```
+
+## `@wb:update-system`
+
+Use to update a single system's documentation after changes to its files.
+
+Required fields:
+
+- `Project`
+- `System`: slug from `systems/index.json` (e.g. `elevation-ramp`, `enemy-movement`)
+
+Skills and context:
+
+- `$project-dossier`
+- `systems/index.json` (look up `key_file_patterns` for the slug)
+
+Required cleanup and tracking:
+
+- re-read only the key files for the named system
+- update `systems/{slug}.md` in place
+- update `last_updated` for that system in `systems/index.json`
+
+Notes:
+
+- Much cheaper than `@wb:map-systems` — only reads the affected system's files
+- Run automatically after `@wb:bugfix-live` or `@wb:cleanup-live` when the edited files match a system
+
+Example:
+
+```text
+@wb:update-system
+Project: tower-heroes
+System: elevation-ramp
 ```

@@ -54,7 +54,20 @@ This workspace is a professional solo developer workbench for tracking and build
 - For Unity project edits, read the selected project's Unity context before touching scripts, scenes, prefabs, ScriptableObjects, shaders, layers, sorting layers, settings, or editor-state files.
 - If a Unity editor-state change is risky to perform through serialized files, give exact Unity Editor steps instead of editing YAML blindly.
 - After external project edits, update the workbench tracking: run `scripts/update-project-index.ps1`, refresh Unity context when relevant, and create a compact change record with `scripts/record-project-change.ps1` including rule/audit fields when useful.
+- After external project edits, check whether any edited file matches a system slug in `projects/<slug>/.ai/systems/index.json` (compare against `key_file_patterns`). If yes, run `@wb:update-system <slug>` for each affected system.
 - Do not store bulky copied source from `D:\GameProjects` inside this workbench unless the user explicitly asks.
+
+<!-- @section: system-knowledge-base -->
+## System Knowledge Base
+
+- Read `projects/<slug>/.ai/systems/index.json` before debugging a named system, starting multi-system investigation, or beginning a session that names a known system.
+- Use the `tag_index` in `systems/index.json` to map a symptom or topic to a system slug (e.g., "stuck" → elevation-ramp, enemy-movement). This is a cheap single-file read.
+- Read the relevant `systems/{slug}.md` for the full context: how the system works, key classes, integration points, debug guide, and known issues.
+- When reading `systems/index.json`, also read `sessions/index.json` to surface any past sessions whose tags overlap — load past effort context before starting new work.
+- After external project edits that touch a system's `key_file_patterns`, update that system's doc using `@wb:update-system <slug>`. This is part of the standard post-edit tracking step for `@wb:bugfix-live` and `@wb:cleanup-live`.
+- Run `@wb:map-systems` when a system is new, heavily refactored, or the doc is clearly stale.
+- Do not rewrite a system doc from memory; always re-read the relevant source files first. Summaries must stay accurate.
+- Do not create system docs for trivial helpers or utilities — only for systems that have their own service/manager class and meaningful interaction surface.
 
 <!-- @section: unity-context -->
 ## Unity Context
@@ -88,6 +101,8 @@ This workspace is a professional solo developer workbench for tracking and build
 <!-- @section: project-sessions -->
 ## Project Sessions
 
+- Read `projects/<slug>/.ai/sessions/index.json` at session start when the task names a system or symptom. The `tag_index` shows past sessions by topic — load relevant ones before beginning work.
+- When creating a new session, add a `tags` array to `session.json` that reflects the systems and symptoms involved. Update `sessions/index.json` to register the new session and its tags.
 - Do not create detailed session documentation during normal work unless the user explicitly invokes the `project-session` workflow or asks to start/document/conclude a project session.
 - When session documentation is active, create a new session folder under `projects/<slug>/.ai/sessions/YYYY-MM-DD-HHMM-topic/`.
 - Create a new timestamped file for every session input, progress note, and result note.

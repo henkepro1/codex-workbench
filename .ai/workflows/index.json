@@ -112,6 +112,23 @@
       "notes": "Concludes explicit project documentation."
     },
     {
+      "code": "@wb:map-systems",
+      "requires": ["Project"],
+      "optional": ["Systems (comma-separated slugs, default: all)"],
+      "skills": ["project-dossier"],
+      "may_touch_external_source": false,
+      "tracking": ["create/overwrite systems/index.json", "write per-system .md files", "update project .ai/index.json systems count"],
+      "notes": "Reads C# source via grep to understand each system, then writes documentation. Token-heavy one-time setup. Re-run after major refactors or to add new systems. Does not touch external source."
+    },
+    {
+      "code": "@wb:update-system",
+      "requires": ["Project", "System (slug from systems/index.json)"],
+      "skills": ["project-dossier"],
+      "may_touch_external_source": false,
+      "tracking": ["update systems/{slug}.md", "update systems/index.json last_updated for that system"],
+      "notes": "Re-reads only the key files for the named system. Much cheaper than @wb:map-systems. Run after any bugfix/cleanup touching that system's key_file_patterns."
+    },
+    {
       "code": "@wb:handoff",
       "requires": ["Summary"],
       "skills": ["workbench-macro"],
