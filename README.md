@@ -93,14 +93,6 @@ scripts\start-local-codex.ps1 -Slug tower-heroes -Small
 scripts\start-claude-code.ps1 -Model sonnet -Slug tower-heroes
 ```
 
-Inside Claude Code, run this if you want to confirm the login method:
-
-```text
-/status
-```
-
-It should show your Claude account/subscription, not API billing.
-
 ### Switch Back To Codex (close or exit the current Claude/local session first)
 
 ```powershell
