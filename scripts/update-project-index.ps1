@@ -7,6 +7,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -143,8 +145,8 @@ $now = Get-Date -Format "yyyy-MM-ddTHH:mm:ssK"
 $projectIndex.last_updated = $now
 $assetIndex.last_updated = $now
 
-$projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $projectIndexPath -Encoding UTF8
-$assetIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $assetIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $projectIndexPath -Content ($projectIndex | ConvertTo-Json -Depth 10)
+Write-Utf8Lf -Path $assetIndexPath -Content ($assetIndex | ConvertTo-Json -Depth 10)
 
 & (Join-Path $PSScriptRoot "update-project-scope.ps1") -Slug $Slug | Out-Null
 
@@ -177,7 +179,7 @@ if (Test-Path -LiteralPath $registryPath) {
     if ($found) {
         $registry.projects = @($updatedProjects | Sort-Object slug)
         $registry.last_updated = $now
-        $registry | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $registryPath -Encoding UTF8
+        Write-Utf8Lf -Path $registryPath -Content ($registry | ConvertTo-Json -Depth 10)
     }
 }
 

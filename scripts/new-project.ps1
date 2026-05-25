@@ -18,6 +18,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -44,7 +46,7 @@ function Write-ProjectFile {
         return
     }
 
-    Set-Content -LiteralPath $Path -Value $Content -Encoding UTF8
+    Write-Utf8Lf -Path $Path -Content $Content
 }
 
 if ([string]::IsNullOrWhiteSpace($Slug)) {
@@ -242,7 +244,7 @@ foreach ($directory in $extraDirectories) {
     New-Item -ItemType Directory -Force -Path $directory | Out-Null
 }
 
-$projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $projectAi "index.json") -Encoding UTF8
+Write-Utf8Lf -Path (Join-Path $projectAi "index.json") -Content ($projectIndex | ConvertTo-Json -Depth 10)
 
 [pscustomobject]@{
     schema_version = 1
@@ -286,7 +288,7 @@ $projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $
         memory_strategy = "grep_and_index_until_rag_setup"
         rag_status = "setup_required"
     }
-} | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $projectAi "scope.json") -Encoding UTF8
+} | ConvertTo-Json -Depth 12 | ForEach-Object { Write-Utf8Lf -Path (Join-Path $projectAi "scope.json") -Content $_ }
 
 $assetIndex = [pscustomobject]@{
     schema_version = 1
@@ -295,7 +297,7 @@ $assetIndex = [pscustomobject]@{
     assets = @()
 }
 
-$assetIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $projectAi "assets\index.json") -Encoding UTF8
+Write-Utf8Lf -Path (Join-Path $projectAi "assets\index.json") -Content ($assetIndex | ConvertTo-Json -Depth 10)
 
 Write-ProjectFile -Path (Join-Path $projectAi "attempts\_template.md") -Content @"
 # Attempt: {{TASK_TITLE}}
@@ -388,7 +390,7 @@ Use this file for project-specific performance targets and profiling notes.
     project = $Slug
     purpose = "Project-specific persistent feedback memory."
     entries = @()
-} | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $projectAi "feedback\index.json") -Encoding UTF8
+} | ConvertTo-Json -Depth 10 | ForEach-Object { Write-Utf8Lf -Path (Join-Path $projectAi "feedback\index.json") -Content $_ }
 
 [pscustomobject]@{
     schema_version = 1
@@ -396,7 +398,7 @@ Use this file for project-specific performance targets and profiling notes.
     project = $Slug
     purpose = "Manual lightweight project handoff notes."
     handoffs = @()
-} | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $projectAi "handoffs\index.json") -Encoding UTF8
+} | ConvertTo-Json -Depth 10 | ForEach-Object { Write-Utf8Lf -Path (Join-Path $projectAi "handoffs\index.json") -Content $_ }
 
 $registryPath = Join-Path $root ".ai\projects\index.json"
 if (-not (Test-Path -LiteralPath $registryPath)) {
@@ -406,7 +408,7 @@ if (-not (Test-Path -LiteralPath $registryPath)) {
         last_updated = $now
         projects_root = "projects"
         projects = @()
-    } | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $registryPath -Encoding UTF8
+    } | ConvertTo-Json -Depth 10 | ForEach-Object { Write-Utf8Lf -Path $registryPath -Content $_ }
 }
 
 $registry = Get-Content -Raw -LiteralPath $registryPath | ConvertFrom-Json
@@ -451,7 +453,7 @@ if (-not $found) {
 
 $registry.projects = @($updatedProjects | Sort-Object slug)
 $registry.last_updated = $now
-$registry | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $registryPath -Encoding UTF8
+Write-Utf8Lf -Path $registryPath -Content ($registry | ConvertTo-Json -Depth 10)
 
 if (-not [string]::IsNullOrWhiteSpace($SourcePath) -and (Test-Path -LiteralPath $SourcePath)) {
     & (Join-Path $PSScriptRoot "update-project-scope.ps1") -Slug $Slug | Out-Null

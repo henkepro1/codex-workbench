@@ -20,6 +20,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $decisionsRoot = Join-Path $root ".ai\decisions"
 $indexPath = Join-Path $decisionsRoot "index.json"
@@ -46,7 +48,7 @@ if (-not (Test-Path -LiteralPath $indexPath)) {
         last_updated = Get-Date -Format "yyyy-MM-ddTHH:mm:ssK"
         purpose = "Compact registry of architecture and workflow decisions made for the workbench."
         decisions = @()
-    } | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $indexPath -Encoding UTF8
+    } | ConvertTo-Json -Depth 10 | ForEach-Object { Write-Utf8Lf -Path $indexPath -Content $_ }
 }
 
 if ([string]::IsNullOrWhiteSpace($Id)) {
@@ -100,7 +102,7 @@ $Scope
 $linkedText
 "@
 
-Set-Content -LiteralPath $decisionPath -Value $content -Encoding UTF8
+Write-Utf8Lf -Path $decisionPath -Content $content
 
 $index = Get-Content -Raw -LiteralPath $indexPath | ConvertFrom-Json
 $decisions = @($index.decisions)
@@ -115,7 +117,7 @@ $decisions += [pscustomobject]@{
 }
 $index.decisions = @($decisions | Sort-Object created_at -Descending)
 $index.last_updated = $now
-$index | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $indexPath -Encoding UTF8
+Write-Utf8Lf -Path $indexPath -Content ($index | ConvertTo-Json -Depth 10)
 
 & (Join-Path $PSScriptRoot "update-ai-index.ps1") | Out-Null
 

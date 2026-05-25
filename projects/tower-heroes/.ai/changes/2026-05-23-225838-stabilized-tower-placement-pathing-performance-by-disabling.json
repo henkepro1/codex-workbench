@@ -1,0 +1,31 @@
+{
+    "schema_version":  1,
+    "id":  "2026-05-23-225838-stabilized-tower-placement-pathing-performance-by-disabling",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Stabilized tower placement/pathing performance by disabling ramp traversal trace by default, caching full placement validation results, reducing topology rebuild restore overhead, and adding topology rebuild metrics.",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "Assets/_Project/Scripts/Waves/RampTraversalTrace.cs",
+                          "Assets/_Project/Scripts/Entities/Towers/TowerPlacementValidationCache.cs",
+                          "Assets/_Project/Scripts/Entities/Towers/TowerPlacementValidationCacheKey.cs",
+                          "Assets/_Project/Scripts/Entities/Towers/RuntimeTowerRegistryService.cs",
+                          "Assets/_Project/Scripts/GridSystem/EnemyPathService.cs",
+                          "Assets/_Project/Scripts/Waves/GameplayMetricsTrace.cs"
+                      ],
+    "verification":  "dotnet build D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj --no-restore; Unity refresh scripts compile; Unity validate_script on six changed scripts",
+    "audit":  {
+                  "rules_checked":  [
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md",
+                                        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "Tower placement rules, path-blocking checks, enemy route constraints, attack behavior, and save/player-facing behavior unchanged.",
+                  "editor_changes_required":  "None",
+                  "follow_up_fixes":  [
+
+                                      ]
+              },
+    "created_at":  "2026-05-23T22:58:38+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

@@ -4,6 +4,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $aiRoot = Join-Path $root ".ai"
 $indexPath = Join-Path $aiRoot "index.json"
@@ -173,9 +175,9 @@ $index.last_updated = $now
 $assets.last_updated = $now
 $projectsIndex.last_updated = $now
 
-$index | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $indexPath -Encoding UTF8
-$assets | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $assetIndexPath -Encoding UTF8
-$projectsIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $projectsIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $indexPath -Content ($index | ConvertTo-Json -Depth 10)
+Write-Utf8Lf -Path $assetIndexPath -Content ($assets | ConvertTo-Json -Depth 10)
+Write-Utf8Lf -Path $projectsIndexPath -Content ($projectsIndex | ConvertTo-Json -Depth 10)
 
 Write-Output "Updated .ai/index.json"
 Write-Output "Updated .ai/assets/index.json"

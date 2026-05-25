@@ -15,6 +15,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -54,7 +56,7 @@ function Ensure-Handoff-Index {
     }
 
     New-Item -ItemType Directory -Force -Path (Split-Path $Path) | Out-Null
-    $index | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $Path -Encoding UTF8
+    Write-Utf8Lf -Path $Path -Content ($index | ConvertTo-Json -Depth 10)
 
     return $index
 }
@@ -116,7 +118,7 @@ $Next
 $changedText
 "@
 
-Set-Content -LiteralPath $handoffPath -Value $content -Encoding UTF8
+Write-Utf8Lf -Path $handoffPath -Content $content
 
 $handoffs = @($index.handoffs)
 $handoffs += [pscustomobject]@{
@@ -129,7 +131,7 @@ $handoffs += [pscustomobject]@{
 }
 $index.handoffs = @($handoffs | Sort-Object created_at -Descending)
 $index.last_updated = $now
-$index | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $indexPath -Encoding UTF8
+Write-Utf8Lf -Path $indexPath -Content ($index | ConvertTo-Json -Depth 10)
 
 if ($scope -eq "project") {
     & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $Slug | Out-Null

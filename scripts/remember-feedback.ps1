@@ -20,6 +20,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -141,7 +143,7 @@ $WhenToApply
 $Source
 "@
 
-Set-Content -LiteralPath $feedbackPath -Value $content -Encoding UTF8
+Write-Utf8Lf -Path $feedbackPath -Content $content
 
 $entries = @($index.entries)
 $entries += [pscustomobject]@{
@@ -156,7 +158,7 @@ $entries += [pscustomobject]@{
 
 $index.entries = @($entries | Sort-Object created_at -Descending)
 $index.last_updated = $now
-$index | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $indexPath -Encoding UTF8
+Write-Utf8Lf -Path $indexPath -Content ($index | ConvertTo-Json -Depth 10)
 
 if ($scope -eq "project") {
     & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $Slug | Out-Null

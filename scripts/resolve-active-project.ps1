@@ -6,6 +6,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $envPath = Join-Path $root ".env"
 
@@ -116,7 +118,7 @@ Kind: $kindDisplay
 ## Source
 
 $SourcePath
-"@ | Set-Content -LiteralPath $readmePath -Encoding UTF8
+"@ | ForEach-Object { Write-Utf8Lf -Path $readmePath -Content $_ }
     }
 
     $sourceMapPath = Join-Path $projectRoot "map\source.md"
@@ -127,7 +129,7 @@ $SourcePath
 Source path: $SourcePath
 
 Use this file to explain where code lives and what should be inspected first.
-"@ | Set-Content -LiteralPath $sourceMapPath -Encoding UTF8
+"@ | ForEach-Object { Write-Utf8Lf -Path $sourceMapPath -Content $_ }
     }
 
     $summaryPath = Join-Path $projectRoot ".ai\summary.md"
@@ -142,7 +144,7 @@ Kind: $kindDisplay
 Source: $SourcePath
 
 Use projects/$Slug/.ai/index.json first, then inspect focused map files or engine context as needed.
-"@ | Set-Content -LiteralPath $summaryPath -Encoding UTF8
+"@ | ForEach-Object { Write-Utf8Lf -Path $summaryPath -Content $_ }
     }
 }
 
@@ -191,7 +193,7 @@ else {
             Set-JsonProperty -Object $projectIndex -Name "title" -Value $title
             Set-JsonProperty -Object $projectIndex -Name "kind" -Value $kind
             Set-JsonProperty -Object $projectIndex -Name "last_updated" -Value $now
-            $projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $projectIndexPath -Encoding UTF8
+            Write-Utf8Lf -Path $projectIndexPath -Content ($projectIndex | ConvertTo-Json -Depth 10)
 
             Set-ProjectSourceText -Slug $slug -Title $title -Kind $kind -SourcePath $sourcePath
             & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $slug | Out-Null

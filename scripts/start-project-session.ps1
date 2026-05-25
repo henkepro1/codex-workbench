@@ -12,6 +12,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -94,11 +96,11 @@ $sessionIndex = [pscustomobject]@{
     recent_notes = @()
 }
 
-$sessionIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $sessionRoot "session.json") -Encoding UTF8
+Write-Utf8Lf -Path (Join-Path $sessionRoot "session.json") -Content ($sessionIndex | ConvertTo-Json -Depth 10)
 
 $projectIndex.active_session = "$relativeSessionPath/session.json"
 $projectIndex.last_updated = $now
-$projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $projectIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $projectIndexPath -Content ($projectIndex | ConvertTo-Json -Depth 10)
 
 if (-not [string]::IsNullOrWhiteSpace($InitialNote)) {
     & (Join-Path $PSScriptRoot "add-project-session-note.ps1") -Slug $Slug -Kind input -Text $InitialNote -Title "Initial request" -Session $sessionId | Out-Null

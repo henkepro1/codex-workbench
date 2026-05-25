@@ -11,6 +11,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -55,14 +57,14 @@ $now = Get-Date -Format "yyyy-MM-ddTHH:mm:ssK"
 $sessionIndex.status = $Status
 $sessionIndex.ended_at = $now
 $sessionIndex.last_updated = $now
-$sessionIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $sessionIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $sessionIndexPath -Content ($sessionIndex | ConvertTo-Json -Depth 10)
 
 if ($projectIndex.active_session -eq "projects/$Slug/.ai/sessions/$Session/session.json") {
     $projectIndex.active_session = $null
 }
 
 $projectIndex.last_updated = $now
-$projectIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $projectIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $projectIndexPath -Content ($projectIndex | ConvertTo-Json -Depth 10)
 
 & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $Slug | Out-Null
 

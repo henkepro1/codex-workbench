@@ -16,6 +16,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -92,7 +94,7 @@ Session: $Session
 $Text
 "@
 
-Set-Content -LiteralPath $notePath -Value $content -Encoding UTF8
+Write-Utf8Lf -Path $notePath -Content $content
 
 $sessionIndex = Get-Content -Raw -LiteralPath $sessionIndexPath | ConvertFrom-Json
 
@@ -133,7 +135,7 @@ foreach ($noteFolder in $noteFolders) {
 }
 
 $sessionIndex.recent_notes = @($recent | Sort-Object created_at | Select-Object -Last 10)
-$sessionIndex | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $sessionIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $sessionIndexPath -Content ($sessionIndex | ConvertTo-Json -Depth 10)
 
 & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $Slug | Out-Null
 

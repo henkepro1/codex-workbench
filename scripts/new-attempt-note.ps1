@@ -11,6 +11,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $attemptsRoot = Join-Path $root ".ai\attempts"
 $templatePath = Join-Path $attemptsRoot "_template.md"
@@ -54,6 +56,6 @@ if ((Test-Path -LiteralPath $targetPath) -and -not $Force) {
 }
 
 New-Item -ItemType Directory -Force -Path $attemptsRoot | Out-Null
-Set-Content -LiteralPath $targetPath -Value $content -Encoding UTF8
+Write-Utf8Lf -Path $targetPath -Content $content
 
 Write-Output "Created attempt note: $targetPath"

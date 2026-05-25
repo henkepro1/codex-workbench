@@ -7,6 +7,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -470,13 +472,13 @@ $index = [pscustomobject]@{
     refresh_policy = "Refresh after Unity-relevant code, scene, prefab, ScriptableObject, shader, layer, or settings changes."
 }
 
-$settings | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $unityContextRoot "settings.json") -Encoding UTF8
-$sceneData | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $unityContextRoot "scenes.json") -Encoding UTF8
-$prefabData | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $unityContextRoot "prefabs.json") -Encoding UTF8
-$scriptableData | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $unityContextRoot "scriptable-objects.json") -Encoding UTF8
-$shaderData | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $unityContextRoot "shaders.json") -Encoding UTF8
-$hierarchyData | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $unityContextRoot "hierarchy-sources.json") -Encoding UTF8
-$index | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath (Join-Path $unityContextRoot "index.json") -Encoding UTF8
+Write-Utf8Lf -Path (Join-Path $unityContextRoot "settings.json") -Content ($settings | ConvertTo-Json -Depth 12)
+Write-Utf8Lf -Path (Join-Path $unityContextRoot "scenes.json") -Content ($sceneData | ConvertTo-Json -Depth 12)
+Write-Utf8Lf -Path (Join-Path $unityContextRoot "prefabs.json") -Content ($prefabData | ConvertTo-Json -Depth 12)
+Write-Utf8Lf -Path (Join-Path $unityContextRoot "scriptable-objects.json") -Content ($scriptableData | ConvertTo-Json -Depth 12)
+Write-Utf8Lf -Path (Join-Path $unityContextRoot "shaders.json") -Content ($shaderData | ConvertTo-Json -Depth 12)
+Write-Utf8Lf -Path (Join-Path $unityContextRoot "hierarchy-sources.json") -Content ($hierarchyData | ConvertTo-Json -Depth 12)
+Write-Utf8Lf -Path (Join-Path $unityContextRoot "index.json") -Content ($index | ConvertTo-Json -Depth 12)
 
 if (-not ($projectIndex.PSObject.Properties.Name -contains "kind")) {
     $projectIndex | Add-Member -NotePropertyName "kind" -NotePropertyValue "unity"
@@ -494,7 +496,7 @@ if (-not ($projectIndex.ai_paths.PSObject.Properties.Name -contains "unity_conte
 
 $projectIndex.source_path = [string]$unityRoot
 $projectIndex.last_updated = $now
-$projectIndex | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $projectIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $projectIndexPath -Content ($projectIndex | ConvertTo-Json -Depth 12)
 
 & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $Slug | Out-Null
 

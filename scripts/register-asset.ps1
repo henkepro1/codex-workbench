@@ -23,6 +23,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $manifestPath = Join-Path $root ".ai\assets\index.json"
 $repoPath = Join-Path $root $Path
@@ -77,6 +79,6 @@ else {
 }
 
 $manifest.last_updated = $now
-$manifest | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $manifestPath -Encoding UTF8
+Write-Utf8Lf -Path $manifestPath -Content ($manifest | ConvertTo-Json -Depth 10)
 
 Write-Output "Registered asset: $Id -> $Path"

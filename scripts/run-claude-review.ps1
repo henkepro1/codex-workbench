@@ -16,6 +16,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -97,7 +99,7 @@ function Ensure-ReviewIndex {
     }
 
     New-Item -ItemType Directory -Force -Path (Split-Path $Path) | Out-Null
-    $index | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $Path -Encoding UTF8
+    Write-Utf8Lf -Path $Path -Content ($index | ConvertTo-Json -Depth 10)
 
     return $index
 }
@@ -316,7 +318,7 @@ Source: $sourcePath
 $reviewText
 "@
 
-Set-Content -LiteralPath $reviewPath -Value $content -Encoding UTF8
+Write-Utf8Lf -Path $reviewPath -Content $content
 
 $index = Ensure-ReviewIndex -Path $reviewIndexPath -Project $Slug
 $reviews = @($index.reviews)
@@ -336,7 +338,7 @@ $reviews += [pscustomobject]@{
 }
 $index.reviews = @($reviews | Sort-Object created_at -Descending)
 $index.last_updated = $now
-$index | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $reviewIndexPath -Encoding UTF8
+Write-Utf8Lf -Path $reviewIndexPath -Content ($index | ConvertTo-Json -Depth 10)
 
 & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $Slug | Out-Null
 

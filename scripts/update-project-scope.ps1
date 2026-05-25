@@ -7,6 +7,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -228,6 +230,6 @@ if ($CheckOnly) {
     return
 }
 
-$scope | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $scopePath -Encoding UTF8
+Write-Utf8Lf -Path $scopePath -Content ($scope | ConvertTo-Json -Depth 12)
 
 Write-Output "Updated project scope: projects/$Slug/.ai/scope.json"

@@ -26,6 +26,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 
 function ConvertTo-Slug {
@@ -89,6 +91,15 @@ else {
     $ChangeId = ConvertTo-Slug -Value $ChangeId
 }
 
+# Cap the slug so the resulting filename plus the workbench path stays well
+# under Windows' default 260-character path limit. Long change summaries are
+# still preserved in the JSON body (summary field); only the filename slug is
+# truncated. Trailing dashes from mid-word cuts are trimmed.
+$MaxChangeIdLength = 60
+if ($ChangeId.Length -gt $MaxChangeIdLength) {
+    $ChangeId = $ChangeId.Substring(0, $MaxChangeIdLength).TrimEnd('-')
+}
+
 $fileName = "$stamp-$ChangeId.json"
 $changePath = Join-Path $changesRoot $fileName
 $counter = 2
@@ -118,7 +129,7 @@ $record = [pscustomobject]@{
     notes = "External project changes should be paired with refreshed project and engine context when relevant."
 }
 
-$record | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $changePath -Encoding UTF8
+Write-Utf8Lf -Path $changePath -Content ($record | ConvertTo-Json -Depth 10)
 
 & (Join-Path $PSScriptRoot "update-project-index.ps1") -Slug $Slug | Out-Null
 

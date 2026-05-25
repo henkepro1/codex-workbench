@@ -12,6 +12,8 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot '_lib\Eol.ps1')
+
 $root = Resolve-Path (Join-Path $PSScriptRoot "..")
 $packageName = "com.coplaydev.unity-mcp"
 
@@ -49,7 +51,7 @@ function Ensure-Mcp-Config {
     New-Item -ItemType Directory -Force -Path $configDir | Out-Null
 
     if (-not (Test-Path -LiteralPath $Path)) {
-        Set-Content -LiteralPath $Path -Value "" -Encoding UTF8
+        Write-Utf8Lf -Path $Path -Content ""
     }
 
     $content = Get-Content -Raw -LiteralPath $Path
@@ -70,7 +72,7 @@ DO_NOT_TRACK = "1"
 UNITY_MCP_TELEMETRY_DISABLED = "1"
 "@
 
-    Add-Content -LiteralPath $Path -Value $block -Encoding UTF8
+    Add-Utf8Lf -Path $Path -Content $block
     return "Added Codex MCP unity entry."
 }
 
@@ -203,7 +205,7 @@ foreach ($projectSlug in $changedProjects) {
 }
 
 $integration.projects = @($projectEntries | Sort-Object slug)
-$integration | ConvertTo-Json -Depth 12 | Set-Content -LiteralPath $integrationPath -Encoding UTF8
+Write-Utf8Lf -Path $integrationPath -Content ($integration | ConvertTo-Json -Depth 12)
 
 & (Join-Path $PSScriptRoot "update-ai-index.ps1") | Out-Null
 
