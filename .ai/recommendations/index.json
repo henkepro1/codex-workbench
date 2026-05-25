@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-05-23T19:35:06+02:00",
+  "last_updated": "2026-05-25T18:30:00+02:00",
   "purpose": "Token-friendly registry for when Codex should suggest optional Skills, macros, MCP usage, verification, documentation, or cleanup.",
   "mode": "hybrid",
   "human_cheatsheet": "cheatsheets/recommendations.md",
@@ -123,6 +123,30 @@
       "suggest": "@wb:session-start or @wb:session-wrap",
       "when": "Work is long, strategic, or the user explicitly cares about documenting the session.",
       "impact": "Creates timestamped project session folders/files; normal work does not use this automatically."
+    },
+    {
+      "id": "unity_mcp_driven_debugging",
+      "applies_to": "unity dossiers",
+      "mode": "pre_work_gate",
+      "suggest": "@wb:unity-bridge-probe then prefer MCP read_console over asking user to paste",
+      "when": "User reports Unity Console errors or runtime issues AND Unity Editor appears to be open AND the workbench's unity-mcp integration is configured. Skip if the task is offline static analysis or pure source-code work.",
+      "impact": "Read-only single MCP round-trip to verify bridge liveness; on success the AI uses MCP tools (read_console, read scene hierarchy, screenshot, etc.) instead of asking the user to copy-paste from Unity. Does not auto-fire on every Unity edit — only when a debugging need exists or the user explicitly asks."
+    },
+    {
+      "id": "unity_mcp_play_mode_test",
+      "applies_to": "unity dossiers",
+      "mode": "post_work_followup",
+      "suggest": "@wb:unity-play-test",
+      "when": "A non-trivial Unity change has landed AND the change's verification needs runtime observation (visual effect, gameplay loop, race condition) AND static analysis is insufficient. Or when the user explicitly asks for a play-mode test. Or during planning, when the plan's verification step would otherwise require the user to manually press Play.",
+      "impact": "Drives the Unity Editor through Enter Play → sample runtime logs → Exit Play via MCP. Optional Game-view screenshot. Reports findings. Does NOT edit the Unity project. Use sparingly — Console scrape via read_console is cheaper for compile-level issues."
+    },
+    {
+      "id": "plan_mode_recommend_workflow",
+      "applies_to": "all projects",
+      "mode": "during_plan",
+      "suggest": "Recommended Macros & Skills section at end of plan",
+      "when": "Producing a written plan in Claude Code plan mode, or any explicit 'plan this' request from the user across any AI tool.",
+      "impact": "Read-only annotation in the plan output. Names applicable @wb: codes and Skills with plan-specific reasoning and execution-phase placement. Does not invoke anything; user must still explicitly run each macro."
     },
     {
       "id": "silent_required_context",

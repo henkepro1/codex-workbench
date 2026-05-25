@@ -1,18 +1,29 @@
-﻿{
+{
     "schema_version":  1,
     "scope":  "workspace",
     "slug":  null,
-    "generated_at":  "2026-05-23T23:06:24+02:00",
-    "records":  0,
+    "generated_at":  "2026-05-25T20:49:35+02:00",
+    "records":  1,
     "totals":  {
                    "exact_records":  0,
-                   "estimated_records":  0,
+                   "estimated_records":  1,
                    "input_tokens":  0,
                    "output_tokens":  0,
                    "tool_output_tokens":  0,
                    "total_tokens":  0
                },
     "top_culprits":  [
-
+                         {
+                             "culprit":  "background_agents",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "cross_topic_session",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "plan_rewrites",
+                             "attributed_tokens":  0
+                         }
                      ]
 }

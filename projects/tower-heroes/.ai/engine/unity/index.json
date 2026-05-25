@@ -1,10 +1,10 @@
 {
     "schema_version":  1,
-    "generated_at":  "2026-05-25T15:13:15+02:00",
+    "generated_at":  "2026-05-25T20:36:08+02:00",
     "engine":  "unity",
     "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
-    "unity_version":  "2022.3.62f1",
-    "unity_revision":  "2022.3.62f1 (4af31df58517)",
+    "unity_version":  "6000.4.8f1",
+    "unity_revision":  "6000.4.8f1 (f8b72d3d7343)",
     "paths":  {
                   "settings":  "projects/tower-heroes/.ai/engine/unity/settings.json",
                   "scenes":  "projects/tower-heroes/.ai/engine/unity/scenes.json",
@@ -15,12 +15,12 @@
               },
     "counts":  {
                    "packages":  43,
-                   "package_lock_entries":  62,
-                   "scenes":  38,
+                   "package_lock_entries":  66,
+                   "scenes":  10,
                    "build_scenes":  2,
-                   "prefabs":  50,
+                   "prefabs":  47,
                    "scriptable_object_types":  28,
-                   "shaders":  16,
+                   "shaders":  21,
                    "hierarchy_sources":  1
                },
     "asset_extension_counts":  [
@@ -30,7 +30,7 @@
                                    },
                                    {
                                        "extension":  ".asset",
-                                       "count":  2225
+                                       "count":  2215
                                    },
                                    {
                                        "extension":  ".cginc",
@@ -42,15 +42,15 @@
                                    },
                                    {
                                        "extension":  ".cs",
-                                       "count":  353
+                                       "count":  319
+                                   },
+                                   {
+                                       "extension":  ".hlsl",
+                                       "count":  1
                                    },
                                    {
                                        "extension":  ".inputactions",
                                        "count":  1
-                                   },
-                                   {
-                                       "extension":  ".jpg",
-                                       "count":  10
                                    },
                                    {
                                        "extension":  ".json",
@@ -58,11 +58,11 @@
                                    },
                                    {
                                        "extension":  ".mat",
-                                       "count":  25
+                                       "count":  9
                                    },
                                    {
                                        "extension":  ".meta",
-                                       "count":  4773
+                                       "count":  4649
                                    },
                                    {
                                        "extension":  ".mixer",
@@ -78,15 +78,11 @@
                                    },
                                    {
                                        "extension":  ".PNG",
-                                       "count":  1292
+                                       "count":  1289
                                    },
                                    {
                                        "extension":  ".prefab",
-                                       "count":  50
-                                   },
-                                   {
-                                       "extension":  ".psd",
-                                       "count":  6
+                                       "count":  47
                                    },
                                    {
                                        "extension":  ".scenetemplate",
@@ -94,19 +90,23 @@
                                    },
                                    {
                                        "extension":  ".shader",
-                                       "count":  16
+                                       "count":  17
+                                   },
+                                   {
+                                       "extension":  ".shadergraph",
+                                       "count":  4
                                    },
                                    {
                                        "extension":  ".ttf",
-                                       "count":  8
+                                       "count":  3
                                    },
                                    {
                                        "extension":  ".txt",
-                                       "count":  24
+                                       "count":  21
                                    },
                                    {
                                        "extension":  ".unity",
-                                       "count":  38
+                                       "count":  10
                                    },
                                    {
                                        "extension":  ".wav",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-05-23T19:35:06+02:00",
+  "last_updated": "2026-05-25T19:00:00+02:00",
   "purpose": "Token-friendly registry of explicit @wb workflow macro codes.",
   "human_cheatsheet": "cheatsheets/workflow-codes.md",
   "skill": "workbench-macro",
@@ -17,7 +17,7 @@
       "requires": ["Project", "Bug", "Expected behavior"],
       "skills": ["project-dossier", "unity-context when Unity project"],
       "may_touch_external_source": true,
-      "tracking": ["refresh project index", "refresh Unity context when relevant", "record project change"],
+      "tracking": ["refresh project index", "refresh Unity context when relevant", "record project change", "append token-usage ledger entry (workspace + project scope)"],
       "notes": "Fix root cause while preserving gameplay/product outcome unless explicitly changed."
     },
     {
@@ -25,7 +25,7 @@
       "requires": ["Project", "Target", "Goal"],
       "skills": ["project-dossier", "unity-context when Unity-relevant"],
       "may_touch_external_source": true,
-      "tracking": ["record project change", "refresh indexes/context when relevant"],
+      "tracking": ["record project change", "refresh indexes/context when relevant", "append token-usage ledger entry (workspace + project scope)"],
       "notes": "Targeted cleanup/refactor only; preserve behavior exactly unless explicitly changed."
     },
     {
@@ -83,7 +83,7 @@
       "optional": ["Focus", "Provider"],
       "skills": ["project-dossier", "unity-context when Unity project"],
       "may_touch_external_source": false,
-      "tracking": ["write project review note", "update project review index"],
+      "tracking": ["write project review note", "update project review index", "append token-usage ledger entry (workspace + project scope)"],
       "notes": "Runs a fresh findings-only review. Defaults to local/free Ollama. Claude Code is allowed only when explicitly requested through the existing Claude.ai subscription lane."
     },
     {
@@ -108,7 +108,7 @@
       "requires": ["Project", "Summary"],
       "skills": ["project-session"],
       "may_touch_external_source": false,
-      "tracking": ["write result note", "close active session", "update session/project indexes"],
+      "tracking": ["write result note", "close active session", "update session/project indexes", "append token-usage ledger entry (workspace + project scope)"],
       "notes": "Concludes explicit project documentation."
     },
     {
@@ -117,7 +117,7 @@
       "optional": ["Systems (comma-separated slugs, default: all)"],
       "skills": ["project-dossier"],
       "may_touch_external_source": false,
-      "tracking": ["create/overwrite systems/index.json", "write per-system .md files", "update project .ai/index.json systems count"],
+      "tracking": ["create/overwrite systems/index.json", "write per-system .md files", "update project .ai/index.json systems count", "append token-usage ledger entry (workspace + project scope) — this macro is token-heavy"],
       "notes": "Reads C# source via grep to understand each system, then writes documentation. Token-heavy one-time setup. Re-run after major refactors or to add new systems. Does not touch external source."
     },
     {
@@ -127,6 +127,32 @@
       "may_touch_external_source": false,
       "tracking": ["update systems/{slug}.md", "update systems/index.json last_updated for that system"],
       "notes": "Re-reads only the key files for the named system. Much cheaper than @wb:map-systems. Run after any bugfix/cleanup touching that system's key_file_patterns."
+    },
+    {
+      "code": "@wb:unity-bridge-probe",
+      "requires": ["Project"],
+      "skills": ["project-dossier", "unity-context"],
+      "may_touch_external_source": false,
+      "tracking": ["call MCP read_console (or equivalent) once", "update .ai/integrations/unity-mcp.json with bridge_status, last_probe_at, last_error if any"],
+      "notes": "Verifies the Unity MCP bridge is actually live (not just 'configured'). Use at session start when MCP-driven debugging is intended, or after a 'Cannot access disposed object' / connection error. Cheap single round-trip — does NOT modify the Unity project. Distinguishes 'server binary reachable' from 'editor bridge connected'."
+    },
+    {
+      "code": "@wb:unity-play-test",
+      "requires": ["Project", "Goal (what runtime behavior to observe)"],
+      "optional": ["DurationSeconds (default: 10)", "InitialScene"],
+      "skills": ["project-dossier", "unity-context"],
+      "may_touch_external_source": false,
+      "tracking": ["MCP: enter play mode", "MCP: sample runtime log for DurationSeconds", "MCP: exit play mode", "MCP: optional Game-view screenshot", "report findings"],
+      "notes": "Drives the Unity Editor through a play-mode sample via MCP and reports back. Use ONLY when a runtime issue cannot be diagnosed from static analysis or Console scrape alone (e.g., complex runtime crashes, visual-only regressions, behavior-under-load issues), or when the user explicitly asks for it. Requires the MCP bridge to be live — run @wb:unity-bridge-probe first if status is uncertain. Does NOT edit project files; observation only."
+    },
+    {
+      "code": "@wb:audit-workbench",
+      "requires": [],
+      "optional": ["Strict (default: false — when true, exit 1 on any warning instead of only on drift)"],
+      "skills": ["workbench-macro"],
+      "may_touch_external_source": false,
+      "tracking": ["run scripts/check-workbench-consistency.ps1", "report findings only (no auto-fix)"],
+      "notes": "Verifies AGENTS.md ↔ workflows/index.json ↔ cheatsheets alignment, scans for stale last_updated timestamps, and flags empty .ai/ subdirectories that should have content. Reports drift but does NOT auto-fix. Run after structural workbench changes (new macros, new sections) or periodically (monthly)."
     },
     {
       "code": "@wb:handoff",

@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  1,
-    "last_updated":  "2026-05-23T15:05:00+02:00",
+    "last_updated":  "2026-05-25T18:30:00+02:00",
     "id":  "unity-mcp",
     "name":  "MCP for Unity",
     "provider":  "CoplayDev",
@@ -19,8 +19,16 @@
     "server_smoke_test":  {
                               "status":  "passed",
                               "checked_at":  "2026-05-23T15:06:00+02:00",
-                              "command":  "uvx --from mcpforunityserver mcp-for-unity --help"
+                              "command":  "uvx --from mcpforunityserver mcp-for-unity --help",
+                              "note":  "Verifies server binary is reachable. Does NOT verify the Unity Editor bridge is live. Use bridge_probe for that."
                           },
+    "bridge_probe":  {
+                         "status":  "unknown",
+                         "last_probe_at":  null,
+                         "last_error":  null,
+                         "probe_macro":  "@wb:unity-bridge-probe",
+                         "note":  "Live status of the Unity Editor MCP bridge. Updated by @wb:unity-bridge-probe. 'configured' above means the server is registered; 'live' here means the Editor bridge is actively reachable from this AI session."
+                     },
     "projects":  [
                      {
                          "slug":  "brawl-survivors",

@@ -5,7 +5,7 @@
     "status":  "active",
     "source_path":  "D:\\GameProjects\\BrawlSurvivors (2)\\BrawlSurvivors (2)\\BrawlSurvivors\\BrawlSurvivors",
     "created_at":  "2026-05-23T11:01:21+02:00",
-    "last_updated":  "2026-05-23T19:35:32+02:00",
+    "last_updated":  "2026-05-25T19:10:00+02:00",
     "human_map":  {
                       "readme":  "projects/brawl-survivors/README.md",
                       "overview":  "projects/brawl-survivors/map/overview.md",
@@ -28,7 +28,10 @@
                      "handoffs":  "projects/brawl-survivors/.ai/handoffs/index.json",
                      "summary":  "projects/brawl-survivors/.ai/summary.md",
                      "scope":  "projects/brawl-survivors/.ai/scope.json",
-                     "reviews":  "projects/brawl-survivors/.ai/reviews/index.json"
+                     "reviews":  "projects/brawl-survivors/.ai/reviews/index.json",
+                     "systems":  "projects/brawl-survivors/.ai/systems/index.json",
+                     "sessions_index":  "projects/brawl-survivors/.ai/sessions/index.json",
+                     "token_usage":  "projects/brawl-survivors/.ai/token-usage/index.json"
                  },
     "active_session":  null,
     "kind":  "unity",
@@ -58,6 +61,7 @@
     "notes":  [
                   "Read this file before scanning the project dossier or linked source path.",
                   "Keep detailed session documentation in timestamped session files only when explicitly requested.",
-                  "Unity engine context lives under projects/brawl-survivors/.ai/engine/unity/."
+                  "Unity engine context lives under projects/brawl-survivors/.ai/engine/unity/.",
+                  "Systems knowledge base, sessions index, and token-usage ledger are not yet built (project is dormant). Paths in ai_paths point at future locations. Run @wb:map-systems brawl-survivors when active work begins."
               ]
 }

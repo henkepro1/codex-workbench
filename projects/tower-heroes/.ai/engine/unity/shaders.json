@@ -1,87 +1,112 @@
 {
     "schema_version":  1,
-    "generated_at":  "2026-05-25T15:13:15+02:00",
-    "count":  16,
+    "generated_at":  "2026-05-25T20:36:08+02:00",
+    "count":  21,
     "shaders":  [
                     {
                         "path":  "Assets/_Project/Shaders/BreezeCloudEffect_URP.shader",
-                        "bytes":  7366,
-                        "modified":  "2026-04-04T07:30:56+02:00"
+                        "bytes":  7362,
+                        "modified":  "2026-05-25T19:45:46+02:00"
                     },
                     {
                         "path":  "Assets/_Project/Shaders/SnowfallEffect_URP.shader",
-                        "bytes":  7616,
-                        "modified":  "2026-04-04T07:31:21+02:00"
+                        "bytes":  7612,
+                        "modified":  "2026-05-25T19:45:49+02:00"
                     },
                     {
                         "path":  "Assets/_Project/Shaders/SpriteHitGlow.shader",
-                        "bytes":  3292,
-                        "modified":  "2026-03-14T19:19:42+01:00"
+                        "bytes":  3550,
+                        "modified":  "2026-05-25T16:56:40+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader",
-                        "bytes":  3499,
-                        "modified":  "2020-09-25T07:41:58+02:00"
+                        "bytes":  3839,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader",
-                        "bytes":  3497,
-                        "modified":  "2020-04-04T04:02:20+02:00"
+                        "bytes":  3836,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader",
-                        "bytes":  3549,
-                        "modified":  "2020-04-04T04:02:08+02:00"
+                        "bytes":  4071,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader",
-                        "bytes":  10585,
-                        "modified":  "2026-04-08T22:34:35+02:00"
+                        "bytes":  11054,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader",
-                        "bytes":  12000,
-                        "modified":  "2026-04-08T22:34:35+02:00"
+                        "bytes":  12438,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF.shader",
-                        "bytes":  10600,
-                        "modified":  "2026-04-08T22:34:35+02:00"
+                        "bytes":  11027,
+                        "modified":  "2023-08-04T14:02:31+02:00"
+                    },
+                    {
+                        "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP LIT.shadergraph",
+                        "bytes":  287427,
+                        "modified":  "2023-08-04T14:08:03+02:00"
+                    },
+                    {
+                        "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-HDRP UNLIT.shadergraph",
+                        "bytes":  279909,
+                        "modified":  "2023-08-04T14:08:03+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader",
-                        "bytes":  7822,
-                        "modified":  "2020-04-04T03:58:20+02:00"
+                        "bytes":  8273,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader",
-                        "bytes":  7643,
-                        "modified":  "2020-04-04T03:57:48+02:00"
+                        "bytes":  8081,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader",
-                        "bytes":  3071,
-                        "modified":  "2020-04-03T23:01:56+02:00"
+                        "bytes":  3064,
+                        "modified":  "2023-07-22T17:38:10+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader",
-                        "bytes":  7674,
-                        "modified":  "2020-04-03T04:18:40+02:00"
+                        "bytes":  8074,
+                        "modified":  "2023-08-04T14:02:31+02:00"
+                    },
+                    {
+                        "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile-2-Pass.shader",
+                        "bytes":  11795,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader",
-                        "bytes":  4355,
-                        "modified":  "2020-04-04T04:01:06+02:00"
+                        "bytes":  4353,
+                        "modified":  "2023-07-22T17:38:10+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader",
-                        "bytes":  3524,
-                        "modified":  "2020-04-03T22:56:20+02:00"
+                        "bytes":  3523,
+                        "modified":  "2023-07-22T17:38:10+02:00"
+                    },
+                    {
+                        "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-URP Lit.shadergraph",
+                        "bytes":  283866,
+                        "modified":  "2023-08-04T14:08:19+02:00"
+                    },
+                    {
+                        "path":  "Assets/TextMesh Pro/Shaders/TMP_SDF-URP Unlit.shadergraph",
+                        "bytes":  277012,
+                        "modified":  "2023-08-04T14:08:19+02:00"
                     },
                     {
                         "path":  "Assets/TextMesh Pro/Shaders/TMP_Sprite.shader",
-                        "bytes":  2673,
-                        "modified":  "2020-12-06T09:38:54+01:00"
+                        "bytes":  3446,
+                        "modified":  "2023-08-04T14:02:31+02:00"
                     }
                 ]
 }

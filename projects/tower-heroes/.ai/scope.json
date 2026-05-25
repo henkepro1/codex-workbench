@@ -1,13 +1,13 @@
 {
     "schema_version":  1,
-    "last_updated":  "2026-05-25T15:14:05+02:00",
+    "last_updated":  "2026-05-25T20:36:16+02:00",
     "project":  "tower-heroes",
     "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
     "source_exists":  true,
     "authored_source":  {
-                            "file_count":  3080,
-                            "csharp_files":  353,
-                            "csharp_loc":  70396,
+                            "file_count":  2993,
+                            "csharp_files":  319,
+                            "csharp_loc":  65456,
                             "size_class":  "medium",
                             "extension_counts":  [
                                                      {
@@ -16,7 +16,7 @@
                                                      },
                                                      {
                                                          "extension":  ".asset",
-                                                         "count":  2249
+                                                         "count":  2240
                                                      },
                                                      {
                                                          "extension":  ".cginc",
@@ -28,7 +28,11 @@
                                                      },
                                                      {
                                                          "extension":  ".cs",
-                                                         "count":  353
+                                                         "count":  319
+                                                     },
+                                                     {
+                                                         "extension":  ".hlsl",
+                                                         "count":  1
                                                      },
                                                      {
                                                          "extension":  ".inputactions",
@@ -40,23 +44,27 @@
                                                      },
                                                      {
                                                          "extension":  ".mat",
-                                                         "count":  25
+                                                         "count":  9
                                                      },
                                                      {
                                                          "extension":  ".prefab",
-                                                         "count":  50
+                                                         "count":  47
                                                      },
                                                      {
                                                          "extension":  ".shader",
-                                                         "count":  16
+                                                         "count":  17
+                                                     },
+                                                     {
+                                                         "extension":  ".shadergraph",
+                                                         "count":  4
                                                      },
                                                      {
                                                          "extension":  ".txt",
-                                                         "count":  26
+                                                         "count":  23
                                                      },
                                                      {
                                                          "extension":  ".unity",
-                                                         "count":  38
+                                                         "count":  10
                                                      }
                                                  ],
                             "excluded_dirs":  [
@@ -74,21 +82,21 @@
                         },
     "engine_assets":  {
                           "engine":  "unity",
-                          "scenes":  38,
-                          "prefabs":  50,
+                          "scenes":  10,
+                          "prefabs":  47,
                           "scriptable_objects":  28,
-                          "shaders":  16,
+                          "shaders":  21,
                           "packages":  43
                       },
     "notes_corpus":  {
-                         "total_records":  62,
+                         "total_records":  63,
                          "counts":  {
                                         "attempts":  0,
                                         "decisions":  3,
                                         "feedback":  1,
                                         "sessions":  33,
                                         "handoffs":  0,
-                                        "changes":  21,
+                                        "changes":  22,
                                         "summaries":  0,
                                         "maps":  4
                                     },

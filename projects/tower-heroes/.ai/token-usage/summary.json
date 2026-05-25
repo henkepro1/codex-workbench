@@ -1,12 +1,12 @@
-﻿{
+{
     "schema_version":  1,
     "scope":  "project",
     "slug":  "tower-heroes",
-    "generated_at":  "2026-05-23T23:31:55+02:00",
-    "records":  1,
+    "generated_at":  "2026-05-25T20:48:08+02:00",
+    "records":  2,
     "totals":  {
                    "exact_records":  0,
-                   "estimated_records":  1,
+                   "estimated_records":  2,
                    "input_tokens":  0,
                    "output_tokens":  0,
                    "tool_output_tokens":  0,
@@ -14,19 +14,23 @@
                },
     "top_culprits":  [
                          {
-                             "culprit":  "unity_mcp_validation",
-                             "attributed_tokens":  0
-                         },
-                         {
                              "culprit":  "broad_source_search",
                              "attributed_tokens":  0
                          },
                          {
-                             "culprit":  "long_tool_output",
+                             "culprit":  "live_debugging_loop",
                              "attributed_tokens":  0
                          },
                          {
-                             "culprit":  "live_debugging_loop",
+                             "culprit":  "background_agents",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "unity_mcp_validation",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "long_tool_output",
                              "attributed_tokens":  0
                          }
                      ]

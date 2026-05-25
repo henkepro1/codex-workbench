@@ -108,6 +108,59 @@ Use handoff for lightweight next-step context after a solved or paused task. Use
 
 Impact: handoff writes a small timestamped note. Session docs create session folders and timestamped note files.
 
+### Task Ceremony Threshold
+
+Right-size effort. Trivial wording does not unlock the trivial path — the threshold is about *effect*, not *phrasing*.
+
+**No macro, no session docs, no change record** — answer or edit directly:
+
+- Typos / single-line edits in workbench-local code
+- Formatting-only changes
+- "Where is X" / "how does Y work" questions resolvable with one or two reads
+- Reading existing docs, summarizing files, explaining behavior
+- Trivial cheatsheet / index touch-ups
+
+**Use the appropriate `@wb:` macro + standard tracking**:
+
+- Any edit to `D:\GameProjects\*` external project source
+- Any change touching more than 2 files
+- Any change to scenes, prefabs, ScriptableObjects, shaders, ProjectSettings
+- Any change that alters gameplay behavior (intended or not)
+- Anything where rules-load matters
+
+**Documented session (`@wb:session-start`)**:
+
+- Multi-hour debugging spanning multiple compile-test cycles
+- Work that will continue across multiple AI / Codex sessions
+- Deliberate retrospective on a tricky incident
+- User explicitly asks for documented session notes
+
+When in doubt, lean toward less ceremony for read-only / single-edit work, and toward more ceremony for anything that touches external project source or rules-bound changes.
+
+### Plan Mode Workflow Recommendations
+
+Suggest: a `## Recommended Macros & Skills` section appended to every written plan.
+
+Use whenever a plan is being produced — Claude Code's formal plan mode, or any explicit "plan this" / "make a plan for" request handled by any AI tool.
+
+Format each entry as:
+
+- `<macro or skill>` — execution phase: **pre-work / during / post-work tracking / post-work follow-up**. One sentence of plan-specific reasoning.
+
+If nothing applies, write exactly: `No macros or skills recommended for this plan.` Do not invent recommendations.
+
+Impact: read-only annotation in the plan output. Does not invoke anything; the user must still explicitly run each macro. The "Do Not Suggest" rules below still apply — keep the list short and concrete.
+
+Example (for a hypothetical movement-bug plan in tower-heroes):
+
+```text
+## Recommended Macros & Skills
+
+- `@wb:bugfix-live` — execution phase: **pre-work**. This plan edits live tower-heroes code to fix a movement bug, so the bugfix macro loads rules and queues the change record.
+- `@wb:update-system enemy-movement` — execution phase: **post-work tracking**. The plan touches files matching the `enemy-movement` system's `key_file_patterns`, so its doc needs refreshing after the fix.
+- `@wb:review` — execution phase: **post-work follow-up**. The plan changes a hot per-frame path, so a findings-only review pass is worth offering after the fix lands.
+```
+
 ## Do Not Suggest
 
 - A Skill or macro for a simple question that can be answered directly.

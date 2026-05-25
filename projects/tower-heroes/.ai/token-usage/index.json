@@ -1,9 +1,9 @@
-﻿{
+{
     "schema_version":  1,
     "enabled":  true,
     "scope":  "project",
     "slug":  "tower-heroes",
-    "last_updated":  "2026-05-23T23:31:55+02:00",
+    "last_updated":  "2026-05-25T20:48:08+02:00",
     "ledger":  "projects/tower-heroes/.ai/token-usage/ledger.jsonl",
     "summary":  "projects/tower-heroes/.ai/token-usage/summary.json",
     "tracking_policy":  {
@@ -19,9 +19,9 @@
                                       ]
                         },
     "totals":  {
-                   "records":  1,
+                   "records":  2,
                    "exact_records":  0,
-                   "estimated_records":  1,
+                   "estimated_records":  2,
                    "input_tokens":  0,
                    "output_tokens":  0,
                    "tool_output_tokens":  0,
@@ -29,19 +29,23 @@
                },
     "top_culprits":  [
                          {
-                             "culprit":  "unity_mcp_validation",
-                             "attributed_tokens":  0
-                         },
-                         {
                              "culprit":  "broad_source_search",
                              "attributed_tokens":  0
                          },
                          {
-                             "culprit":  "long_tool_output",
+                             "culprit":  "live_debugging_loop",
                              "attributed_tokens":  0
                          },
                          {
-                             "culprit":  "live_debugging_loop",
+                             "culprit":  "background_agents",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "unity_mcp_validation",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "long_tool_output",
                              "attributed_tokens":  0
                          }
                      ]

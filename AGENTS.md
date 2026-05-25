@@ -78,11 +78,22 @@ This workspace is a professional solo developer workbench for tracking and build
 - Refresh Unity context with `scripts/scan-unity-context.ps1` after Unity-relevant code, scene, prefab, ScriptableObject, shader, layer, or settings changes.
 - Do not deep-read all scene/prefab YAML unless the task requires it.
 
+<!-- @section: unity-mcp-driven-debugging -->
+## Unity MCP-Driven Debugging
+
+- When a Unity debugging need arises (Console errors, runtime issues, visual regressions, scene/prefab state questions) AND the Unity Editor is open AND the workbench's `.ai/integrations/unity-mcp.json` is configured, prefer driving Unity through MCP (read_console, read scene hierarchy, screenshot, etc.) over asking the user to copy-paste from the Editor.
+- Verify bridge liveness with `@wb:unity-bridge-probe` once at the start of a debugging session, or after any `Cannot access disposed object` / `NetworkStream` / `Client handler error` in the Unity Console. Treat `.ai/integrations/unity-mcp.json` `"status": "configured"` as a stale promise — only `bridge_status: live` with a recent `last_probe_at` proves the editor bridge is currently live.
+- If the bridge is down, attempt one targeted recovery (close Unity, restart, re-probe) before falling back to asking the user to paste. Do not loop indefinitely.
+- Use `@wb:unity-play-test` for complex runtime issues that static analysis or Console scrape cannot diagnose — visual-only regressions, race conditions, behavior-under-load, or when the user explicitly asks for a play-mode test. Do NOT auto-invoke after every Unity-touching edit; reserve it for genuine need or explicit request.
+- During planning, when a plan's verification step would otherwise require the user to manually press Play and observe, suggest `@wb:unity-play-test` in the plan's Recommended Macros & Skills section with plan-specific reasoning.
+- Do not configure auto-firing hooks (PostToolUse on .cs files, auto-screenshots, etc.) for MCP calls. MCP-driven actions remain explicit — invoked by macro or by the user. This keeps the bridge from being hammered and keeps AI behavior predictable.
+
 <!-- @section: ai-workspace-rules -->
 ## AI Workspace Rules
 
 - Keep root `.ai/index.json` compact and current when workbench structure, active tasks, important docs, or recent attempts change.
 - Keep `.ai/workflows/index.json` current when workflow macro codes are added, removed, or changed.
+- Run `@wb:audit-workbench` after structural workbench changes (new macros, new AGENTS.md sections, new cheatsheets) or periodically (monthly). It reports drift between AGENTS.md, workflow macros, and cheatsheets without auto-fixing.
 - Keep `.ai/feedback/index.json` current when persistent user preferences or corrections are added.
 - Keep `.ai/decisions/index.json` current when architectural or workflow decisions are recorded.
 - Keep `.ai/retrieval/index.json` current when retrieval strategies, RAG status, or routing heuristics change.
@@ -130,6 +141,46 @@ This workspace is a professional solo developer workbench for tracking and build
 - Do not suggest extra workflows for trivial prompts, obvious one-step answers, or cases where a Skill or macro would add ceremony without value.
 - Unity-specific suggestions apply only to Unity dossiers. General suggestions such as `$remember`, `@wb:handoff`, `@wb:attempt-recovery`, or `$project-session` can apply to any project type.
 - `@wb:` macros remain explicit. Codex may suggest a macro, but must not silently treat ordinary wording as a macro invocation.
+
+<!-- @section: task-ceremony-threshold -->
+## Task Ceremony Threshold
+
+Right-size effort to the task. A request that takes one tool call should not trigger a macro chain. A request that touches a live external project should never skip the macro.
+
+- **No macro, no session docs, no change record** — answer or edit directly:
+  - Typos, single-line edits, formatting-only changes in workbench-local code
+  - Answering a "where is X" / "how does Y work" question that's resolvable with a read or two
+  - Reading existing docs, summarizing files, explaining behavior
+  - Trivial cheatsheet / index touch-ups (single-line note edits)
+- **Use the appropriate `@wb:` macro + standard tracking**:
+  - Any edit to `D:\GameProjects\*` external project source
+  - Any change touching more than 2 files
+  - Any change to scenes, prefabs, ScriptableObjects, shaders, ProjectSettings
+  - Any change that alters gameplay behavior (intended or not)
+  - Anything where rules-load matters (live-project-code-rules, project-rules, source-side rules)
+- **Documented session (`@wb:session-start`)**:
+  - Multi-hour debugging spanning multiple compile-test cycles
+  - Work that will continue across multiple AI/Codex sessions
+  - Deliberate retrospective on a tricky incident
+  - User explicitly asks for documented session notes
+
+Trivial wording does not unlock the trivial path. The threshold is about *effect*, not *phrasing*. "Just fix the bug" in an external Unity project still uses `@wb:bugfix-live`. "Just clean this up" in a multi-file refactor still uses `@wb:cleanup-live`.
+
+<!-- @section: plan-mode-recommendations -->
+## Plan Mode Recommendations
+
+- When producing a written plan — whether in Claude Code's formal plan mode (writing to `~/.claude/plans/*.md`) or in response to any explicit "plan this" / "make a plan for" request from any model — the plan must end with a `## Recommended Macros & Skills` section.
+- For each applicable `@wb:` code from `.ai/workflows/index.json` or Skill from the `skills` section of this file, list:
+  - the code or skill name (e.g. `@wb:bugfix-live`, `$remember`),
+  - the execution phase (`pre-work`, `during`, `post-work tracking`, or `post-work follow-up`),
+  - one sentence of plan-specific reasoning — why this macro helps *this particular plan*, not generic boilerplate.
+- If no macro or skill applies, write exactly: `No macros or skills recommended for this plan.` Do not invent recommendations to fill the section.
+- The "Do Not Suggest" rules from `cheatsheets/recommendations.md` still apply: do not suggest macros for trivial plans, do not suggest `$remember` for casual preferences, do not propose Unity macros for non-Unity work, etc.
+- This section serves two roles depending on entry type:
+  - **`@wb:` macros** listed here are informational — the user must still explicitly invoke each one (typing `@wb:bugfix-live`, etc.) for it to activate. Recommending does not run.
+  - **Tracking scripts** listed here (`scripts/record-token-usage.ps1`, `scripts/record-project-change.ps1`, `scripts/scan-unity-context.ps1`, `scripts/update-project-index.ps1`) are **AI-executed via tool calls during plan implementation** — the AI runs them itself when the plan completes. They are listed for visibility (the user sees what will happen), NOT to prompt the user to run them in a terminal. **Never ask the user to type a tracking-script invocation.**
+- For plans whose scope qualifies as "macro tier" per the Task Ceremony Threshold (external project edits, multi-file changes, gameplay-affecting changes, Unity scene/prefab/ScriptableObject/shader/setting touches), the Recommended Macros & Skills section MUST include `scripts/record-token-usage.ps1` as a final AI-executed step (workspace + project scope when relevant). The AI invokes it via its PowerShell tool with `-Title`, `-Culprit`, `-Mitigation`, and `-Notes` filled from the just-completed work. Skip for trivial reads, single-line edits, or anything sitting in the "no macro" tier of the ceremony threshold.
+- Use the same hybrid framing as `.ai/recommendations/index.json`: required context loading happens silently and is not listed here; only optional follow-ups, pre-work gates, and tracking macros belong in the recommendation list.
 
 <!-- @section: retrieval-strategy -->
 ## Retrieval Strategy
@@ -216,6 +267,7 @@ Use stable, descriptive IDs such as `hero-bg-v1`, `logo-study-2026-05-23`, or `s
 - Prefer structured manifests and summaries over repeated folder scans.
 - Do not write bulky raw outputs, logs, screenshots, or temporary exports into committed context.
 - Put bulky or noisy AI-only material in `.ai/raw/`, `.ai/tmp/`, `.ai/logs/`, `.ai/screenshots/`, or `.ai/exports/`; these paths are ignored by Git.
+- After finishing a substantive macro (`@wb:bugfix-live`, `@wb:cleanup-live`, `@wb:review`, `@wb:map-systems`, `@wb:session-wrap`), append a one-line entry to `.ai/token-usage/ledger.jsonl` (workspace scope) and `projects/<slug>/.ai/token-usage/ledger.jsonl` (project scope, when relevant). Fields: `timestamp`, `macro`, `slug`, `relative_cost` (low/medium/high), `notes` (brief — what drove the cost), `total_tokens` if the runtime exposed it (else null). Skip for trivial reads, simple questions, or single-line edits.
 
 <!-- @section: git-and-editing-safety -->
 ## Git And Editing Safety

@@ -1,0 +1,39 @@
+{
+    "schema_version":  1,
+    "id":  "2026-05-25-203553-upgraded-unity-editor-2022-3-62f1-6000-4-8f1-unity-6-4-lts-w",
+    "project":  "tower-heroes",
+    "category":  "settings",
+    "summary":  "Upgraded Unity editor 2022.3.62f1 -\u003e 6000.4.8f1 (Unity 6.4 LTS) with URP 14.0.12 -\u003e 17.4.0 and 2D feature 2.0.1 -\u003e 2.1.0",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "ProjectSettings/ProjectVersion.txt",
+                          "Packages/manifest.json",
+                          "Packages/packages-lock.json",
+                          "ProjectSettings/ProjectSettings.asset",
+                          "Assets/_Project/Shaders/SpriteHitGlow.shader",
+                          "Assets/_Project/Shaders/BreezeCloudEffect_URP.shader",
+                          "Assets/_Project/Shaders/SnowfallEffect_URP.shader",
+                          "Assets/TextMesh Pro/Examples \u0026 Extras (deleted)",
+                          "Assets/_Project/Scripts/Combat/EnemyTargetIndicatorEffectService.cs",
+                          "Assets/_Project/Scripts/Combat/TowerTargetingModule.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnit.cs",
+                          "Assets/_Project/Scripts/Entities/Modules/AttackModule.cs",
+                          "Assets/_Project/Scripts/Entities/Units/PlayerUnitController.cs",
+                          "Assets/_Project/Scripts/Audio/AudioManager.cs"
+                      ],
+    "verification":  "Project opens cleanly in Unity 6.4.8f1 after exiting Safe Mode. Play mode confirmed running by user. All compile errors cleared (deleted TMP Examples \u0026 Extras folder). All deprecation/SRP warnings cleared: GetInstanceID -\u003e GetEntityId via service refactor to EntityId-typed dictionary/hashset; _MainTex_ST moved outside CBUFFER on 2 URP shaders; SpriteHitGlow converted from legacy CG to URP HLSL; AudioSource time=0 removed before clip null; activeInputHandler 2 (Both) -\u003e 1 (Input System only).",
+    "audit":  {
+                  "rules_checked":  [
+                                        "live-project-code-rules",
+                                        "project-rules",
+                                        "unity-context"
+                                    ],
+                  "mechanics_preserved":  "yes - all gameplay behavior preserved; shader math unchanged; EntityId.GetHashCode() provides stable per-enemy parity matching prior GetInstanceID parity; Stop() handles audio playhead reset that explicit time=0 was redundantly doing",
+                  "editor_changes_required":  "Unity 6.4.8f1 installed via Unity Hub; user clicked Import TMP Essentials (not Examples); user restarted Unity to apply activeInputHandler change",
+                  "follow_up_fixes":  [
+                                          "MCP disposed-stream error resolved by Unity restart"
+                                      ]
+              },
+    "created_at":  "2026-05-25T20:35:53+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

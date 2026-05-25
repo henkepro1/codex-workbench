@@ -24,6 +24,9 @@ Codex may suggest a workflow code when `cheatsheets/recommendations.md` says it 
 | `@wb:session-wrap` | Conclude explicit project documentation | No |
 | `@wb:map-systems` | Build or rebuild the full system knowledge base for a project | No |
 | `@wb:update-system` | Update one system's doc after changes to its files | No |
+| `@wb:unity-bridge-probe` | Verify the Unity MCP bridge is actually live (not just configured) | No |
+| `@wb:unity-play-test` | Drive Unity through a play-mode sample via MCP and report findings | No |
+| `@wb:audit-workbench` | Check AGENTS.md ↔ macros ↔ cheatsheets alignment + stale-index detection | No |
 | `@wb:handoff` | Write a manual lightweight handoff note | No |
 
 ## `@wb:bugfix-live`
@@ -213,6 +216,50 @@ Example:
 Project: tower-heroes
 Target asset/object: Main gameplay scene, TowerPlacementController object
 Requested change: Add the verified missing serialized reference if it is safe to edit directly.
+```
+
+## `@wb:audit-workbench`
+
+Use to verify the workbench is internally consistent — `AGENTS.md` ↔ `.ai/workflows/index.json` ↔ `cheatsheets/workflow-codes.md` all reference the same `@wb:` codes, no stale `last_updated` timestamps, no template-only `.ai/` subdirectories.
+
+Required fields:
+
+- (none)
+
+Optional fields:
+
+- `Strict`: when true, exit 1 on warnings too (stale timestamps, missing skill cross-refs). Default exits 1 only on hard drift.
+
+Skills and context:
+
+- `$workbench-macro`
+
+Required cleanup and tracking:
+
+- run `scripts/check-workbench-consistency.ps1`
+- report findings only (errors + warnings)
+- do NOT auto-fix; the user decides what to address
+
+When to use:
+
+- After adding/removing `@wb:` macros, AGENTS.md sections, or cheatsheets
+- Periodically (monthly) as a maintenance pass
+- Before sharing the workbench with a teammate or fresh AI session
+
+Not for:
+
+- Routine work where no structural workbench change happened
+- Auto-fire on every commit — too chatty for value
+
+Example:
+
+```text
+@wb:audit-workbench
+```
+
+```text
+@wb:audit-workbench
+Strict: true
 ```
 
 ## `@wb:handoff`
@@ -466,6 +513,96 @@ Example:
 ```text
 @wb:map-systems
 Project: tower-heroes
+```
+
+## `@wb:unity-bridge-probe`
+
+Use to verify the Unity MCP bridge is actually live and reachable from the AI session, not just "configured."
+
+Required fields:
+
+- `Project`
+
+Skills and context:
+
+- `$project-dossier`
+- `$unity-context`
+- `.ai/integrations/unity-mcp.json`
+
+Required cleanup and tracking:
+
+- attempt a single read-only MCP call (e.g., `read_console`)
+- record the outcome in `.ai/integrations/unity-mcp.json`: `bridge_status` (`live` / `down`), `last_probe_at`, optional `last_error`
+- do not edit the Unity project
+
+When to use:
+
+- At the start of a session that intends to use MCP for Unity debugging.
+- After a `Cannot access disposed object` / `NetworkStream` / `Client handler error` log appears in Unity Console.
+- Before invoking `@wb:unity-play-test` or any other MCP-driven Unity macro.
+- When the workbench claims `"status": "configured"` but it's been a while since the bridge was confirmed live.
+
+Not for:
+
+- Routine work where MCP isn't being used.
+- Auto-fire on every Unity edit (too chatty).
+
+Example:
+
+```text
+@wb:unity-bridge-probe
+Project: tower-heroes
+```
+
+## `@wb:unity-play-test`
+
+Use to drive the Unity Editor through a controlled play-mode sample via MCP and report runtime observations back without the user manually pressing Play.
+
+Required fields:
+
+- `Project`
+- `Goal`: what runtime behavior to observe (e.g., "enemy reaches goal cell from ramp spawn", "SpriteHitGlow renders on hit", "no NullReference in Bootstrap")
+
+Optional fields:
+
+- `DurationSeconds`: how long to sample logs (default: 10)
+- `InitialScene`: scene to load before play (default: current play-mode start scene)
+
+Skills and context:
+
+- `$project-dossier`
+- `$unity-context`
+- MCP bridge must be live — run `@wb:unity-bridge-probe` first if status is uncertain
+
+Required cleanup and tracking:
+
+- MCP: enter play mode
+- MCP: sample runtime log for `DurationSeconds`
+- MCP: exit play mode
+- MCP: optional Game-view screenshot for visual-only verification
+- report findings (clean / errors / warnings / screenshot description)
+- do not edit the Unity project
+
+When to use:
+
+- A runtime issue cannot be diagnosed from static analysis or Console scrape alone (visual regressions, race conditions, behavior-under-load).
+- A complex multi-file change has landed and a smoke test would meaningfully reduce risk.
+- The user explicitly asks for a play-mode test.
+- During AI-driven planning, when the plan's verification step requires runtime observation that the user would otherwise have to do manually.
+
+Not for:
+
+- Simple compile fixes — Console scrape via `read_console` is cheaper.
+- Auto-fire after every Unity-touching edit.
+- Repeated execution within one session unless behavior changes.
+
+Example:
+
+```text
+@wb:unity-play-test
+Project: tower-heroes
+Goal: Enemy spawns at ramp and reaches goal cell without stalling.
+DurationSeconds: 15
 ```
 
 ## `@wb:update-system`

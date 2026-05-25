@@ -1,7 +1,7 @@
 {
     "schema_version":  1,
-    "generated_at":  "2026-05-25T15:13:15+02:00",
-    "count":  50,
+    "generated_at":  "2026-05-25T20:36:08+02:00",
+    "count":  47,
     "prefabs":  [
                     {
                         "path":  "Assets/_Project/Art/Sprites/Tilepalette/16x16 Tiles/16x16 Tilesheet.prefab",
@@ -232,21 +232,6 @@
                         "path":  "Assets/DalisArt/Tiles/DalisPalette.prefab",
                         "bytes":  6071,
                         "modified":  "2026-05-18T21:55:35+02:00"
-                    },
-                    {
-                        "path":  "Assets/TextMesh Pro/Examples \u0026 Extras/Prefabs/Text Popup.prefab",
-                        "bytes":  7583,
-                        "modified":  "2017-11-09T01:07:20+01:00"
-                    },
-                    {
-                        "path":  "Assets/TextMesh Pro/Examples \u0026 Extras/Prefabs/TextMeshPro - Prefab 1.prefab",
-                        "bytes":  5797,
-                        "modified":  "2018-05-04T00:58:44+02:00"
-                    },
-                    {
-                        "path":  "Assets/TextMesh Pro/Examples \u0026 Extras/Prefabs/TextMeshPro - Prefab 2.prefab",
-                        "bytes":  5793,
-                        "modified":  "2018-05-02T08:28:08+02:00"
                     },
                     {
                         "path":  "Assets/Tiny Swords/Terrain/Tileset/Tilemap Settings/Tilemap.prefab",

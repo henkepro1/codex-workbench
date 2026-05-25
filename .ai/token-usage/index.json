@@ -1,8 +1,8 @@
-﻿{
+{
     "schema_version":  1,
-    "enabled":  false,
+    "enabled":  true,
     "scope":  "workspace",
-    "last_updated":  "2026-05-23T23:06:24+02:00",
+    "last_updated":  "2026-05-25T20:49:35+02:00",
     "ledger":  ".ai/token-usage/ledger.jsonl",
     "summary":  ".ai/token-usage/summary.json",
     "tracking_policy":  {
@@ -18,15 +18,26 @@
                                       ]
                         },
     "totals":  {
-                   "records":  0,
+                   "records":  1,
                    "exact_records":  0,
-                   "estimated_records":  0,
+                   "estimated_records":  1,
                    "input_tokens":  0,
                    "output_tokens":  0,
                    "tool_output_tokens":  0,
                    "total_tokens":  0
                },
     "top_culprits":  [
-
+                         {
+                             "culprit":  "background_agents",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "cross_topic_session",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "plan_rewrites",
+                             "attributed_tokens":  0
+                         }
                      ]
 }
