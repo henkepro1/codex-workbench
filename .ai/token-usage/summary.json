@@ -1,0 +1,18 @@
+﻿{
+    "schema_version":  1,
+    "scope":  "workspace",
+    "slug":  null,
+    "generated_at":  "2026-05-23T23:06:24+02:00",
+    "records":  0,
+    "totals":  {
+                   "exact_records":  0,
+                   "estimated_records":  0,
+                   "input_tokens":  0,
+                   "output_tokens":  0,
+                   "tool_output_tokens":  0,
+                   "total_tokens":  0
+               },
+    "top_culprits":  [
+
+                     ]
+}

@@ -1,0 +1,28 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-25-002023-enemy-ramp-movement-reconciles-invalid-current-surface-level-from-explicit-route-levels",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Enemy ramp movement reconciles invalid current surface level from explicit route levels",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assets\\_Project\\Scripts\\Waves\\EnemyUnitMovement.cs"
+                      ],
+    "verification":  "dotnet build D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj --no-restore passed; Unity MCP validate_script EnemyUnitMovement.cs passed; Unity scripts refresh ready",
+    "audit":  {
+                  "rules_checked":  [
+                                        ".ai/rules/index.json",
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md",
+                                        "projects/tower-heroes/rules/ramp-traversal-root-fix-protocol.md",
+                                        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "Enemy-enemy collision and pushing unchanged; no teleport/snap/ghost/stall-recovery workaround added; connector body-clear authority retained.",
+                  "editor_changes_required":  "None; script-only change refreshed through Unity MCP.",
+                  "follow_up_fixes":  [
+                                          "Runtime no-tower ramp repro both spawn directions; runtime narrow-passage repro; capture MCP snapshot if curClear=false persists."
+                                      ]
+              },
+    "created_at":  "2026-05-25T00:20:23+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

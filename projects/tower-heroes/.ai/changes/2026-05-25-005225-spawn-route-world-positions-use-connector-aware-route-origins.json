@@ -1,0 +1,26 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-25-005225-spawn-route-world-positions-use-connector-aware-route-origins",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Spawn route world positions use connector-aware route origins",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assets\\_Project\\Scripts\\GridSystem\\EnemyPathService.cs",
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assets\\_Project\\Scripts\\Waves\\EnemyUnit.cs"
+                      ],
+    "verification":  "dotnet build D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj --no-restore passed; Unity MCP validate_script passed for EnemyPathService.cs and EnemyUnit.cs.",
+    "audit":  {
+                  "rules_checked":  [
+                                        "live-project-code-rules",
+                                        "ramp-traversal-root-fix-protocol"
+                                    ],
+                  "mechanics_preserved":  "Spawn and route start now agree on connector-aware authored level; no runtime teleport/snap/ghost/stall recovery/route-refresh escape was added.",
+                  "editor_changes_required":  "None",
+                  "follow_up_fixes":  [
+
+                                      ]
+              },
+    "created_at":  "2026-05-25T00:52:25+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

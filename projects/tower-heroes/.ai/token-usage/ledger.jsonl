@@ -1,0 +1,2 @@
+
+{"schema_version":1,"id":"2026-05-23-233155","created_at":"2026-05-23T23:31:55+02:00","scope":"project","slug":"tower-heroes","title":"Tower placement performance pass","summary":"","measurement":"estimated","counts":{"input_tokens":0,"output_tokens":0,"tool_output_tokens":0,"cached_input_tokens":0,"total_tokens":0},"culprits":["live_debugging_loop","unity_mcp_validation","broad_source_search","long_tool_output"],"mitigations":["Use smaller targeted diagnostics and record only summaries."],"notes":""}

@@ -1,0 +1,28 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-25-003841-removed-premature-ramp-surface-fail-fast-before-path-progress",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Removed premature ramp surface fail-fast before path progress",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assets\\_Project\\Scripts\\Waves\\EnemyUnitMovement.cs"
+                      ],
+    "verification":  "dotnet build D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj --no-restore passed; Unity MCP validate_script EnemyUnitMovement.cs passed",
+    "audit":  {
+                  "rules_checked":  [
+                                        ".ai/rules/index.json",
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md",
+                                        "projects/tower-heroes/rules/ramp-traversal-root-fix-protocol.md",
+                                        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "No teleport/snap/ghost/stall recovery/route refresh escape; preserves connector-authority reconciliation after movement while allowing canonical movement to run first.",
+                  "editor_changes_required":  "None.",
+                  "follow_up_fixes":  [
+                                          "Fresh runtime no-tower ramp repro both spawn directions."
+                                      ]
+              },
+    "created_at":  "2026-05-25T00:38:41+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

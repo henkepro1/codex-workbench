@@ -1,0 +1,48 @@
+﻿{
+    "schema_version":  1,
+    "enabled":  true,
+    "scope":  "project",
+    "slug":  "tower-heroes",
+    "last_updated":  "2026-05-23T23:31:55+02:00",
+    "ledger":  "projects/tower-heroes/.ai/token-usage/ledger.jsonl",
+    "summary":  "projects/tower-heroes/.ai/token-usage/summary.json",
+    "tracking_policy":  {
+                            "default":  "off",
+                            "record_full_transcripts":  false,
+                            "record_tool_outputs":  false,
+                            "exact_counts_only_when_reported_by_runtime":  true,
+                            "estimated_counts_allowed":  true,
+                            "notes":  [
+                                          "This ledger is optional and should stay disabled unless the user asks to track a request.",
+                                          "Record compact culprit categories instead of bulky raw context.",
+                                          "Use this for Tower Heroes optimization of Codex/workbench token usage, not for gameplay telemetry."
+                                      ]
+                        },
+    "totals":  {
+                   "records":  1,
+                   "exact_records":  0,
+                   "estimated_records":  1,
+                   "input_tokens":  0,
+                   "output_tokens":  0,
+                   "tool_output_tokens":  0,
+                   "total_tokens":  0
+               },
+    "top_culprits":  [
+                         {
+                             "culprit":  "unity_mcp_validation",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "broad_source_search",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "long_tool_output",
+                             "attributed_tokens":  0
+                         },
+                         {
+                             "culprit":  "live_debugging_loop",
+                             "attributed_tokens":  0
+                         }
+                     ]
+}

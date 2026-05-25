@@ -1,0 +1,32 @@
+﻿{
+    "schema_version":  1,
+    "enabled":  false,
+    "scope":  "workspace",
+    "last_updated":  "2026-05-23T23:06:24+02:00",
+    "ledger":  ".ai/token-usage/ledger.jsonl",
+    "summary":  ".ai/token-usage/summary.json",
+    "tracking_policy":  {
+                            "default":  "off",
+                            "record_full_transcripts":  false,
+                            "record_tool_outputs":  false,
+                            "exact_counts_only_when_reported_by_runtime":  true,
+                            "estimated_counts_allowed":  true,
+                            "notes":  [
+                                          "This workbench cannot read hidden platform limit accounting unless the runtime exposes token usage.",
+                                          "Keep records compact: one JSON object per request, with counts, major culprits, and mitigation notes.",
+                                          "Do not paste large prompts, command output, diffs, logs, or transcripts into token usage records."
+                                      ]
+                        },
+    "totals":  {
+                   "records":  0,
+                   "exact_records":  0,
+                   "estimated_records":  0,
+                   "input_tokens":  0,
+                   "output_tokens":  0,
+                   "tool_output_tokens":  0,
+                   "total_tokens":  0
+               },
+    "top_culprits":  [
+
+                     ]
+}

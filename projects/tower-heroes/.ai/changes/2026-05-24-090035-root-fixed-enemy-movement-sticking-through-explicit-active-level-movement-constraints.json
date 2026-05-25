@@ -1,0 +1,29 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-24-090035-root-fixed-enemy-movement-sticking-through-explicit-active-level-movement-constraints",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Root-fixed enemy movement sticking through explicit active-level movement constraints.",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "Assets/_Project/Scripts/Waves/EnemyUnitMovement.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnitSpatialState.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnitCrossLevelTraversal.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnitStallRecovery.cs"
+                      ],
+    "verification":  "dotnet build D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj --no-restore; Unity validate_script on EnemyUnitMovement, EnemyUnitSpatialState, EnemyUnitCrossLevelTraversal, and EnemyUnitStallRecovery; Unity script refresh completed; Unity console contained only an MCP bridge reconnect disposed-object error.",
+    "audit":  {
+                  "rules_checked":  [
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md",
+                                        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "Tower placement outcomes, static obstacle blocking, route goals, enemy crowd pushing behavior, combat behavior, and save/player-facing behavior unchanged. The change fixes hard movement constraint state resolution instead of adding stall-recovery workarounds.",
+                  "editor_changes_required":  "None",
+                  "follow_up_fixes":  [
+
+                                      ]
+              },
+    "created_at":  "2026-05-24T09:00:35+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

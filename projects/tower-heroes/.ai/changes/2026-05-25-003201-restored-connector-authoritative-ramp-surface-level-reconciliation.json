@@ -1,0 +1,28 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-25-003201-restored-connector-authoritative-ramp-surface-level-reconciliation",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Restored connector-authoritative ramp surface-level reconciliation",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assets\\_Project\\Scripts\\Waves\\EnemyUnitMovement.cs"
+                      ],
+    "verification":  "dotnet build D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj --no-restore passed; Unity MCP validate_script EnemyUnitMovement.cs passed; Unity refresh ready; console errors 0",
+    "audit":  {
+                  "rules_checked":  [
+                                        ".ai/rules/index.json",
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md",
+                                        "projects/tower-heroes/rules/ramp-traversal-root-fix-protocol.md",
+                                        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "Ramp plane changes restored to connector guide/corridor authority only; no route refresh escape, teleport, snap, ghost, stall recovery, or enemy-enemy collision changes.",
+                  "editor_changes_required":  "None; script-only change refreshed through Unity MCP.",
+                  "follow_up_fixes":  [
+                                          "Runtime no-tower ramp repro both spawn directions; runtime legal narrow-passage repro; capture MCP snapshot if fail-fast diagnostic triggers or throttling persists."
+                                      ]
+              },
+    "created_at":  "2026-05-25T00:32:01+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

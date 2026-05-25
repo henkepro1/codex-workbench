@@ -1,0 +1,84 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data",
+    "project":  "tower-heroes",
+    "topic":  "No-tower enemy ramp stuck runtime data",
+    "status":  "active",
+    "started_at":  "2026-05-24T15:00:33+02:00",
+    "last_updated":  "2026-05-25T01:15:30+02:00",
+    "ended_at":  null,
+    "paths":  {
+                  "root":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data",
+                  "inputs":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/inputs",
+                  "progress":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress",
+                  "results":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/results",
+                  "artifacts":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/artifacts"
+              },
+    "note_counts":  {
+                        "inputs":  8,
+                        "progress":  21,
+                        "results":  0
+                    },
+    "recent_notes":  [
+                         {
+                             "kind":  "progress",
+                             "title":  "Canonical ramp surface level reconciliation patch",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-002023-progress-canonical-ramp-surface-level-reconciliation-patch.md",
+                             "created_at":  "2026-05-25T00:20:23+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Restored connector authority after ramp plane-switch regression",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-003201-progress-restored-connector-authority-after-ramp-plane-switch-regression.md",
+                             "created_at":  "2026-05-25T00:32:01+02:00"
+                         },
+                         {
+                             "kind":  "input",
+                             "title":  "Runtime repro stuck after connector-authority surface reconciliation",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/inputs/2026-05-25-003451-input-runtime-repro-stuck-after-connector-authority-surface-reconciliation.md",
+                             "created_at":  "2026-05-25T00:34:51+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Removed premature pre-progress ramp surface fail-fast",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-003841-progress-removed-premature-pre-progress-ramp-surface-fail-fast.md",
+                             "created_at":  "2026-05-25T00:38:41+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Initial spawn route starts must be body-clear",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-004949-progress-initial-spawn-route-starts-must-be-body-clear.md",
+                             "created_at":  "2026-05-25T00:49:49+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Spawn cache uses connector-aware route origin",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-005205-progress-spawn-cache-uses-connector-aware-route-origin.md",
+                             "created_at":  "2026-05-25T00:52:05+02:00"
+                         },
+                         {
+                             "kind":  "input",
+                             "title":  "Runtime repro connector-owned spawn start invalid",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/inputs/2026-05-25-010421-input-runtime-repro-connector-owned-spawn-start-invalid.md",
+                             "created_at":  "2026-05-25T01:04:21+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Connector-owned spawn start clearance root fix",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-010421-progress-connector-owned-spawn-start-clearance-root-fix.md",
+                             "created_at":  "2026-05-25T01:04:21+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Assigned connector route start validation covers both random spawns",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-011530-progress-assigned-connector-route-start-validation-covers-both-random-spawns.md",
+                             "created_at":  "2026-05-25T01:15:30+02:00"
+                         },
+                         {
+                             "kind":  "input",
+                             "title":  "Runtime repro opposite spawn connector start invalid",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/inputs/2026-05-25-011530-input-runtime-repro-opposite-spawn-connector-start-invalid.md",
+                             "created_at":  "2026-05-25T01:15:30+02:00"
+                         }
+                     ]
+}

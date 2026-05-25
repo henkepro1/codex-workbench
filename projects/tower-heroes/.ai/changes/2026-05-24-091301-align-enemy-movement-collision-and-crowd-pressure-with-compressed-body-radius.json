@@ -1,0 +1,29 @@
+﻿{
+    "schema_version":  1,
+    "id":  "2026-05-24-091301-align-enemy-movement-collision-and-crowd-pressure-with-compressed-body-radius",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Align enemy movement collision and crowd pressure with compressed body radius",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "Assets/_Project/Scripts/Waves/EnemyUnit.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnitMovement.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnitSpatialState.cs",
+                          "Assets/_Project/Scripts/Waves/EnemyUnitCrossLevelTraversal.cs"
+                      ],
+    "verification":  "dotnet build Assembly-CSharp.csproj --no-restore; Unity validate_script on touched scripts; Unity refresh; console clear",
+    "audit":  {
+                  "rules_checked":  [
+                                        "live-project-code-rules",
+                                        "tower-heroes project rules",
+                                        "CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "Enemy-enemy blocking remains enabled; change only aligns static traversal and crowd pressure with existing body compression settings.",
+                  "editor_changes_required":  "None",
+                  "follow_up_fixes":  [
+
+                                      ]
+              },
+    "created_at":  "2026-05-24T09:13:01+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}
