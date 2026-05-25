@@ -1,13 +1,13 @@
-﻿{
+{
     "schema_version":  1,
-    "last_updated":  "2026-05-25T01:16:27+02:00",
+    "last_updated":  "2026-05-25T14:26:39+02:00",
     "project":  "tower-heroes",
     "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
     "source_exists":  true,
     "authored_source":  {
                             "file_count":  3080,
                             "csharp_files":  353,
-                            "csharp_loc":  69700,
+                            "csharp_loc":  70064,
                             "size_class":  "medium",
                             "extension_counts":  [
                                                      {
@@ -81,14 +81,14 @@
                           "packages":  43
                       },
     "notes_corpus":  {
-                         "total_records":  52,
+                         "total_records":  60,
                          "counts":  {
                                         "attempts":  0,
                                         "decisions":  3,
                                         "feedback":  1,
-                                        "sessions":  29,
+                                        "sessions":  33,
                                         "handoffs":  0,
-                                        "changes":  15,
+                                        "changes":  19,
                                         "summaries":  0,
                                         "maps":  4
                                     },

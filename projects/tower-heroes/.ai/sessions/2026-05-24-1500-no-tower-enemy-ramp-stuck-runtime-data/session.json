@@ -1,11 +1,11 @@
-﻿{
+{
     "schema_version":  1,
     "id":  "2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data",
     "project":  "tower-heroes",
     "topic":  "No-tower enemy ramp stuck runtime data",
     "status":  "active",
     "started_at":  "2026-05-24T15:00:33+02:00",
-    "last_updated":  "2026-05-25T01:15:30+02:00",
+    "last_updated":  "2026-05-25T09:00:31+02:00",
     "ended_at":  null,
     "paths":  {
                   "root":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data",
@@ -16,22 +16,10 @@
               },
     "note_counts":  {
                         "inputs":  8,
-                        "progress":  21,
+                        "progress":  22,
                         "results":  0
                     },
     "recent_notes":  [
-                         {
-                             "kind":  "progress",
-                             "title":  "Canonical ramp surface level reconciliation patch",
-                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-002023-progress-canonical-ramp-surface-level-reconciliation-patch.md",
-                             "created_at":  "2026-05-25T00:20:23+02:00"
-                         },
-                         {
-                             "kind":  "progress",
-                             "title":  "Restored connector authority after ramp plane-switch regression",
-                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-003201-progress-restored-connector-authority-after-ramp-plane-switch-regression.md",
-                             "created_at":  "2026-05-25T00:32:01+02:00"
-                         },
                          {
                              "kind":  "input",
                              "title":  "Runtime repro stuck after connector-authority surface reconciliation",
@@ -79,6 +67,18 @@
                              "title":  "Runtime repro opposite spawn connector start invalid",
                              "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/inputs/2026-05-25-011530-input-runtime-repro-opposite-spawn-connector-start-invalid.md",
                              "created_at":  "2026-05-25T01:15:30+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Canonical ramp surface level reconciliation patch",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-002023-progress-canonical-ramp-surface-level-reconciliation-patch.md",
+                             "created_at":  "2026-05-25T02:26:44+02:00"
+                         },
+                         {
+                             "kind":  "progress",
+                             "title":  "Connector route progress consumes clear degenerate path point",
+                             "path":  "projects/tower-heroes/.ai/sessions/2026-05-24-1500-no-tower-enemy-ramp-stuck-runtime-data/progress/2026-05-25-090031-progress-connector-route-progress-consumes-clear-degenerate-path-point.md",
+                             "created_at":  "2026-05-25T09:00:31+02:00"
                          }
                      ]
 }

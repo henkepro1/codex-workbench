@@ -1,6 +1,6 @@
-﻿{
+{
     "schema_version":  1,
-    "generated_at":  "2026-05-25T01:16:01+02:00",
+    "generated_at":  "2026-05-25T14:25:58+02:00",
     "engine":  "unity",
     "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
     "unity_version":  "2022.3.62f1",
@@ -62,7 +62,7 @@
                                    },
                                    {
                                        "extension":  ".meta",
-                                       "count":  4771
+                                       "count":  4773
                                    },
                                    {
                                        "extension":  ".mixer",
@@ -78,7 +78,7 @@
                                    },
                                    {
                                        "extension":  ".PNG",
-                                       "count":  1291
+                                       "count":  1292
                                    },
                                    {
                                        "extension":  ".prefab",

@@ -1,0 +1,29 @@
+{
+    "schema_version":  1,
+    "id":  "2026-05-25-090113-fix-connector-route-progress-degenerate-segment",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Fix connector route progress degenerate segment",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "Assets/_Project/Scripts/Waves/EnemyUnitMovement.cs"
+                      ],
+    "verification":  "dotnet build D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes\\Assembly-CSharp.csproj --no-restore passed with existing MSB3277 warnings; Unity MCP validate_script passed for EnemyUnitMovement.cs with 0 diagnostics; Unity console reported 0 errors; runtime Play validation not run because Application.isPlaying=false.",
+    "audit":  {
+                  "rules_checked":  [
+                                        "rules/live-project-code-rules.md",
+                                        "projects/tower-heroes/rules/project-rules.md",
+                                        "projects/tower-heroes/rules/ramp-traversal-root-fix-protocol.md",
+                                        "D:\\GameProjects\\TowerHeroes(x)\\CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "No teleport, snap, ghosting, collision bypass, stall recovery, or traversal utility fallback was added. Enemy-enemy pushing remains unchanged; the patch only changes connector route progress/body-clear authority and fail-fast diagnostics.",
+                  "editor_changes_required":  "None.",
+                  "follow_up_fixes":  [
+                                          "Runtime no-tower ramp traversal from both spawn directions",
+                                          "Runtime narrow tower-built passage validation",
+                                          "Confirm enemy-enemy pushing through ramp remains enabled"
+                                      ]
+              },
+    "created_at":  "2026-05-25T09:01:13+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

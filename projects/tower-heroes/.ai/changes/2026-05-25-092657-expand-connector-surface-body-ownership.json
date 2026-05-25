@@ -1,0 +1,33 @@
+{
+    "schema_version":  1,
+    "id":  "2026-05-25-092657-expand-connector-surface-body-ownership",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Expand connector surface body ownership",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "Assets/_Project/Scripts/GridSystem/Elevation/ElevationConnectorTraversalSurfaceBuilder.cs",
+                          "Assets/_Project/Scripts/GridSystem/Elevation/ElevationConnectorAuthoring.cs",
+                          "Assets/_Project/Scripts/GridSystem/Elevation/ConnectorNavigationLineBuilder.cs",
+                          "Assets/_Project/Scripts/GridSystem/GameplayMapInstaller.cs",
+                          "Assets/_Project/Scripts/GridSystem/GameplayStaticObstacleBlockSource.cs",
+                          "Assets/_Project/Scripts/Rendering/GameplayRampNavigationLineController.cs"
+                      ],
+    "verification":  "dotnet build passed; Unity validation passed; console 0 errors",
+    "audit":  {
+                  "rules_checked":  [
+                                        "live-project-code-rules",
+                                        "tower-heroes-project-rules",
+                                        "ramp-traversal-root-fix-protocol"
+                                    ],
+                  "mechanics_preserved":  "Connector center movement remains restricted to routeable lane and portal subcells; traversal-surface ownership only covers body-radius overlap inside the authored connector footprint.",
+                  "editor_changes_required":  "None",
+                  "follow_up_fixes":  [
+                                          "Runtime verify no-tower ramp traversal from both spawn directions",
+                                          "narrow tower-built passage behavior",
+                                          "and enemy-enemy pushing through the ramp."
+                                      ]
+              },
+    "created_at":  "2026-05-25T09:26:57+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}

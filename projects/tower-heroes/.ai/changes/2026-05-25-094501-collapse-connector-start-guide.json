@@ -1,0 +1,30 @@
+{
+    "schema_version":  1,
+    "id":  "2026-05-25-094501-collapse-connector-start-guide",
+    "project":  "tower-heroes",
+    "category":  "code",
+    "summary":  "Collapse connector start guide",
+    "source_path":  "D:\\GameProjects\\TowerHeroes(x)\\TowerHeroes",
+    "changed_paths":  [
+                          "Assets/_Project/Scripts/GridSystem/EnemyPathService.cs",
+                          "Assets/_Project/Scripts/GridSystem/DynamicRoutePlanTemplate.cs"
+                      ],
+    "verification":  "dotnet build Assembly-CSharp.csproj --no-restore passed with existing MSB3277 warnings; Unity validate passed for EnemyPathService.cs and DynamicRoutePlanTemplate.cs; Unity refresh ready.",
+    "audit":  {
+                  "rules_checked":  [
+                                        "live-project-code-rules.md",
+                                        "project-rules.md",
+                                        "ramp-traversal-root-fix-protocol.md",
+                                        "CodeRules.txt"
+                                    ],
+                  "mechanics_preserved":  "Connector route starts keep body-clear and movement constraints; no teleport, snap, ghosting, blocker bypass, or enemy-enemy collision disable. First connector guide is consumed by existing connector-owned route progress only when the start position is clear.",
+                  "editor_changes_required":  "None",
+                  "follow_up_fixes":  [
+                                          "Fresh Play runtime verification from both spawn directions",
+                                          "narrow tower-built passage",
+                                          "and enemy-enemy ramp pushing."
+                                      ]
+              },
+    "created_at":  "2026-05-25T09:45:01+02:00",
+    "notes":  "External project changes should be paired with refreshed project and engine context when relevant."
+}
