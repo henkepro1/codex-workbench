@@ -16,7 +16,7 @@ That's it. API on <http://localhost:4000>, app on <http://localhost:8081>. In th
 
 ### Other useful scripts
 
-- `pnpm setup`       force a full setup re-run (useful after `pnpm db:reset`)
+- `pnpm bootstrap`   force a full setup re-run (useful after `pnpm db:reset`)
 - `pnpm db:reset`    wipe and re-migrate the database
 - `pnpm db:studio`   open Prisma Studio (visual DB inspector)
 - `pnpm db:down`     stop the Postgres container
