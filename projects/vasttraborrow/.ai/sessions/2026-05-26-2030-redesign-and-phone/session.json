@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "2026-05-26-2030-redesign-and-phone",
+  "project": "vasttraborrow",
+  "topic": "Full visual redesign + Swedish 5-tab nav + Expo Go phone access",
+  "status": "active",
+  "started_at": "2026-05-26T20:30:00+02:00",
+  "last_updated": "2026-05-26T22:30:00+02:00",
+  "ended_at": null,
+  "paths": {
+    "root": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone",
+    "inputs": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone/inputs",
+    "progress": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone/progress",
+    "results": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone/results",
+    "artifacts": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone/artifacts"
+  },
+  "tags": [
+    "redesign", "ui", "design-system", "navigation", "tabs", "profil",
+    "resor", "biljett", "annonsera", "phone", "expo-go", "lan",
+    "avatar", "active-ticket", "i18n", "audit"
+  ],
+  "note_counts": { "inputs": 1, "progress": 1, "results": 0 },
+  "recent_notes": [
+    {
+      "kind": "input",
+      "title": "User brief — UI is 1/100, rebuild around Swedish nav and Expo Go",
+      "path": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone/inputs/2026-05-26-2030-input-redesign-brief.md",
+      "created_at": "2026-05-26T20:30:00+02:00"
+    },
+    {
+      "kind": "progress",
+      "title": "Design system + 5-tab nav + Profil sub-stack + LAN phone access wired",
+      "path": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone/progress/2026-05-26-2230-progress-redesign-complete.md",
+      "created_at": "2026-05-26T22:30:00+02:00"
+    }
+  ]
+}

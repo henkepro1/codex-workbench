@@ -77,7 +77,8 @@ $directories = @(
     (Join-Path $projectAi "sessions"),
     (Join-Path $projectAi "summaries"),
     (Join-Path $projectAi "feedback"),
-    (Join-Path $projectAi "handoffs")
+    (Join-Path $projectAi "handoffs"),
+    (Join-Path $projectAi "systems")
 )
 
 foreach ($directory in $directories) {
@@ -187,6 +188,9 @@ $projectIndex = [pscustomobject]@{
     ai_paths = [pscustomobject]@{
         assets_manifest = "projects/$Slug/.ai/assets/index.json"
         sessions = "projects/$Slug/.ai/sessions"
+        sessions_index = "projects/$Slug/.ai/sessions/index.json"
+        systems = "projects/$Slug/.ai/systems"
+        systems_index = "projects/$Slug/.ai/systems/index.json"
         attempts = "projects/$Slug/.ai/attempts"
         generations = "projects/$Slug/.ai/generations"
         prompts = "projects/$Slug/.ai/prompts"
@@ -218,9 +222,12 @@ $projectIndex = [pscustomobject]@{
         engine_context_files = 0
         feedback = 0
         handoffs = 0
+        systems = 0
     }
     notes = @(
         "Read this file before scanning the project dossier or linked source path.",
+        "Read .ai/systems/index.json (tag_index) to map a symptom or topic to a system slug before deep-reading source.",
+        "Read .ai/sessions/index.json to find past sessions whose tags overlap with the current task.",
         "Keep detailed session documentation in timestamped session files only when explicitly requested."
     )
 }
@@ -399,6 +406,27 @@ Use this file for project-specific performance targets and profiling notes.
     purpose = "Manual lightweight project handoff notes."
     handoffs = @()
 } | ConvertTo-Json -Depth 10 | ForEach-Object { Write-Utf8Lf -Path (Join-Path $projectAi "handoffs\index.json") -Content $_ }
+
+# Empty systems index — populate as systems with their own service/manager classes emerge.
+[pscustomobject]@{
+    schema_version = 1
+    last_updated = $now
+    purpose = "System knowledge base. One .md doc per major subsystem. Read index first (cheap), then the relevant .md. Use tag_index to find which system covers a given symptom or topic."
+    doc_path_pattern = "projects/$Slug/.ai/systems/{slug}.md"
+    rebuild_macro = "@wb:map-systems"
+    update_macro = "@wb:update-system"
+    systems = @()
+    tag_index = [pscustomobject]@{}
+} | ConvertTo-Json -Depth 10 | ForEach-Object { Write-Utf8Lf -Path (Join-Path $projectAi "systems\index.json") -Content $_ }
+
+# Empty sessions index — populated as documented sessions are recorded.
+[pscustomobject]@{
+    schema_version = 1
+    last_updated = $now
+    purpose = "Cross-session topic index. Use tag_index to find past sessions relevant to a symptom or system before starting new work. Cheap lookup — no folder scanning needed."
+    tag_index = [pscustomobject]@{}
+    sessions = @()
+} | ConvertTo-Json -Depth 10 | ForEach-Object { Write-Utf8Lf -Path (Join-Path $projectAi "sessions\index.json") -Content $_ }
 
 $registryPath = Join-Path $root ".ai\projects\index.json"
 if (-not (Test-Path -LiteralPath $registryPath)) {

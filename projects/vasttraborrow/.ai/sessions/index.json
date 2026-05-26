@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-05-26T22:30:00+02:00",
+  "purpose": "Cross-session topic index. Use tag_index to find past sessions relevant to a symptom or system before starting new work. Cheap lookup — no folder scanning needed.",
+  "tag_index": {
+    "redesign":      ["2026-05-26-2030-redesign-and-phone"],
+    "ui":            ["2026-05-26-2030-redesign-and-phone"],
+    "design-system": ["2026-05-26-2030-redesign-and-phone"],
+    "navigation":    ["2026-05-26-2030-redesign-and-phone"],
+    "tabs":          ["2026-05-26-2030-redesign-and-phone"],
+    "profil":        ["2026-05-26-2030-redesign-and-phone"],
+    "resor":         ["2026-05-26-2030-redesign-and-phone"],
+    "biljett":       ["2026-05-26-2030-redesign-and-phone"],
+    "annonsera":     ["2026-05-26-2030-redesign-and-phone"],
+    "phone":         ["2026-05-26-2030-redesign-and-phone"],
+    "expo-go":       ["2026-05-26-2030-redesign-and-phone"],
+    "lan":           ["2026-05-26-2030-redesign-and-phone"],
+    "avatar":        ["2026-05-26-2030-redesign-and-phone"],
+    "active-ticket": ["2026-05-26-2030-redesign-and-phone"],
+    "i18n":          ["2026-05-26-2030-redesign-and-phone"],
+    "audit":         ["2026-05-26-2030-redesign-and-phone"]
+  },
+  "sessions": [
+    {
+      "id": "2026-05-26-2030-redesign-and-phone",
+      "title": "Full visual redesign + Swedish 5-tab nav + Expo Go phone access",
+      "tags": [
+        "redesign", "ui", "design-system", "navigation", "tabs", "profil",
+        "resor", "biljett", "annonsera", "phone", "expo-go", "lan",
+        "avatar", "active-ticket", "i18n", "audit"
+      ],
+      "status": "active",
+      "started_at": "2026-05-26T20:30:00+02:00",
+      "last_updated": "2026-05-26T22:30:00+02:00",
+      "doc": "projects/vasttraborrow/.ai/sessions/2026-05-26-2030-redesign-and-phone/session.json"
+    }
+  ]
+}
