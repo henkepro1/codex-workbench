@@ -1,0 +1,71 @@
+{
+    "schema_version":  1,
+    "last_updated":  "2026-05-26T11:51:09+02:00",
+    "project":  "vasttraborrow",
+    "source_path":  "D:\\GameProjects\\vasttraborrow",
+    "source_exists":  true,
+    "authored_source":  {
+                            "file_count":  17,
+                            "csharp_files":  0,
+                            "csharp_loc":  0,
+                            "size_class":  "small",
+                            "extension_counts":  [
+                                                     {
+                                                         "extension":  ".json",
+                                                         "count":  11
+                                                     },
+                                                     {
+                                                         "extension":  ".md",
+                                                         "count":  4
+                                                     },
+                                                     {
+                                                         "extension":  ".yaml",
+                                                         "count":  1
+                                                     },
+                                                     {
+                                                         "extension":  ".yml",
+                                                         "count":  1
+                                                     }
+                                                 ],
+                            "excluded_dirs":  [
+                                                  "Library",
+                                                  "Temp",
+                                                  "Logs",
+                                                  "obj",
+                                                  "bin",
+                                                  "Build",
+                                                  "Builds",
+                                                  "PackageCache",
+                                                  ".git",
+                                                  ".vs"
+                                              ]
+                        },
+    "engine_assets":  {
+                          "engine":  "general",
+                          "scenes":  0,
+                          "prefabs":  0,
+                          "scriptable_objects":  0,
+                          "shaders":  0,
+                          "packages":  0
+                      },
+    "notes_corpus":  {
+                         "total_records":  7,
+                         "counts":  {
+                                        "attempts":  0,
+                                        "decisions":  3,
+                                        "feedback":  0,
+                                        "sessions":  0,
+                                        "handoffs":  0,
+                                        "changes":  0,
+                                        "summaries":  0,
+                                        "maps":  4
+                                    },
+                         "rag_candidate":  false
+                     },
+    "retrieval":  {
+                      "default_strategy":  "grep_and_index",
+                      "source_code_strategy":  "grep_and_index",
+                      "memory_strategy":  "grep_and_index_until_rag_setup",
+                      "rag_status":  "setup_required"
+                  }
+}

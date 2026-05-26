@@ -1,6 +1,6 @@
 {
     "schema_version":  1,
-    "last_updated":  "2026-05-25T20:36:16+02:00",
+    "last_updated":  "2026-05-26T11:51:09+02:00",
     "workspace":  {
                       "name":  "codex-workbench",
                       "purpose":  "Lean solo developer workbench for Codex-assisted projects, assets, prompts, and workflow experiments.",
@@ -14,7 +14,7 @@
     "projects":  {
                      "registry":  ".ai/projects/index.json",
                      "root":  "projects",
-                     "count":  2
+                     "count":  3
                  },
     "assets":  {
                    "manifest":  ".ai/assets/index.json",
@@ -90,13 +90,13 @@
                         "attempt_notes":  0,
                         "task_notes":  1,
                         "summaries":  1,
-                        "project_dossiers":  2,
+                        "project_dossiers":  3,
                         "feedback_notes":  1,
                         "decisions":  3,
                         "handoffs":  0,
                         "recommendations":  18,
                         "retrieval_strategies":  3,
-                        "token_usage_records":  0
+                        "token_usage_records":  1
                     },
     "notes":  [
                   "Use this file as the first compact map before scanning the workspace.",
