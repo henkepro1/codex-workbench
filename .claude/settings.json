@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --filter mobile add intl-pluralrules)",
+      "Bash(pnpm --filter mobile add buffer)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4000/healthz)",
+      "Bash(netstat -ano)",
+      "Read(//c/Users/henke/**)",
+      "PowerShell(\"---\")",
+      "PowerShell(\"--- existing sessions ---\")",
+      "PowerShell(\"--- index.json ---\")",
+      "PowerShell($base = \"C:\\\\Users\\\\henke\\\\Documents\\\\Codex\\\\2026-05-23\\\\codex-workbench\\\\projects\\\\vastshare\\\\.ai\\\\sessions\\\\2026-05-27-1411-emulator-and-runtime-fixes\"; New-Item -ItemType Directory -Force -Path \"$base\\\\inputs\", \"$base\\\\progress\", \"$base\\\\results\", \"$base\\\\artifacts\" | Out-Null; $base)",
+      "PowerShell(Remove-Item D:\\\\GameProjects\\\\vastshare\\\\apps\\\\mobile\\\\src\\\\setup\\\\logbox.ts -Force -ErrorAction SilentlyContinue; if \\(\\(Get-ChildItem D:\\\\GameProjects\\\\vastshare\\\\apps\\\\mobile\\\\src\\\\setup -ErrorAction SilentlyContinue\\).Count -eq 0\\) { Remove-Item D:\\\\GameProjects\\\\vastshare\\\\apps\\\\mobile\\\\src\\\\setup -Force -ErrorAction SilentlyContinue }; \"cleaned\")",
+      "Bash(timeout 120 grep -rln \"SafeAreaView\" D:/GameProjects/vastshare/node_modules/.pnpm --include=\"*.js\" --include=\"*.ts\" --include=\"*.tsx\")",
+      "Bash(xargs grep -l \"from ['\\\\\"]react-native['\\\\\"]\")",
+      "Bash(xargs grep -l \"SafeAreaView.*from ['\\\\\"]react-native['\\\\\"]\\\\\\\\|from ['\\\\\"]react-native['\\\\\"].*SafeAreaView\")",
+      "Bash(timeout 60 grep -rln --include=\"*.js\" --include=\"*.tsx\" --include=\"*.ts\" -E \"SafeAreaView\" D:/GameProjects/vastshare/node_modules/.pnpm 2>/dev/null > /tmp/sav-hits.txt; wc -l /tmp/sav-hits.txt; head -20 /tmp/sav-hits.txt)",
+      "Bash(timeout 90 grep -rln \"SafeAreaView\" --include=\"*.js\")",
+      "PowerShell(pnpm -C D:\\\\GameProjects\\\\vastshare patch react-native-css-interop@0.1.22 2>&1)",
+      "PowerShell(pnpm -C D:\\\\GameProjects\\\\vastshare patch-commit 'D:\\\\GameProjects\\\\vastshare\\\\node_modules\\\\.pnpm_patches\\\\react-native-css-interop@0.1.22' 2>&1)",
+      "PowerShell(Get-ChildItem D:\\\\GameProjects\\\\vastshare\\\\patches -ErrorAction SilentlyContinue | Select-Object Name; \"---root package.json patchedDependencies---\"; \\(Get-Content D:\\\\GameProjects\\\\vastshare\\\\package.json -Raw | ConvertFrom-Json\\).pnpm)",
+      "Bash(pnpm --filter mobile add @expo-google-fonts/space-grotesk @expo-google-fonts/hanken-grotesk @expo-google-fonts/jetbrains-mono expo-blur)",
+      "Bash(pnpm --filter mobile remove expo-blur)",
+      "Bash(pnpm --filter mobile add expo-blur@~15.0.8)",
+      "Bash(pnpm --filter mobile add -D sharp)",
+      "Bash(node scripts/gen-app-icons.mjs)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm --filter mobile add @react-navigation/bottom-tabs)",
+      "Bash(pnpm lint *)",
+      "Bash(pnpm --filter mobile typecheck)"
+    ],
+    "additionalDirectories": [
+      "\\tmp",
+      "C:\\Users\\henke\\AppData\\Local\\Temp\\vastshare-design\\v-stshare-design-system\\project\\assets"
+    ]
+  }
+}

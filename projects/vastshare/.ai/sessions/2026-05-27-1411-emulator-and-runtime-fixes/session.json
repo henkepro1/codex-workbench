@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "2026-05-27-1411-emulator-and-runtime-fixes",
+  "project": "vastshare",
+  "topic": "Android emulator setup + Hermes/Metro runtime fixes (import.meta, dep dedupe, buffer polyfill, i18next plural, splash, network)",
+  "status": "active",
+  "started_at": "2026-05-27T12:00:00+02:00",
+  "last_updated": "2026-05-27T14:11:00+02:00",
+  "ended_at": null,
+  "paths": {
+    "root": "projects/vastshare/.ai/sessions/2026-05-27-1411-emulator-and-runtime-fixes",
+    "inputs": "projects/vastshare/.ai/sessions/2026-05-27-1411-emulator-and-runtime-fixes/inputs",
+    "progress": "projects/vastshare/.ai/sessions/2026-05-27-1411-emulator-and-runtime-fixes/progress",
+    "results": "projects/vastshare/.ai/sessions/2026-05-27-1411-emulator-and-runtime-fixes/results",
+    "artifacts": "projects/vastshare/.ai/sessions/2026-05-27-1411-emulator-and-runtime-fixes/artifacts"
+  },
+  "tags": [
+    "emulator", "android-studio", "avd", "adb", "expo", "expo-go", "metro",
+    "hermes", "import-meta", "zustand", "pnpm", "dedupe", "lockfile",
+    "react-native-svg", "buffer-polyfill", "i18next", "intl-pluralrules",
+    "safeareaview", "logbox", "splash", "network", "auth-login", "devtools"
+  ],
+  "note_counts": { "inputs": 1, "progress": 1, "results": 0 },
+  "recent_notes": [
+    {
+      "kind": "input",
+      "title": "User brief — mobile won't bundle, then runs but shows runtime errors; wants emulator",
+      "path": "projects/vastshare/.ai/sessions/2026-05-27-1411-emulator-and-runtime-fixes/inputs/2026-05-27-1200-input-mobile-bundle-and-emulator.md",
+      "created_at": "2026-05-27T12:00:00+02:00"
+    },
+    {
+      "kind": "progress",
+      "title": "Bundle fixes, fresh install, Android Studio emulator wired, runtime polyfills",
+      "path": "projects/vastshare/.ai/sessions/2026-05-27-1411-emulator-and-runtime-fixes/progress/2026-05-27-1411-progress-emulator-and-fixes.md",
+      "created_at": "2026-05-27T14:11:00+02:00"
+    }
+  ]
+}
