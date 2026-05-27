@@ -7,7 +7,7 @@ Use this file for project-specific commands, test steps, build steps, and releas
 This project was generated from the workbench app template (`D:\GameProjects\_template-app`).
 
 ```powershell
-cd D:\GameProjects\vasttraborrow
+cd D:\GameProjects\vastshare
 pnpm install
 pnpm dev      # auto-runs env+db setup, migrations, and seed on first run
 ```

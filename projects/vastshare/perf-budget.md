@@ -1,4 +1,4 @@
-# VästtraBorrow Performance Budget
+# VästShare Performance Budget
 
 Use this file for project-specific performance targets and profiling notes.
 

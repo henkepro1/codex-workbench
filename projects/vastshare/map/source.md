@@ -1,6 +1,6 @@
 # Source
 
-Source path: `D:\GameProjects\vasttraborrow` — pnpm monorepo, 3 workspaces.
+Source path: `D:\GameProjects\vastshare` — pnpm monorepo, 3 workspaces.
 
 ## Backend — `apps/api/`
 

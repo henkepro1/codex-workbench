@@ -1,4 +1,4 @@
-# VästtraBorrow Project Rules
+# VästShare Project Rules
 
 These rules apply before changing the linked live project.
 
@@ -6,7 +6,7 @@ These rules apply before changing the linked live project.
 
 - Global live-project policy: rules/live-project-code-rules.md
 - Token-friendly rules index: .ai/rules/index.json
-- Project context: projects/vasttraborrow/.ai/index.json
+- Project context: projects/vastshare/.ai/index.json
 
 ## Project-Specific Overlay
 

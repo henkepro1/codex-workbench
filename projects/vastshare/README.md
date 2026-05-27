@@ -1,6 +1,6 @@
-# VästtraBorrow
+# VästShare
 
-Project dossier for vasttraborrow.
+Project dossier for vastshare.
 
 Kind: General
 
@@ -15,4 +15,4 @@ Kind: General
 
 ## Source
 
-D:\GameProjects\vasttraborrow
+D:\GameProjects\vastshare

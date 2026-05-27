@@ -2,7 +2,7 @@
   "schema_version": 1,
   "last_updated": "2026-05-26T22:30:00+02:00",
   "purpose": "System knowledge base. One .md doc per major subsystem. Read index first (cheap), then the relevant .md. Use tag_index to find which system covers a given symptom or topic.",
-  "doc_path_pattern": "projects/vasttraborrow/.ai/systems/{slug}.md",
+  "doc_path_pattern": "projects/vastshare/.ai/systems/{slug}.md",
   "rebuild_macro": "@wb:map-systems",
   "update_macro": "@wb:update-system",
   "systems": [
@@ -19,7 +19,7 @@
       ],
       "source_dir": "apps/api/src/auth",
       "related_systems": ["logger-error"],
-      "doc": "projects/vasttraborrow/.ai/systems/auth.md",
+      "doc": "projects/vastshare/.ai/systems/auth.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -33,7 +33,7 @@
       ],
       "source_dir": "apps/api/src/matching",
       "related_systems": ["pricing", "payments", "listings"],
-      "doc": "projects/vasttraborrow/.ai/systems/matching.md",
+      "doc": "projects/vastshare/.ai/systems/matching.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -49,7 +49,7 @@
       ],
       "source_dir": "apps/api/src/pricing",
       "related_systems": ["matching", "listings"],
-      "doc": "projects/vasttraborrow/.ai/systems/pricing.md",
+      "doc": "projects/vastshare/.ai/systems/pricing.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -61,7 +61,7 @@
       ],
       "source_dir": "apps/api/src/payments",
       "related_systems": ["matching", "pricing"],
-      "doc": "projects/vasttraborrow/.ai/systems/payments.md",
+      "doc": "projects/vastshare/.ai/systems/payments.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -77,7 +77,7 @@
       ],
       "source_dir": "apps/api/src/listings",
       "related_systems": ["matching", "pricing", "payments"],
-      "doc": "projects/vasttraborrow/.ai/systems/listings.md",
+      "doc": "projects/vastshare/.ai/systems/listings.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -91,7 +91,7 @@
       ],
       "source_dir": "apps/api/src/vt",
       "related_systems": ["listings"],
-      "doc": "projects/vasttraborrow/.ai/systems/vt-route-planner.md",
+      "doc": "projects/vastshare/.ai/systems/vt-route-planner.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -108,7 +108,7 @@
       ],
       "source_dir": "apps/api/src/logger",
       "related_systems": ["auth", "design-system"],
-      "doc": "projects/vasttraborrow/.ai/systems/logger-error.md",
+      "doc": "projects/vastshare/.ai/systems/logger-error.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -123,7 +123,7 @@
       ],
       "source_dir": "apps/mobile/src/design",
       "related_systems": ["mobile-navigation"],
-      "doc": "projects/vasttraborrow/.ai/systems/design-system.md",
+      "doc": "projects/vastshare/.ai/systems/design-system.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     },
     {
@@ -140,7 +140,7 @@
       ],
       "source_dir": "apps/mobile/app",
       "related_systems": ["design-system", "auth"],
-      "doc": "projects/vasttraborrow/.ai/systems/mobile-navigation.md",
+      "doc": "projects/vastshare/.ai/systems/mobile-navigation.md",
       "last_updated": "2026-05-26T22:30:00+02:00"
     }
   ],

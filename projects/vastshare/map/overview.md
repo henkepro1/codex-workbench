@@ -1,6 +1,6 @@
 # Overview
 
-Project: **VästtraBorrow** — slug `vasttraborrow`, source at `D:\GameProjects\vasttraborrow`.
+Project: **VästShare** — slug `vastshare`, source at `D:\GameProjects\vastshare`.
 
 ## Purpose
 

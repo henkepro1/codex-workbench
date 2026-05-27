@@ -65,5 +65,5 @@ Each sub-page renders a `<SectionHeader title back-arrow>` since the global `App
 ## Known issues / future work
 - No tab-bar haptics or scroll-to-top on re-tapping the same tab.
 - Web target: `BottomTabBar` renders but the active-tab top pill could use a smoother animation.
-- No deep-link config in `app.json` (`scheme: vasttraborrow`) wired to specific routes yet.
+- No deep-link config in `app.json` (`scheme: vastshare`) wired to specific routes yet.
 - Tab labels are hardcoded in `BottomTabBar` rather than from i18n — refactor to use `useTranslation()` if you want labels to change with the language toggle.
