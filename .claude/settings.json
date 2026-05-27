@@ -27,7 +27,8 @@
       "Bash(pnpm typecheck *)",
       "Bash(pnpm --filter mobile add @react-navigation/bottom-tabs)",
       "Bash(pnpm lint *)",
-      "Bash(pnpm --filter mobile typecheck)"
+      "Bash(pnpm --filter mobile typecheck)",
+      "PowerShell($base = \"C:\\\\Users\\\\henke\\\\Documents\\\\Codex\\\\2026-05-23\\\\codex-workbench\\\\projects\\\\vastshare\\\\.ai\\\\sessions\\\\2026-05-27-1600-rebrand-followup\"; New-Item -ItemType Directory -Force -Path \"$base\\\\inputs\", \"$base\\\\progress\", \"$base\\\\results\", \"$base\\\\artifacts\" | Out-Null; $base)"
     ],
     "additionalDirectories": [
       "\\tmp",
